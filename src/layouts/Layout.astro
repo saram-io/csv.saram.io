@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  activePath?: string;
+}
+
+const {
+  title = "CSV / CSA Vendor Landscape & Market Research | Saram Consulting",
+  description = "Independent research, tier classification, and AI capabilities analysis of Computer Systems Validation (CSV) & Computer Software Assurance (CSA) vendors for Life Sciences.",
+  canonicalUrl = Astro.url.href,
+  activePath = Astro.url.pathname
+} = Astro.props;
+
+const structuredSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Saram CSV / CSA Vendor Intelligence",
+  "url": "https://csv.saram.io",
+  "description": description,
+  "publisher": {
+    "@type": "ProfessionalService",
+    "name": "Saram Consulting",
+    "url": "https://saram.io",
+    "logo": "https://saram.io/logo.png"
+  }
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Saram Consulting | CSV/CSA Intelligence" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://saram.io/og.png" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://saram.io/og.png" />
+
+    <meta name="theme-color" content="#f5f4ef" />
+
+    <!-- Google Fonts: Playfair Display + Roboto Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" 
+      rel="stylesheet" 
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredSchema)} />
+  </head>
+  <body>
+    <div class="container">
+      <Header activePath={activePath} />
+      <slot />
+      <Footer />
+    </div>
+  </body>
+</html>

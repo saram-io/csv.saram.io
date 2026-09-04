@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { VENDORS } from '../data/vendors';
+
+const tier1 = VENDORS.filter(v => v.tier === 1);
+const tier2 = VENDORS.filter(v => v.tier === 2);
+const tier3 = VENDORS.filter(v => v.tier === 3);
+const tier4 = VENDORS.filter(v => v.tier === 4);
+---
+
+<Layout 
+  title="Validation Vendor Landscape Tiers (1 to 4) | Saram Consulting"
+  description="In-depth market breakdown across Pure-Play Platforms, Adjacent MES/PLM/ERP Suites, Specialist Tools, and Sunsetting Legacy Systems."
+  activePath="/tiers"
+>
+  <main>
+    <section class="hero-text">
+      <h1>Market Tiers & Taxonomy</h1>
+      <p class="hero-subtitle">Comprehensive Classification by Buyer Segment, System Boundaries, and Architecture</p>
+      <p>
+        The computerized systems validation market cannot be evaluated as a single homogenous monolith. Buyers range from multi-site commercial pharmaceutical conglomerates requiring multi-tenant global validation repositories to medical device firms constrained by ISO 13485 design controls.
+      </p>
+      <p>
+        Below is our structured analysis of the four market tiers defining validation software in 2026.
+      </p>
+    </section>
+
+    <!-- TIER 1 -->
+    <section>
+      <h2 class="section-title">Tier 1 — Pure-Play Validation Platforms (Core of the Market)</h2>
+      <p>
+        Tier 1 vendors represent dedicated, purpose-built Validation Lifecycle Management Systems (VLMS) or native validation cloud engines built specifically to manage end-to-end computerized system validation, commissioning, qualification, and data integrity governance.
+      </p>
+
+      <div class="cards-grid" style="grid-template-columns: 1fr; margin-top: 16px;">
+        {tier1.map(v => (
+          <div class="card" style="border-left: 3px solid #000;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">{v.name} &mdash; {v.product}</h3>
+                <div class="card-subtitle">{v.ownership} &bull; {v.headquarters}</div>
+              </div>
+              <span class="badge badge-tier1">Tier 1</span>
+            </div>
+            
+            <div class="card-body">
+              <p>{v.summary}</p>
+              
+              <div style="margin: 10px 0;">
+                <strong>Primary Functional Scope:</strong>
+                <ul style="padding-left: 20px; font-size: 12.5px; margin-top: 4px;">
+                  {v.scope.map(s => <li>{s}</li>)}
+                </ul>
+              </div>
+
+              <div style="background: rgba(0,0,0,0.03); padding: 12px; border-radius: 4px; margin: 10px 0; border: 1px solid var(--card-border);">
+                <strong>2026 AI Architecture & Innovations:</strong>
+                <p style="font-size: 12.5px; margin: 4px 0 0;">{v.aiFeatures}</p>
+                <div style="margin-top: 6px;">
+                  <span class="badge badge-ai">Readiness: {v.aiReadiness}</span>
+                </div>
+              </div>
+
+              {v.knownCustomers && (
+                <div style="font-size: 12px; margin-top: 6px;">
+                  <strong>Verified Customers:</strong> {v.knownCustomers.join(', ')}
+                </div>
+              )}
+            </div>
+
+            <div class="card-footer">
+              <div class="card-meta"><strong>Market Positioning:</strong> {v.keyDifferentiator}</div>
+              <div class="card-meta"><strong>2026 Status:</strong> {v.status2026}</div>
+              {v.website && (
+                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">Visit {v.name} &rarr;</a></div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- TIER 2 -->
+    <section>
+      <h2 class="section-title">Tier 2 — Adjacent Platforms with Validation-Adjacent Workflows</h2>
+      <p>
+        These vendors do not sell standalone validation management software as their primary revenue engine. Instead, they provide mission-critical manufacturing (MES), design engineering (PLM/ALM), or enterprise content/ERP suites with powerful validation accelerators embedded directly into their modules.
+      </p>
+
+      <div class="cards-grid">
+        {tier2.map(v => (
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <div class="card-subtitle">{v.product}</div>
+              </div>
+              <span class="badge badge-tier2">Tier 2</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size: 12.5px;">{v.summary}</p>
+              <div style="margin-top: 8px;">
+                <span class="badge">{v.category}</span>
+                <span class="badge badge-ai">AI: {v.aiReadiness}</span>
+              </div>
+              {v.knownCustomers && (
+                <div style="font-size: 11.5px; margin-top: 8px; color: var(--muted-text);">
+                  <strong>Customers:</strong> {v.knownCustomers.join(', ')}
+                </div>
+              )}
+            </div>
+
+            <div class="card-footer">
+              <div class="card-meta"><strong>Focus:</strong> {v.keyDifferentiator}</div>
+              {v.website && (
+                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Official Site &rarr;</a></div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- TIER 3 -->
+    <section>
+      <h2 class="section-title">Tier 3 — Specialist / Niche / Consulting-Led</h2>
+      <p>
+        Tier 3 consists of highly agile specialist SaaS providers, Salesforce ecosystem players, and boutique regulatory consultancies. They often champion CSA-native pricing, rapid time-to-value, and hands-on validation staffing.
+      </p>
+
+      <div class="cards-grid">
+        {tier3.map(v => (
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <div class="card-subtitle">{v.product}</div>
+              </div>
+              <span class="badge badge-tier3">Tier 3</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size: 12.5px;">{v.summary}</p>
+              <div style="margin-top: 8px;">
+                <span class="badge">{v.category}</span>
+                {v.aiReadiness && <span class="badge badge-ai">AI: {v.aiReadiness}</span>}
+              </div>
+              {v.knownCustomers && (
+                <div style="font-size: 11.5px; margin-top: 8px; color: var(--muted-text);">
+                  <strong>Known Users:</strong> {v.knownCustomers.join(', ')}
+                </div>
+              )}
+            </div>
+
+            <div class="card-footer">
+              <div class="card-meta"><strong>Strength:</strong> {v.keyDifferentiator}</div>
+              {v.website && (
+                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Learn More &rarr;</a></div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- TIER 4 -->
+    <section>
+      <h2 class="section-title">Tier 4 — Legacy / On-Prem / On the Way Out</h2>
+      <p>
+        Systems in Tier 4 represent immense technical debt, compliance risk, and excessive maintenance overhead. They are currently being systematically replaced across the life sciences industry by Tier 1 and Tier 3 cloud platforms.
+      </p>
+
+      <div class="cards-grid">
+        {tier4.map(v => (
+          <div class="card" style="opacity: 0.85;">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <div class="card-subtitle">{v.product}</div>
+              </div>
+              <span class="badge badge-tier4">Tier 4 (Sunset)</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size: 12.5px;">{v.summary}</p>
+              <div style="margin-top: 8px;">
+                <span class="badge" style="color: #a00; border-color: #a00;">Sunset / Replacement Risk</span>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <div class="card-meta"><strong>Status:</strong> {v.status2026}</div>
+              <div class="card-meta"><strong>Displacement Driver:</strong> {v.keyDifferentiator}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Buyer Segment Strategy -->
+    <section>
+      <h2 class="section-title">Strategic Buyer Guide: How to Select Your Tier</h2>
+      <div class="callout-box">
+        <h3 style="margin-bottom: 12px;">Recommendation by Organization Size & Type:</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <strong>1. Global Commercial Pharma (Top 50):</strong>
+            <p style="font-size: 13px; margin: 4px 0 0;">
+              Standardize on <strong>Tier 1 Pure-Play Platforms</strong> (Kneat Gx or ValGenesis VLMS) for cross-facility equipment, commissioning, and process validation. If already deeply integrated into the Veeva Quality ecosystem, evaluate <strong>Veeva Vault Validation Management</strong> with Vault MCP Server (26R2).
+            </p>
+          </div>
+
+          <div>
+            <strong>2. Fast-Growing Clinical Biotech & Startups:</strong>
+            <p style="font-size: 13px; margin: 4px 0 0;">
+              Deploy <strong>Tier 3 agile solutions</strong> like GoVal or cloud QMS-embedded validation (MasterControl or ComplianceQuest). Focus strictly on <strong>CSA principles</strong> to prevent runaway validation documentation costs before commercial approval.
+            </p>
+          </div>
+
+          <div>
+            <strong>3. Medical Device & Diagnostics OEMs:</strong>
+            <p style="font-size: 13px; margin: 4px 0 0;">
+              Leverage <strong>Tier 2 PLM/ALM tools</strong> (PTC Windchill + Codebeamer or Arena Solutions) where Design History Files (DHF) and device software verification directly feed automated traceability matrices.
+            </p>
+          </div>
+
+          <div>
+            <strong>4. Contract Development & Manufacturing (CDMOs):</strong>
+            <p style="font-size: 13px; margin: 4px 0 0;">
+              Prioritize multi-tenant, multi-client support in <strong>ValGenesis</strong> or <strong>Kneat</strong>, paired with <strong>Tier 2 MES</strong> validation packages (Werum PAS-X or Rockwell PharmaSuite).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

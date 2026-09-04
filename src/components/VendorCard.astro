@@ -1,0 +1,63 @@
+---
+import type { Vendor } from '../data/vendors';
+
+interface Props {
+  vendor: Vendor;
+}
+
+const { vendor } = Astro.props;
+
+const tierBadgeClass = 
+  vendor.tier === 1 ? 'badge-tier1' :
+  vendor.tier === 2 ? 'badge-tier2' :
+  vendor.tier === 3 ? 'badge-tier3' : 'badge-tier4';
+---
+
+<div class="card" data-tier={vendor.tier} data-category={vendor.category} data-name={vendor.name.toLowerCase()} data-search={`${vendor.name} ${vendor.product} ${vendor.summary} ${vendor.knownCustomers?.join(' ') || ''}`.toLowerCase()}>
+  <div class="card-header">
+    <div>
+      <h3 class="card-title">{vendor.name}</h3>
+      <div class="card-subtitle">{vendor.product}</div>
+    </div>
+    <span class={`badge ${tierBadgeClass}`}>T{vendor.tier}</span>
+  </div>
+
+  <div class="card-body">
+    <p>{vendor.summary}</p>
+    
+    <div style="margin: 10px 0;">
+      <span class="badge">{vendor.category}</span>
+      {vendor.aiReadiness && (
+        <span class="badge badge-ai">AI: {vendor.aiReadiness}</span>
+      )}
+    </div>
+
+    {vendor.aiFeatures && (
+      <div style="font-size: 12px; background: rgba(0,0,0,0.03); padding: 8px 10px; border-radius: 4px; margin: 8px 0; border-left: 2px solid #333;">
+        <strong>AI Integration:</strong> {vendor.aiFeatures}
+      </div>
+    )}
+
+    {vendor.knownCustomers && vendor.knownCustomers.length > 0 && (
+      <div class="card-meta" style="margin-top: 8px;">
+        <strong>Customers:</strong> {vendor.knownCustomers.join(', ')}
+      </div>
+    )}
+  </div>
+
+  <div class="card-footer">
+    <div class="card-meta">
+      <strong>Status:</strong> {vendor.status2026}
+    </div>
+    <div class="card-meta">
+      <strong>Ownership:</strong> {vendor.ownership}
+    </div>
+    {vendor.website && (
+      <div style="margin-top: 4px;">
+        <a href={vendor.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">
+          Visit vendor site &rarr;
+        </a>
+      </div>
+    )}
+  </div>
+</div>

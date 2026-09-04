@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SpotlightBanner from '../components/SpotlightBanner.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import VendorDirectory from '../components/VendorDirectory.astro';
+import { VENDORS } from '../data/vendors';
+
+const tier1Count = VENDORS.filter(v => v.tier === 1).length;
+const tier2Count = VENDORS.filter(v => v.tier === 2).length;
+const tier3Count = VENDORS.filter(v => v.tier === 3).length;
+const tier4Count = VENDORS.filter(v => v.tier === 4).length;
+---
+
+<Layout 
+  title="CSV & CSA Vendor Landscape (2026) | Saram Consulting"
+  description="Comprehensive, verified market research of the Computer Systems Validation (CSV) and Computer Software Assurance (CSA) vendor ecosystem."
+  activePath="/"
+>
+  <SpotlightBanner />
+
+  <main>
+    <section class="hero-text">
+      <h1>CSV & CSA Vendor Landscape</h1>
+      <p class="hero-subtitle">Tiered by Buyer Segment, Market Position, and AI Readiness</p>
+      <p>
+        The life sciences validation landscape is undergoing its most significant structural shift in two decades. Propelled by the FDA’s guidance on <strong>Computer Software Assurance (CSA)</strong>, the industry is transitioning away from rigid, documentation-first V-model scripts toward risk-based critical thinking.
+      </p>
+      <p>
+        Crucially, <strong>CSA is the core enabler for Artificial Intelligence in validation</strong>. AI is most defensible at the medium-risk, high-volume tier—automating User Requirements Specifications (URS) drafting, synthesizing deviations, and generating dynamic requirement-to-test trace matrices.
+      </p>
+    </section>
+
+    <!-- Executive Highlights -->
+    <section>
+      <h2 class="section-title">2026 Market Dynamics & Inflection Points</h2>
+      <div class="callout-box">
+        <h3 style="margin-bottom: 8px;">Key Verified Industry Developments:</h3>
+        <ul style="padding-left: 20px; font-size: 13.5px; line-height: 1.7;">
+          <li>
+            <strong>Thoma Bravo Acquisition of Kneat:</strong> Kneat Gx, the dominant paperless validation platform trusted by 8 of the world's top 10 biopharma companies, entered a definitive acquisition agreement with private equity giant Thoma Bravo (formerly TSE:KSI).
+          </li>
+          <li>
+            <strong>ValGenesis VAL™ Agentic Launch:</strong> At INTERPHEX (April 14, 2026), ValGenesis unveiled VAL™, an autonomous AI agent engineered for protocol generation, gap assessment, test execution review, and trace analysis following a $16M financing.
+          </li>
+          <li>
+            <strong>Veeva Vault MCP Server & AI Agents:</strong> Veeva Systems integrated Model Context Protocol (MCP) servers and AI Agents natively into Vault Validation Management (GA 26R2, August 2026), unifying validation with QualityDocs and QMS.
+          </li>
+          <li>
+            <strong>MasterControl ISO 42001 Certification:</strong> MasterControl certified its AI Trust Center under ISO/IEC 42001 (Artificial Intelligence Management System) on July 15, 2025, offering automated transfer of risk assessments directly to validation test execution.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- The 4 Tiers Structure -->
+    <section>
+      <h2 class="section-title">Landscape Architecture: 4 Market Tiers</h2>
+      <p>
+        We classify the market into four distinct tiers based on core product focus, regulatory surface area, and architectural fit:
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 16px 0;">
+        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border);">
+          <div style="font-weight: 600; font-family: var(--font-serif); font-size: 16px; margin-bottom: 4px;">Tier 1 ({tier1Count})</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-bottom: 6px;">Pure-Play Platforms</div>
+          <div style="font-size: 12.5px; color: #333;">Dedicated enterprise paperless validation suites (Kneat, ValGenesis, Veeva, MasterControl, Sparta).</div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border);">
+          <div style="font-weight: 600; font-family: var(--font-serif); font-size: 16px; margin-bottom: 4px;">Tier 2 ({tier2Count})</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-bottom: 6px;">Adjacent Workflows</div>
+          <div style="font-size: 12.5px; color: #333;">MES (Werum, Siemens, Rockwell), PLM/ALM (PTC, Dassault, Aras), and ERP/DMS systems.</div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border);">
+          <div style="font-weight: 600; font-family: var(--font-serif); font-size: 16px; margin-bottom: 4px;">Tier 3 ({tier3Count})</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-bottom: 6px;">Specialist & Niche</div>
+          <div style="font-size: 12.5px; color: #333;">Cloud-native niche tools (GoVal, ComplianceQuest, eQCM) and boutique regional consultancies.</div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border);">
+          <div style="font-weight: 600; font-family: var(--font-serif); font-size: 16px; margin-bottom: 4px;">Tier 4 ({tier4Count})</div>
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-bottom: 6px;">Legacy & Sunsetting</div>
+          <div style="font-size: 12.5px; color: #333;">On-premise TrackWise v8, Atlas CSP, bespoke in-house scripts, and paper/Excel/SharePoint.</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 12px;">
+        <a href="/tiers" class="service-link"><strong>Explore comprehensive tier-by-tier analysis &rarr;</strong></a>
+      </p>
+    </section>
+
+    <!-- Core Tier 1 Comparison Matrix -->
+    <section>
+      <h2 class="section-title">Tier 1 Pure-Play Platform Matrix</h2>
+      <p>
+        Direct head-to-head comparison of the market leaders dominating digital validation lifecycle management:
+      </p>
+      <ComparisonTable />
+    </section>
+
+    <!-- CSV vs CSA Callout -->
+    <section>
+      <h2 class="section-title">The Fundamental Paradigm: CSV vs CSA</h2>
+      <div class="callout-box" style="border-left: 3px solid #000;">
+        <p>
+          <strong>Computer Systems Validation (CSV):</strong> Traditional V-model, heavy scripted testing (IQ, OQ, PQ), screenshot-heavy evidence, 80% time spent documenting vs 20% testing.
+        </p>
+        <p>
+          <strong>Computer Software Assurance (CSA):</strong> The FDA’s risk-based paradigm focusing on critical thinking, unscripted/exploratory testing, and proportionate assurance based on direct patient safety and product quality impact.
+        </p>
+        <p style="margin-bottom: 0;">
+          <strong>Why this matters for AI:</strong> CSA permits automated testing artifacts and algorithmic trace matrices without requiring redundant manual screenshots for non-direct-impact features.
+          <a href="/csv-vs-csa" class="service-link" style="margin-left: 8px;">Read the complete CSV vs CSA guide &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Interactive Vendor Directory -->
+    <section>
+      <h2 class="section-title">Interactive Vendor Directory ({VENDORS.length} Tracked Systems)</h2>
+      <p>
+        Search and filter vendors across all 4 tiers, deployment types, and AI capabilities:
+      </p>
+      <VendorDirectory />
+    </section>
+
+    <!-- Saram Consulting Services & Contact -->
+    <section>
+      <h2 class="section-title">Validation Strategy & Technology Advisory</h2>
+      <p>
+        Saram Consulting bridges the gap between modern artificial intelligence and rigorous GxP validation standards. We help life science, biotech, and MedTech enterprises:
+      </p>
+      <ul style="padding-left: 20px; margin-bottom: 16px; font-size: 13.5px; line-height: 1.7;">
+        <li>Select and benchmark validation platforms (Kneat vs ValGenesis vs Veeva Vault vs GoVal) tailored to your existing IT footprint.</li>
+        <li>Architect and validate autonomous AI agents under 21 CFR Part 11 and ISO/IEC 42001.</li>
+        <li>Transition quality operations from legacy CSV to FDA Computer Software Assurance (CSA).</li>
+        <li>Audit readiness, automated deviation resolution, and multi-agent compliance pipelines.</li>
+      </ul>
+      <p>
+        Email: <a href="mailto:info@saram.consulting" class="service-link">info@saram.consulting</a><br />
+        Phone: <a href="tel:+19253946606" class="service-link">925-394-6606</a><br />
+        Flagship AI Framework: <a href="https://saram.io/framework" target="_blank" rel="noopener" class="service-link">GxP AI Agent Framework &rarr;</a>
+      </p>
+    </section>
+  </main>
+</Layout>

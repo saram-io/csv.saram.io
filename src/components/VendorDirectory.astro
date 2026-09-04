@@ -1,0 +1,132 @@
+---
+import { VENDORS } from '../data/vendors';
+import VendorCard from './VendorCard.astro';
+
+interface Props {
+  initialTier?: number;
+}
+
+const { initialTier = 0 } = Astro.props;
+---
+
+<div class="vendor-directory-container">
+  <div class="filter-bar">
+    <input 
+      type="text" 
+      id="vendorSearchInput" 
+      class="search-input" 
+      placeholder="Search by vendor name, customer (e.g. Pfizer, Sanofi), AI feature, or category..." 
+    />
+    
+    <div class="filter-pills">
+      <span class="filter-pill-label">Tier:</span>
+      <button class="filter-btn active" data-filter-tier="all">All Tiers ({VENDORS.length})</button>
+      <button class="filter-btn" data-filter-tier="1">Tier 1: Pure-Play ({VENDORS.filter(v => v.tier === 1).length})</button>
+      <button class="filter-btn" data-filter-tier="2">Tier 2: Adjacent ({VENDORS.filter(v => v.tier === 2).length})</button>
+      <button class="filter-btn" data-filter-tier="3">Tier 3: Specialist ({VENDORS.filter(v => v.tier === 3).length})</button>
+      <button class="filter-btn" data-filter-tier="4">Tier 4: Legacy ({VENDORS.filter(v => v.tier === 4).length})</button>
+    </div>
+
+    <div style="font-size: 11.5px; color: var(--muted-text); display: flex; justify-content: space-between; align-items: center;">
+      <span id="resultsCount">Showing {VENDORS.length} of {VENDORS.length} vendors</span>
+      <span id="activeFiltersDisplay">Filters: All</span>
+    </div>
+  </div>
+
+  <div class="cards-grid" id="vendorCardsGrid">
+    {VENDORS.map(vendor => (
+      <VendorCard vendor={vendor} />
+    ))}
+  </div>
+
+  <div id="noResultsMessage" style="display: none; padding: 40px; text-align: center; background: var(--card-bg); border-radius: 6px; border: 1px dashed #999;">
+    <h3 style="font-family: var(--font-serif); margin-bottom: 8px;">No matching vendors found</h3>
+    <p style="font-size: 13px; color: var(--muted-text);">Try clearing your search query or selecting a different tier.</p>
+    <button class="filter-btn" id="resetFiltersBtn" style="margin-top: 12px; background: #000; color: #fff;">Reset Filters</button>
+  </div>
+</div>
+
+<script is:inline>
+  (function() {
+    function initVendorDirectory() {
+      const searchInput = document.getElementById('vendorSearchInput');
+      const filterBtns = document.querySelectorAll('[data-filter-tier]');
+      const cards = document.querySelectorAll('#vendorCardsGrid .card');
+      const resultsCount = document.getElementById('resultsCount');
+      const activeFiltersDisplay = document.getElementById('activeFiltersDisplay');
+      const noResultsMsg = document.getElementById('noResultsMessage');
+      const resetBtn = document.getElementById('resetFiltersBtn');
+
+      if (!searchInput || !cards.length) return;
+
+      let currentTier = 'all';
+      let currentQuery = '';
+
+      function filterCards() {
+        let visibleCount = 0;
+        const total = cards.length;
+
+        cards.forEach(card => {
+          const tier = card.getAttribute('data-tier');
+          const searchContent = card.getAttribute('data-search') || '';
+
+          const matchesTier = (currentTier === 'all' || tier === currentTier);
+          const matchesQuery = !currentQuery || searchContent.includes(currentQuery.toLowerCase());
+
+          if (matchesTier && matchesQuery) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${visibleCount} of ${total} vendors`;
+        }
+
+        if (activeFiltersDisplay) {
+          const tierText = currentTier === 'all' ? 'All Tiers' : `Tier ${currentTier}`;
+          const queryText = currentQuery ? ` "${currentQuery}"` : '';
+          activeFiltersDisplay.textContent = `Active: ${tierText}${queryText}`;
+        }
+
+        if (noResultsMsg) {
+          noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentTier = btn.getAttribute('data-filter-tier') || 'all';
+          filterCards();
+        });
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        currentQuery = e.target.value.trim();
+        filterCards();
+      });
+
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          currentQuery = '';
+          currentTier = 'all';
+          filterBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-filter-tier') === 'all');
+          });
+          filterCards();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initVendorDirectory);
+    } else {
+      initVendorDirectory();
+    }
+  })();
+</script>

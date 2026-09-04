@@ -1,0 +1,51 @@
+---
+import { VENDORS } from '../data/vendors';
+
+const tier1Vendors = VENDORS.filter(v => v.tier === 1);
+---
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+      <tr>
+        <th>Vendor / Platform</th>
+        <th>Primary Scope</th>
+        <th>2026 AI Architecture</th>
+        <th>Key Enterprise Customers</th>
+        <th>Ownership / Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {tier1Vendors.map(v => (
+        <tr>
+          <td>
+            <strong>{v.name}</strong>
+            <div style="font-size: 11.5px; color: var(--muted-text);">{v.product}</div>
+          </td>
+          <td>
+            <ul style="padding-left: 16px; margin: 0; font-size: 12px;">
+              {v.scope.slice(0, 3).map(s => <li>{s}</li>)}
+            </ul>
+          </td>
+          <td>
+            <div style="font-size: 12px; line-height: 1.4;">
+              <span class="badge badge-ai" style="margin-bottom: 4px;">{v.aiReadiness}</span>
+              <div>{v.aiFeatures?.split('. ')[0]}.</div>
+            </div>
+          </td>
+          <td>
+            <div style="font-size: 12px;">
+              {v.knownCustomers?.join(', ')}
+            </div>
+          </td>
+          <td>
+            <div style="font-size: 12px;">
+              <strong>{v.ownership.split(' (')[0]}</strong>
+              <div style="font-size: 11px; color: var(--muted-text);">{v.status2026}</div>
+            </div>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

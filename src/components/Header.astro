@@ -1,0 +1,42 @@
+---
+interface Props {
+  activePath?: string;
+}
+
+const { activePath = '/' } = Astro.props;
+---
+
+<header>
+  <a href="/" class="logo">
+    <img src="/logo.png" alt="Saram Consulting Logo" class="logo-img" />
+    <span>Saram</span>
+    <span class="logo-sub">CSV / CSA Intelligence</span>
+  </a>
+
+  <nav>
+    <a href="/" class={activePath === '/' ? 'active' : ''}>Home</a>
+    <a href="/tiers" class={activePath === '/tiers' ? 'active' : ''}>Landscape Tiers</a>
+    <a href="/csv-vs-csa" class={activePath === '/csv-vs-csa' ? 'active' : ''}>CSV vs CSA</a>
+    <a href="/ai-trends" class={activePath === '/ai-trends' ? 'active' : ''}>AI & 2026 Trends</a>
+    <a href="/vendors" class={activePath === '/vendors' ? 'active' : ''}>Directory</a>
+    
+    <div class="dropdown">
+      <button class="dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+        Products
+        <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="dropdown-content">
+        <a href="https://saram.io" target="_blank" rel="noopener">Saram Consulting</a>
+        <a href="https://saram.io/framework" target="_blank" rel="noopener">GxP AI Framework</a>
+        <a href="https://gxpchat.com" target="_blank" rel="noopener">GxPChat</a>
+        <a href="https://gxpsoft.ai" target="_blank" rel="noopener">GxPSoft.ai</a>
+        <a href="https://openbionews.com" target="_blank" rel="noopener">OpenBio News</a>
+        <a href="https://t20hub.com/" target="_blank" rel="noopener">T20 Hub</a>
+      </div>
+    </div>
+
+    <a href="/about" class={activePath === '/about' ? 'active' : ''}>About</a>
+  </nav>
+</header>
