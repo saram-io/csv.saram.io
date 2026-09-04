@@ -2,6 +2,9 @@
 dist/
 .astro/
 
+# Cloudflare Wrangler
+.wrangler/
+
 # Dependencies
 node_modules/
 
@@ -11,10 +14,16 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Environment
+# Environment & local secrets
 .env
 .env.production
 .env.*
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # OS files
 .DS_Store
