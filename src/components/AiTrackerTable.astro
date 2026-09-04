@@ -1,0 +1,431 @@
+---
+import { AI_TRACKER_DATA } from '../data/aiTrackerData';
+
+const mcpPioneersCount = AI_TRACKER_DATA.filter(v => v.mcpStatus === 'GA Native MCP Server' || v.mcpStatus === 'Roadmap / In Dev').length;
+const proprietaryMoatCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Proprietary AI Moat').length;
+const closedFortressCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Closed Fortress').length;
+---
+
+<div class="ai-tracker-wrapper">
+  <!-- Interactive Filter Toolbar -->
+  <div class="filter-bar">
+    <div style="display: flex; gap: 12px; flex-direction: column; width: 100%;">
+      <input 
+        type="text" 
+        id="aiTrackerSearch" 
+        class="search-input" 
+        placeholder="Filter by vendor (e.g. Veeva, Kneat, ValGenesis), MCP status, posture, or API..." 
+      />
+
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <span class="filter-pill-label">Posture:</span>
+        <button class="filter-btn active" data-posture="all">All Vendors ({AI_TRACKER_DATA.length})</button>
+        <button class="filter-btn" data-posture="mcp">MCP Pioneers & Roadmap ({mcpPioneersCount})</button>
+        <button class="filter-btn" data-posture="proprietary">Proprietary AI Moat ({proprietaryMoatCount})</button>
+        <button class="filter-btn" data-posture="ecosystem">Ecosystem Bound</button>
+        <button class="filter-btn" data-posture="closed">Closed Fortresses ({closedFortressCount})</button>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+        <span class="filter-pill-label">Tier:</span>
+        <button class="filter-btn active" data-tier="all">All Tiers</button>
+        <button class="filter-btn" data-tier="1">Tier 1: Pure-Play</button>
+        <button class="filter-btn" data-tier="2">Tier 2: Adjacent</button>
+        <button class="filter-btn" data-tier="3">Tier 3: Specialist</button>
+        <button class="filter-btn" data-tier="4">Tier 4: Legacy</button>
+      </div>
+    </div>
+
+    <div style="font-size: 11.5px; color: var(--muted-text); display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+      <span id="trackerResultsCount">Showing {AI_TRACKER_DATA.length} of {AI_TRACKER_DATA.length} vendors tracked</span>
+      <span id="trackerActiveFilter">Filter: All Vendors</span>
+    </div>
+  </div>
+
+  <!-- Main Table -->
+  <div class="table-wrapper">
+    <table id="aiTrackerTable">
+      <thead>
+        <tr>
+          <th>Vendor & Product</th>
+          <th>Tier</th>
+          <th>Walled Garden Posture</th>
+          <th>MCP Support</th>
+          <th>API Openness</th>
+          <th>Part 11 AI Attribution</th>
+          <th>AI Readiness</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        {AI_TRACKER_DATA.map((entry) => {
+          const postureClass = 
+            entry.walledGardenPosture === 'Open Protocol Pioneer' ? 'badge-tier1' :
+            entry.walledGardenPosture === 'Proprietary AI Moat' ? 'badge-proprietary' :
+            entry.walledGardenPosture === 'Ecosystem Walled Garden' ? 'badge-ecosystem' :
+            entry.walledGardenPosture === 'API Gated / Restricted' ? 'badge-gated' : 'badge-tier4';
+
+          const mcpBadgeClass = 
+            entry.mcpStatus === 'GA Native MCP Server' ? 'badge-mcp-ga' :
+            entry.mcpStatus === 'Roadmap / In Dev' ? 'badge-mcp-dev' :
+            entry.mcpStatus === 'Proprietary Only (No MCP)' ? 'badge-mcp-none' : 'badge-muted';
+
+          const gradeBadgeClass = 
+            entry.opennessGrade === 'A+' || entry.opennessGrade === 'A' ? 'grade-a' :
+            entry.opennessGrade === 'B' ? 'grade-b' :
+            entry.opennessGrade === 'C' ? 'grade-c' : 'grade-low';
+
+          return (
+            <tr 
+              class="tracker-row" 
+              data-tier={entry.tier}
+              data-posture-category={
+                entry.walledGardenPosture === 'Open Protocol Pioneer' ? 'mcp' :
+                entry.mcpStatus === 'Roadmap / In Dev' ? 'mcp' :
+                entry.walledGardenPosture === 'Proprietary AI Moat' ? 'proprietary' :
+                entry.walledGardenPosture === 'Ecosystem Walled Garden' ? 'ecosystem' :
+                entry.walledGardenPosture === 'Closed Fortress' ? 'closed' : 'other'
+              }
+              data-search={`${entry.vendorName} ${entry.product} ${entry.walledGardenPosture} ${entry.mcpStatus} ${entry.apiOpenness} ${entry.walledGardenAnalysis} ${entry.buyerTakeaway}`.toLowerCase()}
+            >
+              <td>
+                <strong style="font-size: 13.5px;">{entry.vendorName}</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">{entry.product}</div>
+              </td>
+              <td>
+                <span class="badge" style="font-size: 10.5px;">T{entry.tier}</span>
+              </td>
+              <td>
+                <span class={`badge ${postureClass}`} style="font-size: 10.5px; white-space: normal; display: inline-block;">
+                  {entry.walledGardenPosture}
+                </span>
+                <div style="font-size: 10.5px; color: var(--muted-text); margin-top: 3px;">
+                  Openness: <strong>{entry.willingnessToOpenData}</strong>
+                </div>
+              </td>
+              <td>
+                <span class={`badge ${mcpBadgeClass}`} style="font-size: 10.5px;">
+                  {entry.mcpStatus}
+                </span>
+              </td>
+              <td>
+                <div style="font-size: 11.5px; line-height: 1.3;">
+                  {entry.apiOpenness}
+                </div>
+                <div style="font-size: 10.5px; color: var(--muted-text); margin-top: 2px;">
+                  Export: {entry.dataPortability.split(' ')[0]}
+                </div>
+              </td>
+              <td>
+                <div style="font-size: 11px; line-height: 1.3;">
+                  {entry.part11AiAttribution}
+                </div>
+              </td>
+              <td style="text-align: center;">
+                <div class={`grade-pill ${gradeBadgeClass}`}>
+                  {entry.opennessGrade}
+                </div>
+                <div style="font-size: 10.5px; color: var(--muted-text); margin-top: 2px;">
+                  {entry.readinessScore}/100
+                </div>
+              </td>
+              <td>
+                <button 
+                  type="button" 
+                  class="expand-btn" 
+                  data-target={`details-${entry.vendorId}`}
+                  aria-expanded="false"
+                  title="View Walled Garden Analysis & Buyer Takeaway"
+                >
+                  Analysis &darr;
+                </button>
+              </td>
+            </tr>
+            <tr class="details-row" id={`details-${entry.vendorId}`} style="display: none;">
+              <td colspan="8" style="background: rgba(0,0,0,0.02); padding: 16px 20px; border-bottom: 1px solid #00000026;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                  <div>
+                    <strong style="font-family: var(--font-serif); font-size: 13.5px; display: block; margin-bottom: 6px;">
+                      Walled Garden & Data Lock-In Analysis:
+                    </strong>
+                    <p style="font-size: 12.5px; line-height: 1.55; color: #222; margin: 0;">
+                      {entry.walledGardenAnalysis}
+                    </p>
+                  </div>
+                  <div style="background: var(--card-bg); padding: 12px 14px; border-radius: 4px; border-left: 3px solid #111;">
+                    <strong style="font-family: var(--font-serif); font-size: 13px; display: block; margin-bottom: 4px;">
+                      Procurement & Buyer Takeaway:
+                    </strong>
+                    <p style="font-size: 12px; line-height: 1.5; color: #222; margin: 0;">
+                      {entry.buyerTakeaway}
+                    </p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
+  </div>
+
+  <div id="noTrackerResults" style="display: none; padding: 40px; text-align: center; background: var(--card-bg); border-radius: 6px; border: 1px dashed #999; margin-top: 16px;">
+    <h3 style="font-family: var(--font-serif); margin-bottom: 8px;">No matching vendors found</h3>
+    <p style="font-size: 13px; color: var(--muted-text);">Try adjusting your search terms or posture filters.</p>
+    <button class="filter-btn" id="resetTrackerFilters" style="margin-top: 12px; background: #000; color: #fff;">Reset Filters</button>
+  </div>
+</div>
+
+<style>
+  .ai-tracker-wrapper {
+    margin: 20px 0;
+  }
+
+  .expand-btn {
+    background: transparent;
+    border: 1px solid var(--underline-color);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #111;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .expand-btn:hover {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+  }
+
+  .expand-btn.active {
+    background: #111;
+    color: #fff;
+  }
+
+  .grade-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-align: center;
+    min-width: 34px;
+  }
+
+  .grade-a {
+    background: #111;
+    color: #fff;
+  }
+
+  .grade-b {
+    background: #dedcd2;
+    color: #111;
+    border: 1px solid #00000033;
+  }
+
+  .grade-c {
+    background: #ebeae2;
+    color: #555;
+    border: 1px solid #00000022;
+  }
+
+  .grade-low {
+    background: #f4f3eb;
+    color: #888;
+    border: 1px dashed #00000033;
+  }
+
+  .badge-mcp-ga {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+    font-weight: 600;
+  }
+
+  .badge-mcp-dev {
+    background: #e2e1d7;
+    color: #111;
+    border-color: #00000044;
+    font-weight: 600;
+  }
+
+  .badge-mcp-none {
+    background: #f1f0e8;
+    color: #666;
+    border-color: #00000022;
+  }
+
+  .badge-muted {
+    background: transparent;
+    color: #888;
+    border: 1px dashed #999;
+  }
+
+  .badge-proprietary {
+    background: #ebeae2;
+    color: #222;
+    border: 1px solid #727063;
+    font-weight: 600;
+  }
+
+  .badge-ecosystem {
+    background: #e7e6dc;
+    color: #333;
+    border: 1px solid #00000026;
+  }
+
+  .badge-gated {
+    background: #eeebe3;
+    color: #666;
+    border: 1px solid #0000001f;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initAiTracker() {
+      const searchInput = document.getElementById('aiTrackerSearch');
+      const postureBtns = document.querySelectorAll('[data-posture]');
+      const tierBtns = document.querySelectorAll('[data-tier]');
+      const rows = document.querySelectorAll('.tracker-row');
+      const resultsCount = document.getElementById('trackerResultsCount');
+      const activeFilterDisplay = document.getElementById('trackerActiveFilter');
+      const noResultsMsg = document.getElementById('noTrackerResults');
+      const resetBtn = document.getElementById('resetTrackerFilters');
+      const expandBtns = document.querySelectorAll('.expand-btn');
+
+      if (!searchInput || !rows.length) return;
+
+      let selectedPosture = 'all';
+      let selectedTier = 'all';
+      let searchQuery = '';
+
+      function filterTable() {
+        let visibleCount = 0;
+        const total = rows.length;
+
+        rows.forEach(row => {
+          const rowTier = row.getAttribute('data-tier');
+          const rowPostureCat = row.getAttribute('data-posture-category');
+          const rowSearch = row.getAttribute('data-search') || '';
+          const detailsId = row.querySelector('.expand-btn')?.getAttribute('data-target');
+          const detailsRow = detailsId ? document.getElementById(detailsId) : null;
+
+          const matchesPosture = 
+            selectedPosture === 'all' || 
+            (selectedPosture === 'mcp' && rowPostureCat === 'mcp') ||
+            (selectedPosture === 'proprietary' && rowPostureCat === 'proprietary') ||
+            (selectedPosture === 'ecosystem' && rowPostureCat === 'ecosystem') ||
+            (selectedPosture === 'closed' && rowPostureCat === 'closed');
+
+          const matchesTier = (selectedTier === 'all' || rowTier === selectedTier);
+          const matchesSearch = !searchQuery || rowSearch.includes(searchQuery.toLowerCase());
+
+          if (matchesPosture && matchesTier && matchesSearch) {
+            row.style.display = '';
+            visibleCount++;
+          } else {
+            row.style.display = 'none';
+            if (detailsRow) {
+              detailsRow.style.display = 'none';
+              const btn = row.querySelector('.expand-btn');
+              if (btn) {
+                btn.classList.remove('active');
+                btn.innerHTML = 'Analysis &darr;';
+                btn.setAttribute('aria-expanded', 'false');
+              }
+            }
+          }
+        });
+
+        if (resultsCount) {
+          resultsCount.textContent = `Showing ${visibleCount} of ${total} vendors tracked`;
+        }
+
+        if (activeFilterDisplay) {
+          const postureLabel = selectedPosture === 'all' ? 'All Postures' : selectedPosture.toUpperCase();
+          const tierLabel = selectedTier === 'all' ? 'All Tiers' : `Tier ${selectedTier}`;
+          const qText = searchQuery ? ` "${searchQuery}"` : '';
+          activeFilterDisplay.textContent = `Filter: ${postureLabel}, ${tierLabel}${qText}`;
+        }
+
+        if (noResultsMsg) {
+          noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+      }
+
+      // Expand / collapse details
+      expandBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const targetId = btn.getAttribute('data-target');
+          if (!targetId) return;
+          const targetRow = document.getElementById(targetId);
+          if (!targetRow) return;
+
+          const isExpanded = btn.classList.contains('active');
+          if (isExpanded) {
+            targetRow.style.display = 'none';
+            btn.classList.remove('active');
+            btn.innerHTML = 'Analysis &darr;';
+            btn.setAttribute('aria-expanded', 'false');
+          } else {
+            targetRow.style.display = '';
+            btn.classList.add('active');
+            btn.innerHTML = 'Close &uarr;';
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Posture buttons
+      postureBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          postureBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedPosture = btn.getAttribute('data-posture') || 'all';
+          filterTable();
+        });
+      });
+
+      // Tier buttons
+      tierBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tierBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          selectedTier = btn.getAttribute('data-tier') || 'all';
+          filterTable();
+        });
+      });
+
+      // Search input
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value.trim();
+        filterTable();
+      });
+
+      // Reset button
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          searchInput.value = '';
+          searchQuery = '';
+          selectedPosture = 'all';
+          selectedTier = 'all';
+          postureBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-posture') === 'all'));
+          tierBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-tier') === 'all'));
+          filterTable();
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAiTracker);
+    } else {
+      initAiTracker();
+    }
+  })();
+</script>

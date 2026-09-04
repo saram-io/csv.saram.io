@@ -52,12 +52,15 @@ const tierBadgeClass =
     <div class="card-meta">
       <strong>Ownership:</strong> {vendor.ownership}
     </div>
-    {vendor.website && (
-      <div style="margin-top: 4px;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 6px;">
+      {vendor.website && (
         <a href={vendor.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">
           Visit vendor site &rarr;
         </a>
-      </div>
-    )}
+      )}
+      <a href="/ai-readiness-tracker" class="service-link" style="font-size: 11.5px; color: var(--muted-text);">
+        AI & MCP Tracker &rarr;
+      </a>
+    </div>
   </div>
 </div>

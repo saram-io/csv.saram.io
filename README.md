@@ -40,6 +40,8 @@ The computerized systems validation market in life sciences is undergoing a fund
   - **Veeva Vault MCP Server**: Model Context Protocol (MCP) server integration reaching GA in 26R2 (August 2026).
   - **MasterControl ISO/IEC 42001**: Certified AI Trust Center for artificial intelligence management systems.
   - **Thoma Bravo / Kneat**: Private equity rollup taking the dominant paperless validation platform private.
+- **AI Readiness & Walled Garden Tracker (`/ai-readiness-tracker`)**:
+  - Benchmarks 20+ life science validation software vendors on their willingness to open up data access through Anthropic's Model Context Protocol (MCP), open authenticated APIs, Part 11 agent tool-calling audit trails, and structured graph exports vs. locking customers into closed proprietary AI moats.
 
 ---
 
@@ -70,6 +72,7 @@ csv.saram.io/
 │   └── logo.png
 ├── src/
 │   ├── components/
+│   │   ├── AiTrackerTable.astro     # Interactive AI readiness & MCP tracker table
 │   │   ├── ComparisonTable.astro    # Head-to-head Tier 1 matrix
 │   │   ├── Footer.astro             # Saram Consulting & Hermes Agent footer
 │   │   ├── Header.astro             # Logo, navigation, and Products dropdown
@@ -77,11 +80,13 @@ csv.saram.io/
 │   │   ├── VendorCard.astro         # Card component with tier & AI badges
 │   │   └── VendorDirectory.astro    # Client-side interactive search & filters
 │   ├── data/
+│   │   ├── aiTrackerData.ts         # Structured AI readiness & MCP benchmark dataset
 │   │   └── vendors.ts               # Structured TypeScript vendor dataset
 │   ├── layouts/
 │   │   └── Layout.astro             # Global HTML shell, SEO, fonts, JSON-LD
 │   ├── pages/
 │   │   ├── about.astro              # Methodology, verification, and contact
+│   │   ├── ai-readiness-tracker.astro # Live AI readiness & walled garden tracker
 │   │   ├── ai-trends.astro          # 2026 AI vendor moves & MCP architecture
 │   │   ├── csv-vs-csa.astro         # CSV vs CSA deep dive & AI enablement
 │   │   ├── index.astro              # Landing page
