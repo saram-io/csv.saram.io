@@ -10,12 +10,25 @@ const tier1Count = VENDORS.filter(v => v.tier === 1).length;
 const tier2Count = VENDORS.filter(v => v.tier === 2).length;
 const tier3Count = VENDORS.filter(v => v.tier === 3).length;
 const tier4Count = VENDORS.filter(v => v.tier === 4).length;
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "CSV & CSA Vendor Landscape & Life Sciences AI Readiness",
+  "description": "Comprehensive market research classifying 20+ life sciences Computer Systems Validation (CSV) & Computer Software Assurance (CSA) platforms across 4 market tiers.",
+  "url": "https://csv.saram.io/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  }
+};
 ---
 
 <Layout 
-  title="CSV & CSA Vendor Landscape (2026) | Saram Consulting"
-  description="Comprehensive, verified market research of the Computer Systems Validation (CSV) and Computer Software Assurance (CSA) vendor ecosystem."
+  title="CSV & CSA Vendor Landscape (2026) — Life Sciences Validation Platforms | Saram Consulting"
+  description="Independent research, 4-tier market classification, and AI readiness benchmarks for 20+ life sciences Computer Systems Validation (CSV) & Computer Software Assurance (CSA) software platforms."
   activePath="/"
+  schemas={[collectionSchema]}
 >
   <SpotlightBanner />
 

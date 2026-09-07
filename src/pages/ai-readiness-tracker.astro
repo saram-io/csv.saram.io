@@ -8,14 +8,62 @@ const openCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Open Pr
 const proprietaryCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Proprietary AI Moat').length;
 const ecosystemCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Ecosystem Walled Garden').length;
 const closedCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Closed Fortress').length;
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Readiness & Walled Garden Tracker",
+      "item": "https://csv.saram.io/ai-readiness-tracker/"
+    }
+  ]
+};
+
+const datasetSchema = {
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Life Science CSV/CSA AI Readiness & Walled Garden Benchmark Dataset",
+  "description": "Empirical benchmark evaluating 20+ life science Computer Systems Validation (CSV) and QMS vendors across Model Context Protocol (MCP) support, REST/GraphQL API openness, Part 11 AI agent audit attribution, and proprietary lock-in risks.",
+  "url": "https://csv.saram.io/ai-readiness-tracker/",
+  "creator": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "keywords": [
+    "Model Context Protocol",
+    "Life Sciences Validation",
+    "Computer Systems Validation",
+    "Computer Software Assurance",
+    "21 CFR Part 11",
+    "AI Agents"
+  ]
+};
 ---
 
 <Layout 
-  title="Life Science CSV AI Readiness & Walled Garden Tracker | Saram Consulting"
+  title="Life Science CSV AI Readiness & Walled Garden Tracker (2026) | Saram Consulting"
   description="Independent tracker benchmarking 20+ Computer Systems Validation (CSV) & CSA vendors on Model Context Protocol (MCP) support, API openness, and walled garden lock-in risk."
   activePath="/ai-readiness-tracker"
+  schemas={[breadcrumbSchema, datasetSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">AI Readiness Tracker</span>
+    </nav>
+
     <section class="hero-text">
       <h1>Life Science CSV AI Readiness & Walled Garden Tracker</h1>
       <p class="hero-subtitle">

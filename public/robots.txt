@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csv.saram.io/sitemap-index.xml

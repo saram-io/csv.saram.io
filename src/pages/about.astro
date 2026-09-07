@@ -1,13 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About & Research Methodology",
+      "item": "https://csv.saram.io/about/"
+    }
+  ]
+};
+
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About csv.saram.io & Research Methodology",
+  "description": "Research methodology, live verification protocols, and advisory services from Saram Consulting.",
+  "url": "https://csv.saram.io/about/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  }
+};
 ---
 
 <Layout 
-  title="About & Research Methodology | Saram Consulting"
-  description="Research methodology, live verification protocols, and advisory services from Saram Consulting."
+  title="About & Research Methodology: Independent CSV/CSA Intelligence | Saram Consulting"
+  description="Research methodology, live verification protocols, and life sciences advisory services from Saram Consulting."
   activePath="/about"
+  schemas={[breadcrumbSchema, aboutPageSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">About & Methodology</span>
+    </nav>
     <section class="hero-text">
       <h1>Research Methodology & About Saram</h1>
       <p class="hero-subtitle">Independent GxP & AI Technical Intelligence for Regulated Life Sciences</p>

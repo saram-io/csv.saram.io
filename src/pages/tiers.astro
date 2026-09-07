@@ -6,14 +6,62 @@ const tier1 = VENDORS.filter(v => v.tier === 1);
 const tier2 = VENDORS.filter(v => v.tier === 2);
 const tier3 = VENDORS.filter(v => v.tier === 3);
 const tier4 = VENDORS.filter(v => v.tier === 4);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Market Tiers & Taxonomy",
+      "item": "https://csv.saram.io/tiers/"
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Life Sciences Validation Vendor Landscape: 4-Tier Market Taxonomy & Architecture",
+  "description": "Structured market breakdown of 20+ Computer Systems Validation (CSV) & Computer Software Assurance (CSA) vendors across Pure-Play VLMS, Adjacent Suites, Specialist Tools, and Legacy Architectures.",
+  "url": "https://csv.saram.io/tiers/",
+  "author": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "datePublished": "2026-02-01T08:00:00Z",
+  "dateModified": "2026-06-13T12:00:00Z"
+};
 ---
 
 <Layout 
-  title="Validation Vendor Landscape Tiers (1 to 4) | Saram Consulting"
+  title="CSV & CSA Market Tiers (1 to 4): Life Science Validation Taxonomy (2026) | Saram Consulting"
   description="In-depth market breakdown across Pure-Play Platforms, Adjacent MES/PLM/ERP Suites, Specialist Tools, and Sunsetting Legacy Systems."
   activePath="/tiers"
+  ogType="article"
+  schemas={[breadcrumbSchema, articleSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">Market Tiers</span>
+    </nav>
+
     <section class="hero-text">
       <h1>Market Tiers & Taxonomy</h1>
       <p class="hero-subtitle">Comprehensive Classification by Buyer Segment, System Boundaries, and Architecture</p>
@@ -37,7 +85,11 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
           <div class="card" style="border-left: 3px solid #000;">
             <div class="card-header">
               <div>
-                <h3 class="card-title">{v.name} &mdash; {v.product}</h3>
+                <h3 class="card-title">
+                  <a href={`/vendors/${v.id}/`} style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">
+                    {v.name} &mdash; {v.product}
+                  </a>
+                </h3>
                 <div class="card-subtitle">{v.ownership} &bull; {v.headquarters}</div>
               </div>
               <span class="badge badge-tier1">Tier 1</span>
@@ -71,9 +123,14 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
             <div class="card-footer">
               <div class="card-meta"><strong>Market Positioning:</strong> {v.keyDifferentiator}</div>
               <div class="card-meta"><strong>2026 Status:</strong> {v.status2026}</div>
-              {v.website && (
-                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">Visit {v.name} &rarr;</a></div>
-              )}
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; flex-wrap: wrap; gap: 8px;">
+                <a href={`/vendors/${v.id}/`} class="service-link" style="font-size: 12px; font-weight: 600;">
+                  Deep Dive Profile &rarr;
+                </a>
+                {v.website && (
+                  <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">Visit {v.name} &rarr;</a></div>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -92,7 +149,11 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
           <div class="card">
             <div class="card-header">
               <div>
-                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <h3 class="card-title" style="font-size: 16px;">
+                  <a href={`/vendors/${v.id}/`} style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">
+                    {v.name}
+                  </a>
+                </h3>
                 <div class="card-subtitle">{v.product}</div>
               </div>
               <span class="badge badge-tier2">Tier 2</span>
@@ -113,9 +174,14 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
 
             <div class="card-footer">
               <div class="card-meta"><strong>Focus:</strong> {v.keyDifferentiator}</div>
-              {v.website && (
-                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Official Site &rarr;</a></div>
-              )}
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 6px;">
+                <a href={`/vendors/${v.id}/`} class="service-link" style="font-size: 11.5px; font-weight: 600;">
+                  Profile &rarr;
+                </a>
+                {v.website && (
+                  <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Official Site &rarr;</a></div>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -134,7 +200,11 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
           <div class="card">
             <div class="card-header">
               <div>
-                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <h3 class="card-title" style="font-size: 16px;">
+                  <a href={`/vendors/${v.id}/`} style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">
+                    {v.name}
+                  </a>
+                </h3>
                 <div class="card-subtitle">{v.product}</div>
               </div>
               <span class="badge badge-tier3">Tier 3</span>
@@ -155,9 +225,14 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
 
             <div class="card-footer">
               <div class="card-meta"><strong>Strength:</strong> {v.keyDifferentiator}</div>
-              {v.website && (
-                <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Learn More &rarr;</a></div>
-              )}
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 6px;">
+                <a href={`/vendors/${v.id}/`} class="service-link" style="font-size: 11.5px; font-weight: 600;">
+                  Profile &rarr;
+                </a>
+                {v.website && (
+                  <div><a href={v.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px;">Learn More &rarr;</a></div>
+                )}
+              </div>
             </div>
           </div>
         ))}
@@ -176,7 +251,11 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
           <div class="card" style="opacity: 0.85;">
             <div class="card-header">
               <div>
-                <h3 class="card-title" style="font-size: 16px;">{v.name}</h3>
+                <h3 class="card-title" style="font-size: 16px;">
+                  <a href={`/vendors/${v.id}/`} style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">
+                    {v.name}
+                  </a>
+                </h3>
                 <div class="card-subtitle">{v.product}</div>
               </div>
               <span class="badge badge-tier4">Tier 4 (Sunset)</span>
@@ -192,6 +271,11 @@ const tier4 = VENDORS.filter(v => v.tier === 4);
             <div class="card-footer">
               <div class="card-meta"><strong>Status:</strong> {v.status2026}</div>
               <div class="card-meta"><strong>Displacement Driver:</strong> {v.keyDifferentiator}</div>
+              <div style="margin-top: 6px;">
+                <a href={`/vendors/${v.id}/`} class="service-link" style="font-size: 11.5px; font-weight: 600;">
+                  Replacement Profile &rarr;
+                </a>
+              </div>
             </div>
           </div>
         ))}

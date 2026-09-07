@@ -1,13 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "CSV vs CSA Guide",
+      "item": "https://csv.saram.io/csv-vs-csa/"
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "CSV vs. CSA: The Regulatory Paradigm Shift & AI Enablement in Life Sciences",
+  "description": "Comprehensive comparative analysis between traditional Computer Systems Validation (CSV) and FDA Computer Software Assurance (CSA), detailing risk-based testing and AI enablement.",
+  "url": "https://csv.saram.io/csv-vs-csa/",
+  "author": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "datePublished": "2026-01-15T08:00:00Z",
+  "dateModified": "2026-06-13T12:00:00Z",
+  "about": [
+    "Computer Systems Validation",
+    "Computer Software Assurance",
+    "FDA 21 CFR Part 11",
+    "GAMP 5 Second Edition",
+    "AI Validation Agents"
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the primary difference between traditional CSV and FDA CSA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traditional Computer Systems Validation (CSV) emphasizes exhaustive documentation, step-by-step screenshots, and rigid scripted testing (spending ~80% of time documenting and ~20% testing). In contrast, the FDA's Computer Software Assurance (CSA) paradigm shifts focus to patient safety and software quality using critical thinking and risk-proportionate testing (~20% documentation and ~80% testing)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does FDA Computer Software Assurance (CSA) eliminate validation documentation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSA does not eliminate documentation; rather, it right-sizes documentation based on patient risk. High-risk software directly impacting product quality still requires rigorous scripted verification, while indirect-impact and operational software can leverage unscripted exploratory testing, automated test logs, and vendor audit evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does CSA enable Artificial Intelligence in validation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under traditional CSV, using AI tools created duplicate paperwork because every action required human screenshot proof. Under CSA's risk-proportionate model, AI agents are defensibly deployed in medium-risk, high-volume activities such as drafting User Requirements Specifications (URS), generating requirements-to-test trace matrices, analyzing deviation logs, and conducting protocol execution reviews."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does adopting CSA waive 21 CFR Part 11 compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. CSA does not waive FDA 21 CFR Part 11 or Annex 11. Electronic records and electronic signatures still require immutable audit trails, dual-factor authentication, and explicit human accountability. When AI agents assist, model identifiers, prompts, and human approval steps must be preserved in the audit log."
+      }
+    }
+  ]
+};
 ---
 
 <Layout 
-  title="CSV vs. CSA Guide & AI Validation Enablement | Saram Consulting"
-  description="Understanding the regulatory transition from traditional CSV to FDA Computer Software Assurance (CSA) and why CSA unlocks AI validation automation."
+  title="CSV vs. CSA Guide: The FDA Regulatory Shift & AI Enablement (2026) | Saram Consulting"
+  description="Understanding the regulatory transition from traditional CSV to FDA Computer Software Assurance (CSA), risk stratification, and why CSA unlocks AI validation automation."
   activePath="/csv-vs-csa"
+  ogType="article"
+  schemas={[breadcrumbSchema, articleSchema, faqSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">CSV vs CSA Guide</span>
+    </nav>
+
     <section class="hero-text">
       <h1>CSV vs. CSA: The Regulatory Paradigm Shift</h1>
       <p class="hero-subtitle">Moving from Document-Heavy Testing to Risk-Based Critical Thinking</p>
@@ -148,7 +242,7 @@ import Layout from '../layouts/Layout.astro';
         <li><strong>Model Context & Traceability:</strong> When AI agents assist in drafting validation documents, the prompt, input context, model identifier, and human approval step must be permanently logged in the audit trail.</li>
       </ul>
       <p style="margin-top: 16px;">
-        To learn more about implementing an enterprise agentic validation architecture with zero-trust EvidenceGate verification, explore our flagship <a href="https://saram.io/framework" target="_blank" rel="noopener" class="service-link">GxP AI Agent Framework</a>.
+        To learn more about implementing an enterprise agentic validation architecture with zero-trust EvidenceGate verification, explore our flagship <a href="https://saram.io/framework" target="_blank" rel="noopener" class="service-link">GxP AI Agent Framework</a> or inspect our live <a href="/ai-readiness-tracker" class="service-link">AI Readiness & Walled Garden Tracker</a>.
       </p>
     </section>
   </main>

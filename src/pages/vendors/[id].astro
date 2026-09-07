@@ -1,0 +1,244 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { VENDORS, type Vendor } from '../../data/vendors';
+import { AI_TRACKER_DATA, type AiTrackerEntry } from '../../data/aiTrackerData';
+
+export async function getStaticPaths() {
+  return VENDORS.map((vendor) => {
+    const aiData = AI_TRACKER_DATA.find((a) => a.vendorId === vendor.id);
+    const relatedVendors = VENDORS.filter((v) => v.tier === vendor.tier && v.id !== vendor.id).slice(0, 3);
+    return {
+      params: { id: vendor.id },
+      props: { vendor, aiData, relatedVendors },
+    };
+  });
+}
+
+interface Props {
+  vendor: Vendor;
+  aiData?: AiTrackerEntry;
+  relatedVendors: Vendor[];
+}
+
+const { vendor, aiData, relatedVendors } = Astro.props;
+
+const pageTitle = `${vendor.name} ${vendor.product}: CSV & CSA Platform Profile (2026) | Saram Consulting`;
+const metaDescription = `Independent analysis of ${vendor.name} (${vendor.product}) for life sciences validation. Covers ${vendor.tierLabel}, FDA CSA readiness, AI agent capabilities, and known enterprise customer deployments.`;
+
+const tierBadgeClass = 
+  vendor.tier === 1 ? 'badge-tier1' :
+  vendor.tier === 2 ? 'badge-tier2' :
+  vendor.tier === 3 ? 'badge-tier3' : 'badge-tier4';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Vendor Directory",
+      "item": "https://csv.saram.io/vendors/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": `${vendor.name} (${vendor.product})`,
+      "item": `https://csv.saram.io/vendors/${vendor.id}/`
+    }
+  ]
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": `${vendor.name} - ${vendor.product}`,
+  "applicationCategory": "BusinessApplication, ComplianceApplication",
+  "operatingSystem": "Cloud / Web SaaS / On-Premise",
+  "description": vendor.summary,
+  "author": {
+    "@type": "Organization",
+    "name": vendor.name,
+    "url": vendor.website || undefined
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  }
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={metaDescription}
+  activePath={`/vendors/${vendor.id}`}
+  schemas={[breadcrumbSchema, softwareSchema]}
+>
+  <main>
+    <!-- Breadcrumb Navigation -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <a href="/vendors" style="color: inherit; text-decoration: underline;">Vendor Directory</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">{vendor.name}</span>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="hero-text" style="margin-bottom: 24px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;">
+        <h1 style="margin-bottom: 4px;">{vendor.name}</h1>
+        <div style="display: flex; gap: 8px; align-items: center;">
+          <span class={`badge ${tierBadgeClass}`} style="font-size: 13px; padding: 4px 10px;">{vendor.tierLabel}</span>
+          <span class="badge" style="font-size: 12px;">{vendor.category}</span>
+        </div>
+      </div>
+      <p class="hero-subtitle" style="font-size: 18px; margin-top: 4px;">{vendor.product}</p>
+      <p style="font-size: 14.5px; line-height: 1.7; margin-top: 14px;">{vendor.summary}</p>
+    </section>
+
+    <!-- Key Attributes Grid -->
+    <section style="margin-bottom: 30px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+        <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">Market Tier</div>
+          <div style="font-weight: 700; font-size: 14px;"><a href="/tiers" style="color: inherit; text-decoration: underline;">Tier {vendor.tier} Platform</a></div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">Ownership & Backing</div>
+          <div style="font-size: 13.5px; line-height: 1.4;">{vendor.ownership}</div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">2026 Market Status</div>
+          <div style="font-size: 13.5px; line-height: 1.4;">{vendor.status2026}</div>
+        </div>
+
+        {vendor.headquarters && (
+          <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
+            <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">Headquarters</div>
+            <div style="font-size: 13.5px;">{vendor.headquarters}</div>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Detailed Analysis -->
+    <section style="margin-bottom: 32px;">
+      <h2 class="section-title">Validation Scope & Architectural Capabilities</h2>
+      <div class="callout-box">
+        <h3 style="font-size: 16px; margin-bottom: 10px;">Supported GxP Domains</h3>
+        <ul style="padding-left: 20px; font-size: 13.5px; line-height: 1.7; margin-bottom: 16px;">
+          {vendor.scope.map((item) => (
+            <li><strong>{item}</strong></li>
+          ))}
+        </ul>
+
+        <h3 style="font-size: 16px; margin-bottom: 8px;">Key Architectural Differentiator</h3>
+        <p style="font-size: 13.5px; line-height: 1.6; margin-bottom: 0;">
+          {vendor.keyDifferentiator}
+        </p>
+      </div>
+    </section>
+
+    <!-- AI Readiness & MCP Evaluation -->
+    <section style="margin-bottom: 32px;">
+      <h2 class="section-title">Artificial Intelligence & Model Context Protocol (MCP) Readiness</h2>
+      <div class="callout-box" style="border-left: 3px solid #111;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px; gap: 8px;">
+          <h3 style="font-size: 16px; margin: 0;">AI Capabilities & Architecture</h3>
+          <span class="badge badge-ai" style="font-size: 12px;">Readiness: {vendor.aiReadiness}</span>
+        </div>
+
+        {vendor.aiFeatures ? (
+          <p style="font-size: 13.5px; line-height: 1.6;">
+            <strong>Features & Integrations:</strong> {vendor.aiFeatures}
+          </p>
+        ) : (
+          <p style="font-size: 13.5px; line-height: 1.6; font-style: italic; color: var(--muted-text);">
+            No public AI automation features or native autonomous agents disclosed for this platform.
+          </p>
+        )}
+
+        {aiData && (
+          <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--card-border);">
+            <div style="font-size: 14px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-serif);">
+              Walled Garden & Data Openness Assessment
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; font-size: 12.5px; margin-bottom: 12px;">
+              <div><strong>Posture:</strong> {aiData.walledGardenPosture}</div>
+              <div><strong>MCP Support:</strong> {aiData.mcpStatus}</div>
+              <div><strong>API Openness:</strong> {aiData.apiOpenness}</div>
+              <div><strong>Part 11 AI Attribution:</strong> {aiData.part11AiAttribution}</div>
+              <div><strong>Readiness Score:</strong> {aiData.readinessScore}/100 (Grade: {aiData.opennessGrade})</div>
+            </div>
+            <p style="font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+              <strong>Analyst Takeaway:</strong> {aiData.buyerTakeaway}
+            </p>
+            <a href="/ai-readiness-tracker" class="service-link" style="font-size: 12px; font-weight: 600;">
+              View full 20+ vendor AI & MCP Openness Benchmark &rarr;
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Known Deployments -->
+    {vendor.knownCustomers && vendor.knownCustomers.length > 0 && (
+      <section style="margin-bottom: 32px;">
+        <h2 class="section-title">Verified Enterprise Deployments</h2>
+        <div class="callout-box">
+          <p style="font-size: 13.5px; line-height: 1.6; margin-bottom: 8px;">
+            Publicly documented or verified deployments of {vendor.product} across biopharma and medical device sponsors:
+          </p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px;">
+            {vendor.knownCustomers.map((cust) => (
+              <span class="badge" style="font-size: 12px; padding: 4px 8px; background: rgba(0,0,0,0.04);">{cust}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Related Vendors in Same Tier -->
+    {relatedVendors.length > 0 && (
+      <section style="margin-bottom: 32px;">
+        <h2 class="section-title">Related Tier {vendor.tier} Platforms</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px;">
+          {relatedVendors.map((rel) => (
+            <div class="card" style="padding: 16px;">
+              <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">
+                <a href={`/vendors/${rel.id}`} style="color: inherit; text-decoration: underline;">
+                  {rel.name}
+                </a>
+              </div>
+              <div style="font-size: 12px; color: var(--muted-text); margin-bottom: 8px;">{rel.product}</div>
+              <p style="font-size: 12.5px; line-height: 1.5; margin-bottom: 10px;">{rel.summary.slice(0, 110)}...</p>
+              <a href={`/vendors/${rel.id}`} class="service-link" style="font-size: 12px;">
+                View Profile &rarr;
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Navigation Footer -->
+    <section style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px;">
+      <a href="/vendors" class="service-link">&larr; Back to Complete Vendor Directory</a>
+      {vendor.website && (
+        <a href={vendor.website} target="_blank" rel="noopener" class="service-link">
+          Official {vendor.name} Website &rarr;
+        </a>
+      )}
+    </section>
+  </main>
+</Layout>

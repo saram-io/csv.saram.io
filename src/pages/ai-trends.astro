@@ -1,13 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "AI Validation Trends (2026)",
+      "item": "https://csv.saram.io/ai-trends/"
+    }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "AI in Computerized Systems Validation: 2026 Vendor Breakthroughs & Agentic Architecture",
+  "description": "Deep-dive analysis of major AI validation developments in 2025–2026: ValGenesis VAL™, Veeva Vault MCP Server GA 26R2, MasterControl ISO 42001, and Kneat Thoma Bravo buyout.",
+  "url": "https://csv.saram.io/ai-trends/",
+  "author": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Saram Consulting",
+    "url": "https://saram.io"
+  },
+  "datePublished": "2026-04-20T08:00:00Z",
+  "dateModified": "2026-06-13T12:00:00Z",
+  "about": [
+    "Artificial Intelligence in Validation",
+    "Model Context Protocol",
+    "ValGenesis VAL",
+    "Veeva Vault MCP Server",
+    "MasterControl ISO 42001"
+  ]
+};
 ---
 
 <Layout 
-  title="2026 AI in Life Sciences Validation Trends | Saram Consulting"
-  description="Analysis of the major AI validation developments in 2025–2026: ValGenesis VAL™, Veeva Vault MCP Server GA 26R2, MasterControl ISO 42001, and Kneat Thoma Bravo acquisition."
+  title="2026 AI in Life Sciences Validation Trends: Agentic GxP & MCP | Saram Consulting"
+  description="Analysis of major AI validation developments in 2025–2026: ValGenesis VAL™, Veeva Vault MCP Server GA 26R2, MasterControl ISO 42001, and Kneat Thoma Bravo acquisition."
   activePath="/ai-trends"
+  ogType="article"
+  schemas={[breadcrumbSchema, articleSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">AI Trends</span>
+    </nav>
+
     <section class="hero-text">
       <h1>AI in Computerized Systems Validation</h1>
       <p class="hero-subtitle">2026 Vendor Breakthroughs, Agentic Architectures, and Private Equity Moves</p>

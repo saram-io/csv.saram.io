@@ -2,19 +2,60 @@
 import Layout from '../layouts/Layout.astro';
 import VendorDirectory from '../components/VendorDirectory.astro';
 import { VENDORS } from '../data/vendors';
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://csv.saram.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Vendor Directory",
+      "item": "https://csv.saram.io/vendors/"
+    }
+  ]
+};
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Life Sciences CSV & CSA Software Platform Directory",
+  "description": "Comprehensive directory of 20+ Computer Systems Validation (CSV) and Computer Software Assurance (CSA) platforms.",
+  "numberOfItems": VENDORS.length,
+  "itemListElement": VENDORS.map((vendor, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": `${vendor.name} - ${vendor.product}`,
+    "url": `https://csv.saram.io/vendors/${vendor.id}/`
+  }))
+};
 ---
 
 <Layout 
-  title="Complete CSV / CSA Vendor Directory | Saram Consulting"
-  description="Searchable directory of all 20+ tracked computerized systems validation and software assurance platforms across all 4 tiers."
+  title="Directory of 20+ CSV & CSA Validation Platforms (2026) | Saram Consulting"
+  description="Searchable directory of all 20+ tracked computerized systems validation and software assurance platforms across all 4 tiers with AI readiness benchmarks."
   activePath="/vendors"
+  schemas={[breadcrumbSchema, itemListSchema]}
 >
   <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" style="font-size: 12px; margin-bottom: 20px; color: var(--muted-text);">
+      <a href="/" style="color: inherit; text-decoration: underline;">Home</a>
+      <span style="margin: 0 6px;">&rsaquo;</span>
+      <span style="color: #000; font-weight: 600;">Vendor Directory</span>
+    </nav>
+
     <section class="hero-text">
       <h1>Validation Vendor Directory</h1>
       <p class="hero-subtitle">Comprehensive Index of Pure-Play, Adjacent, Specialist, and Legacy Systems</p>
       <p>
-        Filter and search across {VENDORS.length} tracked platforms in our verified validation knowledge bank. Search by company name, enterprise customers (e.g. AstraZeneca, Biogen, Pfizer, Novartis), AI capabilities, or system category.
+        Filter and search across {VENDORS.length} tracked platforms in our verified validation knowledge bank. Search by company name, enterprise customers (e.g. AstraZeneca, Biogen, Pfizer, Novartis), AI capabilities, or system category. Select any platform to view its dedicated architecture profile, known customer deployments, and AI/MCP openness analysis.
       </p>
     </section>
 

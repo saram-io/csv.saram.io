@@ -8,28 +8,42 @@ interface Props {
   description?: string;
   canonicalUrl?: string;
   activePath?: string;
+  ogType?: 'website' | 'article';
+  ogImage?: string;
+  schemas?: Record<string, any>[];
 }
 
 const {
   title = "CSV / CSA Vendor Landscape & Market Research | Saram Consulting",
   description = "Independent research, tier classification, and AI capabilities analysis of Computer Systems Validation (CSV) & Computer Software Assurance (CSA) vendors for Life Sciences.",
-  canonicalUrl = Astro.url.href,
-  activePath = Astro.url.pathname
+  canonicalUrl,
+  activePath = Astro.url.pathname,
+  ogType = 'website',
+  ogImage = 'https://csv.saram.io/og-image.png',
+  schemas = []
 } = Astro.props;
 
-const structuredSchema = {
+const normalizedPath = activePath.endsWith('/') ? activePath : `${activePath}/`;
+const canonical = canonicalUrl || `https://csv.saram.io${normalizedPath === '//' ? '/' : normalizedPath}`;
+
+const defaultBaseSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Saram CSV / CSA Vendor Intelligence",
-  "url": "https://csv.saram.io",
-  "description": description,
+  "url": "https://csv.saram.io/",
+  "description": "Independent research, 4-tier market classification, and AI readiness benchmarks for life sciences software validation.",
   "publisher": {
-    "@type": "ProfessionalService",
+    "@type": "Organization",
     "name": "Saram Consulting",
     "url": "https://saram.io",
-    "logo": "https://saram.io/logo.png"
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://csv.saram.io/logo.png"
+    }
   }
 };
+
+const allSchemas = [defaultBaseSchema, ...schemas];
 ---
 
 <!doctype html>
@@ -39,24 +53,33 @@ const structuredSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalUrl} />
+    <meta name="author" content="Saram Consulting" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph / Facebook / LinkedIn -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Saram Consulting | CSV/CSA Intelligence" />
-    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://saram.io/og.png" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://saram.io/og.png" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={title} />
 
     <meta name="theme-color" content="#f5f4ef" />
 
@@ -69,7 +92,9 @@ const structuredSchema = {
     />
 
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(structuredSchema)} />
+    {allSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
   </head>
   <body>
     <div class="container">

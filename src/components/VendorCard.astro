@@ -16,7 +16,11 @@ const tierBadgeClass =
 <div class="card" data-tier={vendor.tier} data-category={vendor.category} data-name={vendor.name.toLowerCase()} data-search={`${vendor.name} ${vendor.product} ${vendor.summary} ${vendor.knownCustomers?.join(' ') || ''}`.toLowerCase()}>
   <div class="card-header">
     <div>
-      <h3 class="card-title">{vendor.name}</h3>
+      <h3 class="card-title">
+        <a href={`/vendors/${vendor.id}/`} style="color: inherit; text-decoration: underline; text-underline-offset: 4px;">
+          {vendor.name}
+        </a>
+      </h3>
       <div class="card-subtitle">{vendor.product}</div>
     </div>
     <span class={`badge ${tierBadgeClass}`}>T{vendor.tier}</span>
@@ -52,15 +56,20 @@ const tierBadgeClass =
     <div class="card-meta">
       <strong>Ownership:</strong> {vendor.ownership}
     </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px; flex-wrap: wrap; gap: 6px;">
-      {vendor.website && (
-        <a href={vendor.website} target="_blank" rel="noopener" class="service-link" style="font-size: 12px;">
-          Visit vendor site &rarr;
-        </a>
-      )}
-      <a href="/ai-readiness-tracker" class="service-link" style="font-size: 11.5px; color: var(--muted-text);">
-        AI & MCP Tracker &rarr;
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px; flex-wrap: wrap; gap: 8px;">
+      <a href={`/vendors/${vendor.id}/`} class="service-link" style="font-size: 12px; font-weight: 600;">
+        Full Platform Profile &rarr;
       </a>
+      <div style="display: flex; gap: 10px; align-items: center;">
+        {vendor.website && (
+          <a href={vendor.website} target="_blank" rel="noopener" class="service-link" style="font-size: 11.5px; opacity: 0.8;">
+            External site &rarr;
+          </a>
+        )}
+        <a href="/ai-readiness-tracker" class="service-link" style="font-size: 11.5px; color: var(--muted-text);">
+          AI Tracker &rarr;
+        </a>
+      </div>
     </div>
   </div>
 </div>

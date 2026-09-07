@@ -1,0 +1,21 @@
+{
+  "name": "Saram CSV / CSA Vendor Landscape",
+  "short_name": "CSV Landscape",
+  "description": "Independent research, 4-tier market classification, and AI readiness benchmarks for life sciences software validation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f4ef",
+  "theme_color": "#f5f4ef",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
