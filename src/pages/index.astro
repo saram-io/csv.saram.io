@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SpotlightBanner from '../components/SpotlightBanner.astro';
+import LatestNews from '../components/LatestNews.astro';
 import ComparisonTable from '../components/ComparisonTable.astro';
 import VendorDirectory from '../components/VendorDirectory.astro';
 import { VENDORS } from '../data/vendors';
@@ -30,27 +31,8 @@ const tier4Count = VENDORS.filter(v => v.tier === 4).length;
       </p>
     </section>
 
-    <!-- Executive Highlights -->
-    <section>
-      <h2 class="section-title">2026 Market Dynamics & Inflection Points</h2>
-      <div class="callout-box">
-        <h3 style="margin-bottom: 8px;">Key Verified Industry Developments:</h3>
-        <ul style="padding-left: 20px; font-size: 13.5px; line-height: 1.7;">
-          <li>
-            <strong>Thoma Bravo Acquisition of Kneat:</strong> Kneat Gx, the dominant paperless validation platform trusted by 8 of the world's top 10 biopharma companies, entered a definitive acquisition agreement with private equity giant Thoma Bravo (formerly TSE:KSI).
-          </li>
-          <li>
-            <strong>ValGenesis VAL™ Agentic Launch:</strong> At INTERPHEX (April 14, 2026), ValGenesis unveiled VAL™, an autonomous AI agent engineered for protocol generation, gap assessment, test execution review, and trace analysis following a $16M financing.
-          </li>
-          <li>
-            <strong>Veeva Vault MCP Server & AI Agents:</strong> Veeva Systems integrated Model Context Protocol (MCP) servers and AI Agents natively into Vault Validation Management (GA 26R2, August 2026), unifying validation with QualityDocs and QMS.
-          </li>
-          <li>
-            <strong>MasterControl ISO 42001 Certification:</strong> MasterControl certified its AI Trust Center under ISO/IEC 42001 (Artificial Intelligence Management System) on July 15, 2025, offering automated transfer of risk assessments directly to validation test execution.
-          </li>
-        </ul>
-      </div>
-    </section>
+    <!-- Latest News & Industry Dispatches -->
+    <LatestNews />
 
     <!-- AI Readiness & Walled Garden Tracker Callout -->
     <section>

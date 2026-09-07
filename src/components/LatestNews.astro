@@ -1,0 +1,385 @@
+---
+import { LATEST_NEWS, type NewsItem } from '../data/news';
+
+const categories = ['All', ...new Set(LATEST_NEWS.map(item => item.category))];
+const featuredItem = LATEST_NEWS.find(item => item.featured) || LATEST_NEWS[0];
+const otherItems = LATEST_NEWS.filter(item => item.id !== featuredItem.id);
+---
+
+<section class="latest-news-section" id="latest-news">
+  <div class="news-section-header">
+    <div>
+      <h2 class="section-title">Latest News & Industry Dispatches</h2>
+      <p class="news-section-subtitle">
+        Verified reporting on validation AI agents, private equity M&A, regulatory shifts, and open protocol benchmarks.
+      </p>
+    </div>
+    <div class="news-live-indicator">
+      <span class="live-pulse"></span>
+      <span class="live-text">2026 Dispatches</span>
+    </div>
+  </div>
+
+  <!-- Filter Pills -->
+  <div class="news-filter-bar">
+    <div class="news-filter-pills" id="newsFilterPills">
+      {categories.map((cat, idx) => (
+        <button 
+          class={`news-filter-btn ${idx === 0 ? 'active' : ''}`}
+          data-category={cat}
+          type="button"
+        >
+          {cat} {cat === 'All' ? `(${LATEST_NEWS.length})` : ''}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <!-- News Content Feed -->
+  <div class="news-feed" id="newsFeed">
+    <!-- Featured Lead Story -->
+    {featuredItem && (
+      <article 
+        class="news-card news-card-featured" 
+        data-category={featuredItem.category}
+        data-news-id={featuredItem.id}
+      >
+        <div class="news-card-meta-top">
+          <div class="news-card-meta-left">
+            <span class="badge badge-tier1">Featured Dispatch</span>
+            {featuredItem.badge && <span class="badge badge-ai">{featuredItem.badge}</span>}
+            <span class="badge">{featuredItem.category}</span>
+          </div>
+          <time class="news-card-date" datetime={featuredItem.isoDate}>{featuredItem.date}</time>
+        </div>
+
+        <h3 class="news-featured-title">
+          <a href={featuredItem.link} class="news-title-link">{featuredItem.title}</a>
+        </h3>
+
+        <p class="news-card-summary">{featuredItem.summary}</p>
+
+        <div class="news-card-footer">
+          <span class="news-source">Source: <strong>{featuredItem.source}</strong></span>
+          <a href={featuredItem.link} class="news-cta-link">
+            {featuredItem.linkText || 'Read Analysis'} &rarr;
+          </a>
+        </div>
+      </article>
+    )}
+
+    <!-- Secondary News Grid -->
+    <div class="news-grid" id="newsSecondaryGrid">
+      {otherItems.map((item) => (
+        <article 
+          class="news-card" 
+          data-category={item.category}
+          data-news-id={item.id}
+        >
+          <div class="news-card-meta-top">
+            <div class="news-card-meta-left">
+              <span class="badge">{item.category}</span>
+              {item.badge && <span class="badge badge-ai">{item.badge}</span>}
+            </div>
+            <time class="news-card-date" datetime={item.isoDate}>{item.date}</time>
+          </div>
+
+          <h3 class="news-card-title">
+            <a href={item.link} class="news-title-link">{item.title}</a>
+          </h3>
+
+          <p class="news-card-summary">{item.summary}</p>
+
+          <div class="news-card-footer">
+            <span class="news-source">Source: <strong>{item.source}</strong></span>
+            <a href={item.link} class="news-cta-link">
+              {item.linkText || 'Read More'} &rarr;
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div id="noNewsMatch" class="news-no-match" style="display: none;">
+    <p>No dispatches found in this category.</p>
+  </div>
+</section>
+
+<style>
+  .latest-news-section {
+    margin: 8px 0 16px;
+  }
+
+  .news-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .news-section-subtitle {
+    font-size: 13px;
+    color: var(--muted-text);
+    margin-top: -6px;
+    margin-bottom: 0;
+  }
+
+  .news-live-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #00000008;
+    border: 1px solid #00000018;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  .live-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #2e7d32;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+  }
+
+  .live-text {
+    font-weight: 500;
+    color: #333;
+  }
+
+  /* Filter bar */
+  .news-filter-bar {
+    margin-bottom: 16px;
+  }
+
+  .news-filter-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .news-filter-btn {
+    background-color: transparent;
+    border: 1px solid #00000020;
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    padding: 3px 8px;
+    cursor: pointer;
+    color: #333;
+    transition: all 0.15s ease;
+  }
+
+  .news-filter-btn:hover {
+    background-color: #0000000a;
+  }
+
+  .news-filter-btn.active {
+    background-color: #111;
+    color: #fff;
+    border-color: #111;
+  }
+
+  /* News feed */
+  .news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .news-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .news-card:hover {
+    background-color: var(--card-hover-bg);
+    border-color: #00000026;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Featured story highlight */
+  .news-card-featured {
+    border-left: 4px solid #111;
+    background: linear-gradient(180deg, #eae9e0 0%, var(--card-bg) 100%);
+    padding: 18px 22px;
+  }
+
+  .news-card-meta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .news-card-meta-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .news-card-date {
+    font-size: 11.5px;
+    color: var(--muted-text);
+    font-family: var(--font-mono);
+  }
+
+  .news-featured-title {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 2px 0 0;
+  }
+
+  .news-card-title {
+    font-family: var(--font-serif);
+    font-size: 15.5px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin: 2px 0 0;
+  }
+
+  .news-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .news-title-link:hover {
+    text-decoration: underline 1px;
+    text-decoration-color: var(--underline-hover);
+  }
+
+  .news-card-summary {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #222;
+    margin: 0;
+  }
+
+  .news-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid #0000000e;
+    margin-top: auto;
+  }
+
+  .news-source {
+    font-size: 11px;
+    color: var(--muted-text);
+    font-family: var(--font-mono);
+  }
+
+  .news-cta-link {
+    font-size: 12px;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: underline 1px;
+    text-decoration-color: var(--underline-color);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+
+  .news-cta-link:hover {
+    text-decoration-color: var(--underline-hover);
+  }
+
+  /* Secondary news grid */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 14px;
+  }
+
+  .news-no-match {
+    padding: 30px;
+    text-align: center;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border: 1px dashed #00000026;
+    font-size: 13px;
+    color: var(--muted-text);
+  }
+
+  @media (max-width: 640px) {
+    .news-grid {
+      grid-template-columns: 1fr;
+    }
+    .news-card-featured {
+      padding: 14px 16px;
+    }
+    .news-card {
+      padding: 14px 16px;
+    }
+    .news-featured-title {
+      font-size: 16px;
+    }
+    .news-card-title {
+      font-size: 14.5px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    function initNewsFilter() {
+      const filterBtns = document.querySelectorAll('.news-filter-btn');
+      const newsCards = document.querySelectorAll('.latest-news-section .news-card');
+      const noMatchEl = document.getElementById('noNewsMatch');
+
+      if (!filterBtns.length || !newsCards.length) return;
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const selectedCategory = btn.getAttribute('data-category');
+          let visibleCount = 0;
+
+          newsCards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (selectedCategory === 'All' || cardCat === selectedCategory) {
+              card.style.display = 'flex';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          if (noMatchEl) {
+            noMatchEl.style.display = visibleCount === 0 ? 'block' : 'none';
+          }
+        });
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNewsFilter);
+    } else {
+      initNewsFilter();
+    }
+  })();
+</script>
