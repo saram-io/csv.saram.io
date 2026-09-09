@@ -3,12 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import AiTrackerTable from '../components/AiTrackerTable.astro';
 import { AI_TRACKER_DATA } from '../data/aiTrackerData';
 
-const totalCount = AI_TRACKER_DATA.length;
-const openCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Open Protocol Pioneer').length;
-const proprietaryCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Proprietary AI Moat').length;
-const ecosystemCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Ecosystem Walled Garden').length;
-const closedCount = AI_TRACKER_DATA.filter(v => v.walledGardenPosture === 'Closed Fortress').length;
-
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -31,8 +25,8 @@ const breadcrumbSchema = {
 const datasetSchema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "name": "Life Science CSV/CSA AI Readiness & Walled Garden Benchmark Dataset",
-  "description": "Empirical benchmark evaluating 20+ life science Computer Systems Validation (CSV) and QMS vendors across Model Context Protocol (MCP) support, REST/GraphQL API openness, Part 11 AI agent audit attribution, and proprietary lock-in risks.",
+  "name": "Life Science CSV/CSA AI Readiness & Walled Garden Benchmark Dataset (100-Point Model)",
+  "description": "Empirical benchmark evaluating 25+ life science Computer Systems Validation (CSV) and Computer Software Assurance (CSA) software vendors using an audited 100-point rubric across Model Context Protocol (MCP) support, REST/GraphQL API openness, data portability, Part 11 AI agent audit attribution, and BYO-AI lock-in risk.",
   "url": "https://csv.saram.io/ai-readiness-tracker/",
   "creator": {
     "@type": "Organization",
@@ -45,16 +39,49 @@ const datasetSchema = {
     "Computer Systems Validation",
     "Computer Software Assurance",
     "21 CFR Part 11",
-    "AI Agents"
+    "AI Agents",
+    "Walled Garden Tracker",
+    "ISO 42001"
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is the 100-point CSV AI Readiness Score calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The score is calculated across five weighted dimensions: Model Context Protocol support (30 pts), API openness & real-time webhooks (25 pts), data portability & living schema export (15 pts), 21 CFR Part 11 AI agent attribution (15 pts), and BYO-AI commercial freedom (15 pts)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is Model Context Protocol (MCP) weighted at 30% of the total score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "MCP standardizes tool calling, resource discovery, and zero-trust authorization across heterogeneous enterprise systems. Without MCP, connecting autonomous validation agents requires brittle, high-maintenance point-to-point API integrations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the BYO-AI clause for life sciences validation software contracts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Bring-Your-Own-AI (BYO-AI) clause legally guarantees that sponsors can connect external frontier models (Claude, Gemini, OpenAI, open-weight LLMs) directly to validation data via standard APIs without paying punitive per-seat vendor copilot surcharges."
+      }
+    }
   ]
 };
 ---
 
 <Layout 
   title="Life Science CSV AI Readiness & Walled Garden Tracker (2026) | Saram Consulting"
-  description="Independent tracker benchmarking 20+ Computer Systems Validation (CSV) & CSA vendors on Model Context Protocol (MCP) support, API openness, and walled garden lock-in risk."
+  description="Independent 100-point benchmark evaluating 25+ Computer Systems Validation (CSV) & CSA vendors on Model Context Protocol (MCP), API openness, Part 11 AI auditability, and walled garden lock-in risk."
   activePath="/ai-readiness-tracker"
-  schemas={[breadcrumbSchema, datasetSchema]}
+  schemas={[breadcrumbSchema, datasetSchema, faqSchema]}
 >
   <main>
     <!-- Breadcrumb -->
@@ -65,47 +92,130 @@ const datasetSchema = {
     </nav>
 
     <section class="hero-text">
+      <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--muted-text); margin-bottom: 8px;">
+        Audited Industry Benchmark & Open Data Index
+      </div>
       <h1>Life Science CSV AI Readiness & Walled Garden Tracker</h1>
       <p class="hero-subtitle">
-        Benchmarking 20+ Validation Vendors on Model Context Protocol (MCP), API Openness, Data Portability, and AI Lock-In Risk
+        Auditing 25+ Validation Vendors on a 100-Point Scale Across Model Context Protocol (MCP), API Openness, Data Portability, and AI Lock-In Risk
       </p>
       <p>
-        For two decades, life sciences Computerized Systems Validation (CSV) and Quality Management (QMS) vendors have operated as classic <strong>walled gardens</strong>. By citing strict regulatory fear (21 CFR Part 11, GAMP 5, data integrity audit trails) and locking customers into per-seat licenses, vendors kept critical compliance evidence&mdash;User Requirements Specifications (URS), test execution logs, trace matrices, and deviation reports&mdash;trapped inside proprietary databases.
+        For two decades, life sciences Computerized Systems Validation (CSV) and Quality Management (QMS) vendors have operated as classic <strong>walled gardens</strong>. Citing regulatory fear (21 CFR Part 11, GAMP 5, data integrity audit trails) and locking customers into per-seat licenses, incumbents kept critical compliance evidence&mdash;User Requirements Specifications (URS), test execution logs, trace matrices, and deviation reports&mdash;trapped inside proprietary databases.
       </p>
       <p>
-        The rise of <strong>autonomous coding and validation agents</strong> in 2025&ndash;2026 has brought this dynamic to an inflection point. Biopharma engineering, QA, and digital transformation leaders are asking a crucial question: <em>Are these vendors ever willing to open up data access through standard protocols like Anthropic's <strong>Model Context Protocol (MCP)</strong> and modern REST/GraphQL APIs, or are they attempting to lock customers into closed, high-margin AI moats?</em>
+        The rapid maturation of <strong>autonomous validation agents</strong> in 2025&ndash;2026 has brought this dynamic to an inflection point. Biopharma engineering, QA, and digital transformation leaders face a critical decision: <em>Are vendors willing to open up data access through open protocols like Anthropic's <strong>Model Context Protocol (MCP)</strong> and modern REST/GraphQL APIs? Or are they defending closed, high-margin AI copilots that trap customer data?</em>
       </p>
       <p>
-        Below is Saram Consulting’s verified, real-time tracker evaluating the entire life sciences validation software market on data openness, MCP support, and AI agent readiness.
+        Below is Saram Consulting’s verified, real-time benchmark evaluating the entire life sciences validation software market using an objective <strong>100-point scoring model</strong>.
       </p>
     </section>
 
-    <!-- Key Metrics Grid -->
+    <!-- Interactive AI Readiness Tracker Component -->
     <section>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 10px 0 24px;">
-        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border); text-align: center;">
-          <div style="font-size: 24px; font-weight: 700; font-family: var(--font-serif);">{openCount}</div>
-          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-top: 4px;">Open MCP Pioneers</div>
-          <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Veeva, Ketryx, Vera, GoVal, Sware</div>
-        </div>
+      <AiTrackerTable />
+    </section>
 
-        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border); text-align: center;">
-          <div style="font-size: 24px; font-weight: 700; font-family: var(--font-serif);">{proprietaryCount}</div>
-          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-top: 4px;">Proprietary AI Moats</div>
-          <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Kneat, ValGenesis, MasterControl</div>
-        </div>
+    <!-- 100-Point Scoring Methodology & Rubric -->
+    <section style="margin-top: 48px;">
+      <h2 class="section-title">The 100-Point Scoring Methodology & Evaluation Rubric</h2>
+      <p>
+        Unlike subjective analyst quadrants, the Saram AI Readiness Index scores every vendor out of <strong>100 objective points</strong> across five core architectural and compliance criteria. This methodology mirrors the open protocol benchmark pioneered on <a href="https://qms.saram.io/ai-readiness-tracker" target="_blank" rel="noopener" class="service-link"><strong>qms.saram.io</strong></a>:
+      </p>
 
-        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border); text-align: center;">
-          <div style="font-size: 24px; font-weight: 700; font-family: var(--font-serif);">{ecosystemCount}</div>
-          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-top: 4px;">Ecosystem Bound</div>
-          <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Salesforce, Dot Compliance, Siemens, SAP</div>
-        </div>
+      <div class="table-wrapper" style="margin: 18px 0 24px;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+          <thead>
+            <tr style="background: #00000008; border-bottom: 2px solid #00000022; text-align: left;">
+              <th style="padding: 10px 12px; width: 22%;">Evaluation Category</th>
+              <th style="padding: 10px 12px; width: 12%; text-align: center;">Weight</th>
+              <th style="padding: 10px 12px; width: 66%;">Scoring Rubric & Evidence Verification</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #00000014;">
+              <td style="padding: 12px;">
+                <strong>1. Model Context Protocol (MCP)</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Standardized Agent Tool Calling</div>
+              </td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-weight: 700;">30 pts</td>
+              <td style="padding: 12px; font-size: 12.5px; line-height: 1.5;">
+                • <strong>30 pts:</strong> GA Production Native MCP Server with Part 11 scopes & OAuth 2.0 token security<br />
+                • <strong>20&ndash;25 pts:</strong> Documented Developer Sandbox / Active MCP Development / Public Roadmap<br />
+                • <strong>10&ndash;14 pts:</strong> Ecosystem-bound (Salesforce Agentforce, Siemens Azure, SAP BTP) or internal copilot only<br />
+                • <strong>0&ndash;5 pts:</strong> Proprietary refusal, unmaintained legacy architecture, or zero MCP support
+              </td>
+            </tr>
 
-        <div style="background: var(--card-bg); padding: 14px; border-radius: 6px; border: 1px solid var(--card-border); text-align: center;">
-          <div style="font-size: 24px; font-weight: 700; font-family: var(--font-serif);">{closedCount}</div>
-          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); margin-top: 4px;">Closed Fortresses</div>
-          <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">TrackWise v8, Atlas, Paper/Excel</div>
-        </div>
+            <tr style="border-bottom: 1px solid #00000014;">
+              <td style="padding: 12px;">
+                <strong>2. API Openness & Event Webhooks</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Programmatic Accessibility</div>
+              </td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-weight: 700;">25 pts</td>
+              <td style="padding: 12px; font-size: 12.5px; line-height: 1.5;">
+                • <strong>25 pts:</strong> Grade A &mdash; Modern REST/GraphQL endpoints + real-time webhook subscriptions + OpenAPI docs<br />
+                • <strong>16&ndash;18 pts:</strong> Grade B &mdash; Enterprise REST APIs with token auth, but rate-limited or lacks webhooks<br />
+                • <strong>8&ndash;10 pts:</strong> Grade C &mdash; Legacy SOAP services, direct SQL/ODBC views, or batch ETL exports<br />
+                • <strong>0&ndash;5 pts:</strong> Grade D &mdash; Disconnected scripts, air-gapped files, or closed desktop tools
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #00000014;">
+              <td style="padding: 12px;">
+                <strong>3. Data Portability & Schema Openness</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Traceability Graph Freedom</div>
+              </td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-weight: 700;">15 pts</td>
+              <td style="padding: 12px; font-size: 12.5px; line-height: 1.5;">
+                • <strong>14&ndash;15 pts:</strong> Living traceability graph / full structured JSON schemas for URS, test steps, and logs<br />
+                • <strong>10&ndash;12 pts:</strong> Semi-structured CSV / XML batch exports requiring relational stitching<br />
+                • <strong>0&ndash;4 pts:</strong> Static document blobs, flattened PDF binders, or encrypted proprietary formats
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #00000014;">
+              <td style="padding: 12px;">
+                <strong>4. Part 11 AI Attribution & Audit Logs</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">FDA Regulatory Defensibility</div>
+              </td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-weight: 700;">15 pts</td>
+              <td style="padding: 12px; font-size: 12.5px; line-height: 1.5;">
+                • <strong>14&ndash;15 pts:</strong> Immutable append-only audit trail capturing agent ID, session token, prompt hash, and human sign-off; ISO 42001 alignment<br />
+                • <strong>10&ndash;12 pts:</strong> Service Account proxy attribution requiring custom forensic logging<br />
+                • <strong>4&ndash;6 pts:</strong> Manual copy-paste verification into static documentation<br />
+                • <strong>0&ndash;3 pts:</strong> Completely unsupported; untracked automated modifications
+              </td>
+            </tr>
+
+            <tr style="border-bottom: 1px solid #00000014;">
+              <td style="padding: 12px;">
+                <strong>5. BYO-AI Freedom & Commercial Posture</strong>
+                <div style="font-size: 11px; color: var(--muted-text); margin-top: 2px;">Switching Moat & Pricing Risk</div>
+              </td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-weight: 700;">15 pts</td>
+              <td style="padding: 12px; font-size: 12.5px; line-height: 1.5;">
+                • <strong>13&ndash;15 pts:</strong> Open Protocol Pioneer &mdash; Full BYO-AI allowed; unmetered API calls included in base license<br />
+                • <strong>9&ndash;11 pts:</strong> Ecosystem Walled Garden &mdash; Hyperscaler runtime fees or connector add-ons required<br />
+                • <strong>6&ndash;8 pts:</strong> Proprietary AI Moat &mdash; Surcharged internal copilot; external model routing discouraged/gated<br />
+                • <strong>0&ndash;4 pts:</strong> Closed Fortress &mdash; Hostile to external integration; punitive export surcharges
+              </td>
+            </tr>
+
+            <tr style="background: #00000005; font-weight: 700;">
+              <td style="padding: 12px;">TOTAL COMPOSITE BENCHMARK</td>
+              <td style="padding: 12px; text-align: center; font-family: var(--font-mono); font-size: 15px;">100 pts</td>
+              <td style="padding: 12px; font-size: 12px;">
+                <strong>Letter Grade Scale:</strong> 
+                <span class="badge" style="background: #111; color: #fff; margin-left: 6px;">A+ (90–100)</span>
+                <span class="badge" style="background: #111; color: #fff; margin-left: 4px;">A (80–89)</span>
+                <span class="badge" style="background: #dedcd2; color: #111; margin-left: 4px;">B (65–79)</span>
+                <span class="badge" style="background: #ebeae2; color: #555; margin-left: 4px;">C (50–64)</span>
+                <span class="badge" style="background: #f4f3eb; color: #888; margin-left: 4px;">D (35–49)</span>
+                <span class="badge" style="background: #ffebee; color: #c62828; margin-left: 4px;">F (&lt;35)</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -115,20 +225,20 @@ const datasetSchema = {
       <div class="callout-box">
         <h3 style="margin-bottom: 8px;">The Five Walled Garden Postures Defined</h3>
         <p style="font-size: 13px; line-height: 1.6;">
-          Life sciences software vendors fall along a distinct spectrum of architectural openness:
+          Life sciences validation and compliance software vendors fall along five distinct postures of architectural openness:
         </p>
         <ul style="padding-left: 20px; font-size: 13px; line-height: 1.7; margin-top: 8px;">
           <li>
-            <strong>1. Open Protocol Pioneer:</strong> The vendor provides native support for open standards like <em>Model Context Protocol (MCP)</em> or fully documented REST/GraphQL APIs with webhook streams. Customers can plug their own enterprise AI models (Claude, Gemini, ChatGPT, local LLMs) directly into the platform, and every agent tool invocation is logged with 21 CFR Part 11 compliant attribution.
+            <strong>1. Open Protocol Pioneer:</strong> Native support for open standards like <em>Model Context Protocol (MCP)</em> or fully documented REST/GraphQL APIs with real-time webhooks. Customers can plug in enterprise AI models (Claude, Gemini, ChatGPT, local LLMs) directly, and every agent tool invocation is logged with 21 CFR Part 11 compliant attribution.
           </li>
           <li>
-            <strong>2. Proprietary AI Moat:</strong> The vendor sells an internal AI co-pilot (e.g. Kneat AI, ValGenesis VAL™) locked strictly inside their user interface. They aggressively restrict external agent access to prevent customers from automating workflows outside of the vendor's metered billing tiers.
+            <strong>2. Proprietary AI Moat:</strong> The vendor sells an internal AI copilot (e.g. Kneat AI, ValGenesis VAL™) locked strictly inside their proprietary web interface. They restrict external agent access to protect per-seat subscription margins.
           </li>
           <li>
-            <strong>3. Ecosystem Walled Garden:</strong> The vendor's solution is built on a hyperscaler or parent platform (e.g. Salesforce Agentforce, Siemens Industrial Copilot, SAP BTP). Programmatic AI access is governed by the parent company's ecosystem fees and proprietary runtime boundaries.
+            <strong>3. Ecosystem Walled Garden:</strong> The solution is built on a hyperscaler or parent platform (e.g. Salesforce Agentforce, Siemens Industrial Copilot, SAP BTP). Programmatic AI access is governed by the parent company's ecosystem fees and proprietary runtime boundaries.
           </li>
           <li>
-            <strong>4. API Gated / Restricted:</strong> Traditional REST or SOAP APIs exist, but are paywalled behind premium enterprise tiers, partner certification hurdles, or restricted to batch export jobs with no support for real-time agentic tool execution.
+            <strong>4. API Gated / Restricted:</strong> Traditional REST or SOAP APIs exist, but are paywalled behind premium enterprise tiers, partner certification hurdles, or restricted to batch export jobs without support for real-time agentic tool execution.
           </li>
           <li>
             <strong>5. Closed Fortress:</strong> Legacy architectures, on-premises relational databases, or manual paper/Excel binders. Data cannot be accessed programmatically by AI agents without risking severe regulatory non-compliance and data integrity breaches.
@@ -168,45 +278,35 @@ const datasetSchema = {
       </div>
     </section>
 
-    <!-- Interactive AI Readiness Tracker Component -->
-    <section>
-      <h2 class="section-title">The Live AI Readiness & Walled Garden Tracker</h2>
-      <p style="margin-bottom: 16px;">
-        Explore real-time openness ratings, MCP implementation status, and procurement takeaways for 20+ vendors. Use the filter buttons or search bar to inspect specific vendors:
-      </p>
-      
-      <AiTrackerTable />
-    </section>
-
     <!-- Tier 1 Vendor Strategic Breakdown -->
     <section>
-      <h2 class="section-title">Strategic Breakdown: Tier 1 Pure-Play Platforms</h2>
+      <h2 class="section-title">Strategic Breakdown: Pure-Play Validation Platforms</h2>
       
       <div style="display: flex; flex-direction: column; gap: 16px; margin: 16px 0;">
         <div class="callout-box" style="margin: 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 6px;">
             <h3 style="font-size: 16px; margin: 0;">Veeva Systems &mdash; The Open Protocol Pioneer</h3>
-            <span class="badge badge-tier1">Grade: A+ (Score: 94/100)</span>
+            <span class="badge" style="background: #111; color: #fff;">Grade: A+ (Score: 94/100)</span>
           </div>
           <p style="font-size: 13px; line-height: 1.6;">
-            By announcing and releasing the <strong>Vault MCP Server</strong> reaching GA in 26R2 (August 2026), Veeva made a calculated strategic bet: they recognized that biopharma IT departments will reject walled garden AI that prevents multi-system integration. By opening MCP server endpoints directly on top of Vault Validation Management and QualityDocs, Veeva allows customer-owned agents to orchestrate qualification workflows while capturing full Part 11 audit trails inside Vault.
+            By shipping the official <strong>Vault MCP Server</strong> reaching GA in 26R2 (August 2026), Veeva made a calculated strategic bet: they recognized that biopharma IT departments will reject walled garden AI that prevents multi-system integration. By opening MCP server endpoints directly on top of Vault Validation Management and QualityDocs, Veeva allows customer-owned agents to orchestrate qualification workflows while capturing full Part 11 audit trails inside Vault.
           </p>
         </div>
 
         <div class="callout-box" style="margin: 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 6px;">
-            <h3 style="font-size: 16px; margin: 0;">Kneat Gx & Thoma Bravo &mdash; The Private Equity AI Moat</h3>
-            <span class="badge badge-tier3">Grade: C (Score: 68/100)</span>
+            <h3 style="font-size: 16px; margin: 0;">Ketryx &mdash; Cloud-Native Connected Traceability Graph</h3>
+            <span class="badge" style="background: #111; color: #fff;">Grade: A+ (Score: 92/100)</span>
           </div>
           <p style="font-size: 13px; line-height: 1.6;">
-            Kneat Gx is the paperless validation market share leader, but its commercial posture is shifting following the definitive acquisition agreement by private equity firm <strong>Thoma Bravo</strong> in 2026. Thoma Bravo’s core SaaS playbook focuses on per-user monetization, pricing power, and minimizing churn through switching costs. Offering open, free MCP access or unmetered external agent APIs directly contradicts this thesis. Consequently, Kneat is marketing "Kneat AI" as a closed, internal premium add-on rather than opening protocol-level integration to third-party LLMs.
+            Ketryx represents the next generation of software validation for SaMD and medical device engineering. By structuring requirements, code commits, tests, and risk records as an active GraphQL traceability graph connected to GitHub, GitLab, and Jira, Ketryx actively prototypes Anthropic MCP server tooling with full Part 11 electronic signature capture.
           </p>
         </div>
 
         <div class="callout-box" style="margin: 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 6px;">
-            <h3 style="font-size: 16px; margin: 0;">ValGenesis &mdash; Strong Dedicated AI (VAL™), Reluctant to Open APIs</h3>
-            <span class="badge badge-tier2">Grade: B (Score: 78/100)</span>
+            <h3 style="font-size: 16px; margin: 0;">ValGenesis &mdash; Strong Dedicated AI (VAL™), Closed AI Island</h3>
+            <span class="badge" style="background: #dedcd2; color: #111; border: 1px solid #00000033;">Grade: B (Score: 73/100)</span>
           </div>
           <p style="font-size: 13px; line-height: 1.6;">
             ValGenesis made history at INTERPHEX on April 14, 2026 by unveiling <strong>VAL™</strong>, the first named, purpose-built validation AI agent. VAL™ boasts impressive native capabilities: automated protocol drafting, trace matrix mapping, and evidence verification. However, ValGenesis maintains tight proprietary control: VAL™ runs strictly within ValGenesis’s UI and cloud stack. While ValGenesis offers enterprise REST APIs, it has not published an open Model Context Protocol server, forcing biopharmas to treat ValGenesis as a self-contained AI island.
@@ -216,10 +316,20 @@ const datasetSchema = {
         <div class="callout-box" style="margin: 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 6px;">
             <h3 style="font-size: 16px; margin: 0;">MasterControl &mdash; Certified Governance (ISO 42001), Developer Preview in Flight</h3>
-            <span class="badge badge-tier2">Grade: B (Score: 75/100)</span>
+            <span class="badge" style="background: #dedcd2; color: #111; border: 1px solid #00000033;">Grade: B (Score: 71/100)</span>
           </div>
           <p style="font-size: 13px; line-height: 1.6;">
             MasterControl set an industry precedent by achieving formal certification under <strong>ISO/IEC 42001:2023</strong> (Artificial Intelligence Management Systems) in July 2025. Recognizing that mid-market MedTech and pharma customers need programmatic integration, MasterControl is piloting MCP-compatible connectors for its Quality Excellence platform, though developer access remains strictly gated under private preview agreements.
+          </p>
+        </div>
+
+        <div class="callout-box" style="margin: 0;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 6px;">
+            <h3 style="font-size: 16px; margin: 0;">Kneat Gx & Thoma Bravo &mdash; The Private Equity AI Moat</h3>
+            <span class="badge" style="background: #ebeae2; color: #555; border: 1px solid #00000022;">Grade: C (Score: 52/100)</span>
+          </div>
+          <p style="font-size: 13px; line-height: 1.6;">
+            Kneat Gx is the paperless validation market share leader, but its commercial posture is shifting following the definitive acquisition agreement by private equity firm <strong>Thoma Bravo</strong> in 2026. Thoma Bravo’s core SaaS playbook focuses on per-user monetization, pricing power, and minimizing churn through switching costs. Offering open, free MCP access or unmetered external agent APIs directly contradicts this thesis. Consequently, Kneat is marketing "Kneat AI" as a closed, internal premium add-on rather than opening protocol-level integration to third-party LLMs.
           </p>
         </div>
       </div>
@@ -227,7 +337,7 @@ const datasetSchema = {
 
     <!-- Buyer's Procurement Playbook -->
     <section>
-      <h2 class="section-title">Buyer's Playbook: 4 Contract Clauses to Avoid AI Lock-In</h2>
+      <h2 class="section-title">Buyer's Playbook: 5 Contract Clauses to Avoid AI Lock-In</h2>
       <div class="callout-box">
         <h3 style="margin-bottom: 8px;">Protecting Your Organization in Vendor Master Service Agreements (MSAs)</h3>
         <p style="font-size: 13px; line-height: 1.6;">
@@ -235,16 +345,19 @@ const datasetSchema = {
         </p>
         <ol style="padding-left: 20px; font-size: 13px; line-height: 1.8; margin-top: 8px;">
           <li>
-            <strong>Open Protocol & API Parity Clause:</strong> The vendor must commit to providing authenticated REST/GraphQL and Model Context Protocol (MCP) access to all validation artifacts (URS, scripts, execution logs, trace matrices) without imposing punitive "AI API Call" surcharges or requiring proprietary AI add-on licenses.
+            <strong>1. Model Context Protocol (MCP) Support Clause:</strong> The vendor must commit to providing authenticated REST/GraphQL and Model Context Protocol (MCP) access to all validation artifacts (URS, scripts, execution logs, trace matrices) without imposing punitive "AI API Call" surcharges or requiring proprietary AI add-on licenses.
           </li>
           <li>
-            <strong>Raw Evidence & Structured Graph Export:</strong> The MSA must explicitly guarantee that upon demand (and at contract termination), the vendor will provide a full machine-readable export of all validation data in structured JSON or standard relational format, including complete audit trail logs—not merely flattened, unsearchable PDF binders.
+            <strong>2. Raw Evidence & Structured Graph Export:</strong> The MSA must explicitly guarantee that upon demand (and at contract termination), the vendor will provide a full machine-readable export of all validation data in structured JSON or standard relational format, including complete audit trail logs—not merely flattened, unsearchable PDF binders.
           </li>
           <li>
-            <strong>21 CFR Part 11 AI Agent Attribution:</strong> Require the vendor's audit trail engine to natively record external AI agent tool invocations, capturing the specific agent identifier, session token, prompt cryptographic hash, and supervisory human signature in accordance with FDA Data Integrity guidelines.
+            <strong>3. 21 CFR Part 11 AI Agent Attribution:</strong> Require the vendor's audit trail engine to natively record external AI agent tool invocations, capturing the specific agent identifier, session token, prompt cryptographic hash, and supervisory human signature in accordance with FDA Data Integrity guidelines.
           </li>
           <li>
-            <strong>Bring-Your-Own-LLM (BYO-AI) Portability:</strong> Ensure your organization retains the absolute right to connect enterprise-approved LLMs (Google Gemini, Anthropic Claude, internal open-weight models) via standard interfaces rather than being forced to use the vendor's mandated model provider.
+            <strong>4. Bring-Your-Own-LLM (BYO-AI) Portability:</strong> Ensure your organization retains the absolute right to connect enterprise-approved LLMs (Google Gemini, Anthropic Claude, internal open-weight models) via standard interfaces rather than being forced to use the vendor's mandated model provider.
+          </li>
+          <li>
+            <strong>5. High-Throughput API Rate Limits:</strong> Secure contractual guarantees for minimum 100 requests/sec per tenant with burst capability and zero paywalled data extraction fees to allow autonomous multi-agent document analysis across tens of thousands of active records.
           </li>
         </ol>
       </div>
