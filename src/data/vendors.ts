@@ -356,6 +356,30 @@ export const VENDORS: Vendor[] = [
     website: 'https://govalidation.com'
   },
   {
+    id: 'sware',
+    name: 'Sware',
+    product: 'Res_Q Validation Platform',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    category: 'Specialist / Niche',
+    headquarters: 'Chelsea, Massachusetts',
+    ownership: 'Private (Venture-backed by First Analysis, LRVHealth)',
+    status2026: 'Agentic AI validation automation and continuous compliance for life sciences',
+    summary: 'A cloud-native, data-centric validation automation platform engineered to eliminate "validation debt". Transitions life sciences organizations from document-heavy CSV to agile, risk-proportionate FDA CSA execution.',
+    scope: [
+      'Computer Software Assurance (CSA)',
+      'Cloud / SaaS GxP Qualification',
+      'Automated Traceability & Risk Scoping',
+      'Continuous Audit Readiness',
+      'Integrations (Jira, ServiceNow, Veeva)'
+    ],
+    aiFeatures: 'Intelligent automated risk assessment, auto-generated testing evidence, and agentic workflows to streamline documentation and release management.',
+    aiReadiness: 'High (Agentic/MCP)',
+    knownCustomers: ['Modicus Prime', 'Emerging & Commercial Biopharma', 'Tier-2/3 CDMOs'],
+    keyDifferentiator: 'Data-centric architecture treating compliance as structured data rather than digitized paper, cutting validation cycle times by up to 80%.',
+    website: 'https://sware.com'
+  },
+  {
     id: 'eqcm-xybion',
     name: 'eQCM (formerly Xybion QMS)',
     product: 'eQCM Compliance Platform',

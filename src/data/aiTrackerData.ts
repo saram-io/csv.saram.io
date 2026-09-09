@@ -348,6 +348,25 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
       'Highly receptive to customer requests for open API integration, custom webhooks, and MCP development. Excellent agile choice for biopharmas seeking to avoid mega-vendor lock-in.'
   },
   {
+    vendorId: 'sware',
+    vendorName: 'Sware',
+    product: 'Res_Q Validation Platform',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    walledGardenPosture: 'Open Protocol Pioneer',
+    mcpStatus: 'Roadmap / In Dev',
+    apiOpenness: 'Open REST / GraphQL & Webhooks',
+    dataPortability: 'Full Structured JSON / Graph',
+    part11AiAttribution: 'Native Agent Tool-Calling Log',
+    opennessGrade: 'A',
+    readinessScore: 87,
+    willingnessToOpenData: 'High',
+    walledGardenAnalysis: 
+      'Sware\'s Res_Q platform was fundamentally architected around treating validation as structured data rather than digitized PDF paperwork. Because it avoids legacy document-centric silos and features native webhooks and REST integrations with systems like Jira, ServiceNow, and Veeva, Sware is structurally positioned for multi-agent interoperability and external CSA agent orchestration.',
+    buyerTakeaway: 
+      'A premier cloud-native challenger for biopharma organizations prioritizing modern CSA data structures over legacy document binders. High API accessibility makes Sware well-suited for automated release pipelines and external AI agent tool-calling.'
+  },
+  {
     vendorId: 'compliancequest',
     vendorName: 'ComplianceQuest',
     product: 'ComplianceQuest GxP-Validation',
