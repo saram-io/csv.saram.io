@@ -367,6 +367,63 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
       'A premier cloud-native challenger for biopharma organizations prioritizing modern CSA data structures over legacy document binders. High API accessibility makes Sware well-suited for automated release pipelines and external AI agent tool-calling.'
   },
   {
+    vendorId: 'tricentis-vera',
+    vendorName: 'Tricentis',
+    product: 'Tricentis Vera (formerly Tx3)',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    walledGardenPosture: 'Open Protocol Pioneer',
+    mcpStatus: 'Roadmap / In Dev',
+    apiOpenness: 'Open REST / GraphQL & Webhooks',
+    dataPortability: 'Full Structured JSON / Graph',
+    part11AiAttribution: 'Native Agent Tool-Calling Log',
+    opennessGrade: 'A',
+    readinessScore: 88,
+    willingnessToOpenData: 'High',
+    walledGardenAnalysis: 
+      'Tricentis Vera is built explicitly to operate across best-of-breed open developer platforms including Jira, Azure DevOps, and CI/CD pipelines. Rather than trapping compliance data inside a proprietary document silo, Vera injects Part 11 electronic records, digital signatures, and audit trails directly into active developer backlogs and automated testing workflows. This positioning creates strong incentives to adopt open tool-calling protocols and webhooks.',
+    buyerTakeaway: 
+      'The premier choice for IT engineering teams executing automated CSA who refuse to be boxed into proprietary VLMS silos. Highly interoperable with enterprise agent orchestration.'
+  },
+  {
+    vendorId: 'ketryx',
+    vendorName: 'Ketryx',
+    product: 'Ketryx Connected ALM',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    walledGardenPosture: 'Open Protocol Pioneer',
+    mcpStatus: 'Roadmap / In Dev',
+    apiOpenness: 'Open REST / GraphQL & Webhooks',
+    dataPortability: 'Full Structured JSON / Graph',
+    part11AiAttribution: 'Native Agent Tool-Calling Log',
+    opennessGrade: 'A+',
+    readinessScore: 92,
+    willingnessToOpenData: 'High',
+    walledGardenAnalysis: 
+      'Ketryx represents a cloud-native, API-first architecture designed from inception around living traceability graphs rather than static documents. Integrating directly with GitHub, GitLab, and Jira, Ketryx actively deploys purpose-built AI agents with governed Part 11 human-in-the-loop validation logs. Its open graph architecture makes it a prime platform for Anthropic MCP server support and biopharma agentic automation.',
+    buyerTakeaway: 
+      'Best-in-class validation environment for software engineering and SaMD teams. Delivers true compliance-by-design and seamless agentic extensibility.'
+  },
+  {
+    vendorId: 'dot-compliance',
+    vendorName: 'Dot Compliance',
+    product: 'Dot Compliance + Dottie AI',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    walledGardenPosture: 'Ecosystem Walled Garden',
+    mcpStatus: 'Ecosystem Bound',
+    apiOpenness: 'Open REST / GraphQL & Webhooks',
+    dataPortability: 'Full Structured JSON / Graph',
+    part11AiAttribution: 'Native Agent Tool-Calling Log',
+    opennessGrade: 'B',
+    readinessScore: 77,
+    willingnessToOpenData: 'Moderate',
+    walledGardenAnalysis: 
+      'Dot Compliance leverages Salesforce’s cloud infrastructure and delivers pre-validated GxP quality modules with Dottie AI. Like ComplianceQuest, it benefits from extensive Salesforce APIs and Agentforce capabilities, but its AI ecosystem boundaries and commercial licensing remain closely tied to Salesforce’s enterprise perimeter.',
+    buyerTakeaway: 
+      'Turnkey choice for organizations desiring a pre-validated, low-infrastructure QMS and validation suite on Salesforce. External agent orchestration outside the Salesforce boundary requires custom API integration.'
+  },
+  {
     vendorId: 'compliancequest',
     vendorName: 'ComplianceQuest',
     product: 'ComplianceQuest GxP-Validation',

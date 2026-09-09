@@ -380,6 +380,78 @@ export const VENDORS: Vendor[] = [
     website: 'https://sware.com'
   },
   {
+    id: 'tricentis-vera',
+    name: 'Tricentis',
+    product: 'Tricentis Vera (formerly Tx3 Vera)',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    category: 'Specialist / Niche',
+    headquarters: 'Austin, Texas',
+    ownership: 'Private (Insight Partners)',
+    status2026: 'Automated CSA execution with Tricentis Copilot & Tosca test automation',
+    summary: 'The de facto standard for embedding 21 CFR Part 11 compliant digital signatures, audit history, and validation workflows directly into agile developer tooling (Jira, Azure DevOps) and test automation platforms (Tosca, qTest).',
+    scope: [
+      'Agile CSA Test Automation',
+      '21 CFR Part 11 Digital Signatures',
+      'Jira & Azure DevOps Integration',
+      'qTest / Tosca GxP Qualification',
+      'Automated Traceability & Approvals'
+    ],
+    aiFeatures: 'Tricentis Copilot for automated test generation, test-case optimization, and AI-assisted defect/traceability resolution.',
+    aiReadiness: 'Moderate (Roadmap/Feature)',
+    knownCustomers: ['Global Top 20 Pharma', 'Sanofi', 'Novartis', 'Merck', 'Allergan'],
+    keyDifferentiator: 'Bridges the gap between modern agile/DevOps development and strict Part 11 compliance without forcing teams into siloed document authoring tools.',
+    website: 'https://tricentis.com'
+  },
+  {
+    id: 'ketryx',
+    name: 'Ketryx',
+    product: 'Ketryx Connected Lifecycle & Validation Platform',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    category: 'Specialist / Niche',
+    headquarters: 'Boston, Massachusetts',
+    ownership: 'Private (Lightspeed Venture Partners)',
+    status2026: 'Governed agentic AI workflows and automated FDA CSA / IEC 62304 validation',
+    summary: 'Next-generation connected ALM and validation platform for regulated software (SaMD, digital health, and GxP systems). Enforces compliance-by-design by orchestrating Jira, GitHub, GitLab, and TestRail into a real-time living traceability matrix.',
+    scope: [
+      'FDA CSA Automation',
+      'SaMD & IEC 62304 / ISO 14971 Compliance',
+      'Real-Time Traceability & DHF Generation',
+      'SBOM & Cybersecurity Qualification',
+      'Governed AI Agent Verification'
+    ],
+    aiFeatures: 'Ketryx AI agents built specifically for regulated software development with strict Part 11 human-in-the-loop review, automated requirement drafting, and continuous test coverage verification.',
+    aiReadiness: 'High (Agentic/MCP)',
+    knownCustomers: ['Emerging SaMD Leaders', 'Medical Device Innovators', 'Digital Health Pioneers'],
+    keyDifferentiator: 'Native developer-first architecture that eliminates manual validation paperwork (cutting documentation overhead by up to 90%) while embedding regulated AI agents directly into the CI/CD pipeline.',
+    website: 'https://ketryx.com'
+  },
+  {
+    id: 'dot-compliance',
+    name: 'Dot Compliance',
+    product: 'Dot Compliance Ready-to-Deploy eQMS & Validation',
+    tier: 3,
+    tierLabel: 'Tier 3 — Specialist / Niche',
+    category: 'Specialist / Niche',
+    headquarters: 'Phoenix, Arizona / Tel Aviv, Israel',
+    ownership: 'Private (IGP Capital, Vertex Ventures)',
+    status2026: 'Pre-validated Salesforce-native QMS with Dottie AI compliance assistant',
+    summary: 'Ready-to-deploy, pre-validated life sciences quality and validation platform built natively on Salesforce. Delivers turnkey GAMP 5 and CSA validation packages out-of-the-box, dramatically reducing deployment timelines.',
+    scope: [
+      'Pre-Validated GxP Workflows',
+      'Computer Software Assurance (CSA)',
+      'Document & Training Validation',
+      'Audit & CAPA Management',
+      'Salesforce Platform Security'
+    ],
+    aiFeatures: 'Dottie AI copilot for automated regulatory insights, non-conformance summaries, and quality event classification; integrated with Salesforce Agentforce.',
+    aiReadiness: 'Moderate (Roadmap/Feature)',
+    knownCustomers: ['Mid-Market Biopharma', 'Medical Device OEMs', 'Contract Testing Labs'],
+    keyDifferentiator: 'Pre-validated software model that shifts the validation burden from the customer to the vendor, enabling deployment in weeks rather than months.',
+    website: 'https://dotcompliance.com'
+  },
+  {
     id: 'eqcm-xybion',
     name: 'eQCM (formerly Xybion QMS)',
     product: 'eQCM Compliance Platform',

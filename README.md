@@ -24,7 +24,7 @@ The computerized systems validation market in life sciences is undergoing a fund
    - **Werum PAS-X** (Körber), **Siemens Opcenter**, **Rockwell FactoryTalk PharmaSuite**, **PTC Windchill + Codebeamer + Jama**, **Dassault ENOVIA**, **Aras Innovator**, **Arena Solutions**, **OpenText Documentum**, **SAP S/4HANA QM/ETM**, **Oracle Health Sciences**.
 3. **Tier 3 — Specialist / Niche / Consulting-Led**
    - Agile cloud-native platforms, Salesforce-native solutions, and boutique regulatory advisories.
-   - **GoVal** (GAMP 5 paperless, hybrid CSV+CSA; users: Pfizer, Novartis, J&J), **Sware** (Res_Q cloud-native CSA automation platform), **ComplianceQuest**, **eQCM** (Xybion), **Simsiphi**, **ParagonVX**, **Logic GXP**, **GxP-CC**, and regional consultancies.
+   - **GoVal** (GAMP 5 paperless, hybrid CSV+CSA; users: Pfizer, Novartis, J&J), **Sware** (Res_Q cloud-native CSA platform), **Tricentis Vera** (agile CSA test automation for Jira/Tosca/qTest), **Ketryx** (connected ALM & SaMD validation), **Dot Compliance** (pre-validated Salesforce eQMS), **ComplianceQuest**, **eQCM** (Xybion), **Simsiphi**, **ParagonVX**, **Logic GXP**, **GxP-CC**, and regional consultancies.
 4. **Tier 4 — Legacy / On-Prem / Sunsetting**
    - Outdated architectures facing high maintenance overhead and sunset pressure.
    - **Sparta TrackWise v8 on-prem**, **Atlas CSP**, **In-house bespoke CSV tooling**, and **Paper / Excel / SharePoint binders**.
