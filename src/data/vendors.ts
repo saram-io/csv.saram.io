@@ -39,7 +39,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Limerick, Ireland / Halifax, NS',
     ownership: 'Thoma Bravo (Definitive agreement 2026, formerly TSE:KSI)',
-    status2026: 'Definitive agreement to be acquired by Thoma Bravo (2026)',
+    status2026: 'Definitive agreement with Thoma Bravo; showcased multi-site harmonization at ISPE Nordic-Baltic Summit (Sep 2026)',
     summary: 'The dominant paperless validation platform in life sciences. Purpose-built for equipment CSV, commissioning & qualification (C&Q), cleaning validation, analytical instrument validation, and process validation.',
     scope: [
       'Equipment CSV',
@@ -48,7 +48,7 @@ export const VENDORS: Vendor[] = [
       'Analytical Instrument Validation',
       'Process Validation'
     ],
-    aiFeatures: 'Kneat AI prominent in primary navigation. "Five Pillars of AI Governance" framework. Optional AI capabilities for validation content generation, protocol review, and deviation analysis.',
+    aiFeatures: 'Kneat AI incorporating GRID model (AI Summary Assistant, AI Validation Expert, Author Assistant) and "Five Pillars of AI Governance" framework. Optional AI capabilities for validation content generation, protocol review, and deviation analysis.',
     aiReadiness: 'Moderate (Roadmap/Feature)',
     priceTransparency: {
       rating: 'Opaque',
@@ -70,7 +70,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Santa Clara, California',
     ownership: 'Private (Raised $16M strategic financing in July 2025)',
-    status2026: 'Launched VAL™ agentic AI at INTERPHEX (Apr 14, 2026)',
+    status2026: 'Launched VAL™ agentic AI at INTERPHEX; Eugia Pharmaceuticals live on VLMS (Sep 2026)',
     summary: 'The broadest dedicated validation lifecycle management system (VLMS). Covers Smart GxP, Process Validation, Cleaning Validation, Data Integrity, and Risk Manager under one roof.',
     scope: [
       'Enterprise VLMS',
@@ -101,7 +101,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Pleasanton, California',
     ownership: 'Public (NYSE: VEEV)',
-    status2026: 'Veeva AI Agents + Vault MCP Server (GA 26R2, Aug 2026)',
+    status2026: 'Veeva AI Agents + Vault MCP Server (GA 26R2, Aug 2026); Veeva Falcon Safety announced (Sep 2026)',
     summary: 'Part of the unified Veeva Quality Cloud, deeply integrated with Vault QualityDocs and Vault QMS. Governs commissioning, qualification, and validation across computerized systems, facilities, utilities, equipment, and manufacturing processes.',
     scope: [
       'Computerized Systems Validation (CSV/CSA)',
@@ -109,7 +109,7 @@ export const VENDORS: Vendor[] = [
       'Manufacturing Equipment Qualification',
       'Integrated Quality Management (QDocs & QMS)'
     ],
-    aiFeatures: 'Veeva AI Agents paired with Vault MCP (Model Context Protocol) Server reaching General Availability in 26R2 (August 2026), enabling agentic validation workflows directly atop Vault data layers.',
+    aiFeatures: 'Veeva AI Agents paired with Vault MCP (Model Context Protocol) Server reaching General Availability in 26R2 (August 2026); introduced Veeva Falcon agentic platform (MAAP architecture) with Falcon Safety for cross-system autonomous execution (September 2026).',
     aiReadiness: 'High (Agentic/MCP)',
     priceTransparency: {
       rating: 'Moderate',

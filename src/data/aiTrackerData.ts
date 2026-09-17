@@ -136,7 +136,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
       'Veeva made the most decisive move in the validation industry by releasing the native Vault MCP Server in 26R2 (August 2026). Rather than forcing customers into a closed AI silo, Veeva adopted Anthropic\'s open Model Context Protocol. External AI agents can invoke standardized Vault tools with Part 11 compliant audit trail recording. While Vault remains a massive enterprise platform, its protocol-level openness establishes the gold standard for regulated software interoperability.',
     buyerTakeaway: 
       'Strongest choice for biopharmas building multi-agent internal orchestration. Demand MCP tool-level permission matrix in enterprise agreements to control agentic read/write scopes.',
-    lastAudited: 'August 2026',
+    lastAudited: 'September 2026',
     website: 'https://veeva.com/products/vault-quality'
   },
   {
@@ -172,7 +172,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
       'ValGenesis launched VAL™ at INTERPHEX 2026 as a dedicated, named validation AI agent. However, VAL™ is architected as an internal walled garden feature: all protocol generation, risk mapping, and test execution review happen strictly inside ValGenesis\'s proprietary ecosystem. ValGenesis provides enterprise REST APIs, but has resisted open MCP endpoints, preferring to capture high-margin AI subscription tiers per user/system.',
     buyerTakeaway: 
       'Exceptional out-of-the-box validation agent functionality, but locks you into ValGenesis as your sole AI runtime. Negotiate explicit API data export rights and inquire on MCP server roadmap commitments before signing.',
-    lastAudited: 'June 2026',
+    lastAudited: 'September 2026',
     website: 'https://valgenesis.com'
   },
   {
@@ -221,7 +221,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     category: 'Pure-Play Validation',
     walledGardenPosture: 'Proprietary AI Moat',
     mcpStatus: 'Proprietary Only (No MCP)',
-    mcpDetails: 'Kneat AI is offered exclusively within the Kneat Gx web UI under the "Five Pillars of AI Governance" banner. No public MCP endpoint or developer SDK for third-party agents.',
+    mcpDetails: 'Kneat AI is offered exclusively within the Kneat Gx web UI under the "Five Pillars of AI Governance" banner and GRID model (AI Summary Assistant, AI Validation Expert, Author Assistant). No public MCP endpoint or developer SDK for third-party agents.',
     apiOpenness: 'Grade B (Gated Enterprise REST)',
     apiDetails: 'REST APIs exist but are gated behind enterprise licenses and subject to per-seat restrictions; lacks public OpenAPI specs for automated test orchestration.',
     webhooksSupported: false,
@@ -245,7 +245,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
       'Following its 2026 acquisition agreement with Thoma Bravo, Kneat launched Kneat AI under a "Five Pillars of AI Governance" banner. Historically, Kneat Gx has operated as a classic enterprise walled garden: high barrier to external data extraction, guarded REST APIs, and strict per-seat commercial models. The Thoma Bravo playbook emphasizes SaaS monetization; opening free MCP access or unmetered external agent interfaces is directly antithetical to their private equity margin objectives.',
     buyerTakeaway: 
       'High risk of AI vendor lock-in. Ensure contract protects against steep AI add-on price escalation. Require guarantees that validation logs and trace matrices can be extracted in open structured formats without punitive export fees.',
-    lastAudited: 'May 2026',
+    lastAudited: 'September 2026',
     website: 'https://kneat.com'
   },
   {
