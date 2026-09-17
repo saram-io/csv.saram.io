@@ -456,6 +456,60 @@ tbody tr:hover {
   font-weight: 600;
 }
 
+.badge-price-transparent {
+  background-color: #e8f5e9;
+  color: #1e5622;
+  border: 1px solid #a5d6a7;
+  font-weight: 600;
+}
+
+.badge-price-moderate {
+  background-color: #fff9e6;
+  color: #7c5a0b;
+  border: 1px solid #ffe082;
+  font-weight: 600;
+}
+
+.badge-price-opaque {
+  background-color: #f4f3ed;
+  color: #494843;
+  border: 1px solid #c2c0b6;
+  font-weight: 600;
+}
+
+.badge-price-custom {
+  background-color: #f9f8f3;
+  color: #66655e;
+  border: 1px dashed #b5b3a8;
+}
+
+.price-score-bar {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.price-score-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.price-score-dot.active {
+  background: #2e7d32;
+}
+
+.price-score-dot.active-moderate {
+  background: #b78103;
+}
+
+.price-score-dot.active-opaque {
+  background: #555;
+}
+
 /* Cards Grid */
 .cards-grid {
   display: grid;

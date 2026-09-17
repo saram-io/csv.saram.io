@@ -30,6 +30,11 @@ const tierBadgeClass =
   vendor.tier === 2 ? 'badge-tier2' :
   vendor.tier === 3 ? 'badge-tier3' : 'badge-tier4';
 
+const priceBadgeClass = 
+  vendor.priceTransparency.rating === 'Transparent' ? 'badge-price-transparent' :
+  vendor.priceTransparency.rating === 'Moderate' ? 'badge-price-moderate' :
+  vendor.priceTransparency.rating === 'Opaque' ? 'badge-price-opaque' : 'badge-price-custom';
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -95,9 +100,10 @@ const softwareSchema = {
     <section class="hero-text" style="margin-bottom: 24px;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px;">
         <h1 style="margin-bottom: 4px;">{vendor.name}</h1>
-        <div style="display: flex; gap: 8px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
           <span class={`badge ${tierBadgeClass}`} style="font-size: 13px; padding: 4px 10px;">{vendor.tierLabel}</span>
           <span class="badge" style="font-size: 12px;">{vendor.category}</span>
+          <span class={`badge ${priceBadgeClass}`} style="font-size: 12px;">Price: {vendor.priceTransparency.rating} ({vendor.priceTransparency.score}/5)</span>
         </div>
       </div>
       <p class="hero-subtitle" style="font-size: 18px; margin-top: 4px;">{vendor.product}</p>
@@ -106,7 +112,7 @@ const softwareSchema = {
 
     <!-- Key Attributes Grid -->
     <section style="margin-bottom: 30px;">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
         <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
           <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">Market Tier</div>
           <div style="font-weight: 700; font-size: 14px;"><a href="/tiers" style="color: inherit; text-decoration: underline;">Tier {vendor.tier} Platform</a></div>
@@ -120,6 +126,14 @@ const softwareSchema = {
         <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
           <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">2026 Market Status</div>
           <div style="font-size: 13.5px; line-height: 1.4;">{vendor.status2026}</div>
+        </div>
+
+        <div style="background: var(--card-bg); padding: 16px; border: 1px solid var(--card-border); border-radius: 4px;">
+          <div style="font-size: 11px; text-transform: uppercase; color: var(--accent-tag); font-weight: 600; margin-bottom: 4px;">Price Transparency</div>
+          <div style="font-weight: 700; font-size: 13.5px; margin-bottom: 2px;">
+            <span class={`badge ${priceBadgeClass}`} style="font-size: 11px;">{vendor.priceTransparency.rating} ({vendor.priceTransparency.score}/5)</span>
+          </div>
+          <div style="font-size: 11.5px; color: var(--muted-text);">{vendor.priceTransparency.estimatedRange}</div>
         </div>
 
         {vendor.headquarters && (
@@ -188,6 +202,40 @@ const softwareSchema = {
             </a>
           </div>
         )}
+      </div>
+    </section>
+
+    <!-- Commercial Model & Price Transparency Evaluation -->
+    <section style="margin-bottom: 32px;">
+      <h2 class="section-title">Commercial Model & Price Transparency Evaluation</h2>
+      <div class="callout-box" style="border-left: 3px solid #111;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 12px; gap: 8px;">
+          <h3 style="font-size: 16px; margin: 0;">Procurement & Licensing Architecture</h3>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span class={`badge ${priceBadgeClass}`} style="font-size: 12px;">
+              Transparency: {vendor.priceTransparency.rating} ({vendor.priceTransparency.score}/5)
+            </span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; font-size: 12.5px; margin-bottom: 14px; background: rgba(0,0,0,0.02); padding: 12px; border-radius: 4px; border: 1px solid var(--card-border);">
+          <div><strong>Licensing Model:</strong> {vendor.priceTransparency.model}</div>
+          <div><strong>Cost Bracket:</strong> {vendor.priceTransparency.estimatedRange}</div>
+          <div>
+            <strong>Transparency Score:</strong> {vendor.priceTransparency.score} / 5
+            <span class="price-score-bar">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <span class={`price-score-dot ${i <= vendor.priceTransparency.score ? (vendor.priceTransparency.score >= 4 ? 'active' : vendor.priceTransparency.score === 3 ? 'active-moderate' : 'active-opaque') : ''}`} />
+              ))}
+            </span>
+          </div>
+        </div>
+
+        <div style="font-size: 13.5px; line-height: 1.6;">
+          <p style="margin-bottom: 0;">
+            <strong>Analyst Commercial Assessment:</strong> {vendor.priceTransparency.details}
+          </p>
+        </div>
       </div>
     </section>
 

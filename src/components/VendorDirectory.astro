@@ -27,7 +27,15 @@ const { initialTier = 0 } = Astro.props;
       <button class="filter-btn" data-filter-tier="4">Tier 4: Legacy ({VENDORS.filter(v => v.tier === 4).length})</button>
     </div>
 
-    <div style="font-size: 11.5px; color: var(--muted-text); display: flex; justify-content: space-between; align-items: center;">
+    <div class="filter-pills" style="margin-top: 6px;">
+      <span class="filter-pill-label">Price Transparency:</span>
+      <button class="filter-btn active" data-filter-price="all">All ({VENDORS.length})</button>
+      <button class="filter-btn" data-filter-price="transparent">Transparent ({VENDORS.filter(v => v.priceTransparency.rating === 'Transparent').length})</button>
+      <button class="filter-btn" data-filter-price="moderate">Moderate ({VENDORS.filter(v => v.priceTransparency.rating === 'Moderate').length})</button>
+      <button class="filter-btn" data-filter-price="opaque">Opaque ({VENDORS.filter(v => v.priceTransparency.rating === 'Opaque').length})</button>
+    </div>
+
+    <div style="font-size: 11.5px; color: var(--muted-text); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
       <span id="resultsCount">Showing {VENDORS.length} of {VENDORS.length} vendors</span>
       <span id="activeFiltersDisplay">Filters: All</span>
     </div>
@@ -41,7 +49,7 @@ const { initialTier = 0 } = Astro.props;
 
   <div id="noResultsMessage" style="display: none; padding: 40px; text-align: center; background: var(--card-bg); border-radius: 6px; border: 1px dashed #999;">
     <h3 style="font-family: var(--font-serif); margin-bottom: 8px;">No matching vendors found</h3>
-    <p style="font-size: 13px; color: var(--muted-text);">Try clearing your search query or selecting a different tier.</p>
+    <p style="font-size: 13px; color: var(--muted-text);">Try clearing your search query or selecting a different tier or price rating.</p>
     <button class="filter-btn" id="resetFiltersBtn" style="margin-top: 12px; background: #000; color: #fff;">Reset Filters</button>
   </div>
 </div>
@@ -50,7 +58,8 @@ const { initialTier = 0 } = Astro.props;
   (function() {
     function initVendorDirectory() {
       const searchInput = document.getElementById('vendorSearchInput');
-      const filterBtns = document.querySelectorAll('[data-filter-tier]');
+      const tierFilterBtns = document.querySelectorAll('[data-filter-tier]');
+      const priceFilterBtns = document.querySelectorAll('[data-filter-price]');
       const cards = document.querySelectorAll('#vendorCardsGrid .card');
       const resultsCount = document.getElementById('resultsCount');
       const activeFiltersDisplay = document.getElementById('activeFiltersDisplay');
@@ -60,6 +69,7 @@ const { initialTier = 0 } = Astro.props;
       if (!searchInput || !cards.length) return;
 
       let currentTier = 'all';
+      let currentPrice = 'all';
       let currentQuery = '';
 
       function filterCards() {
@@ -68,12 +78,14 @@ const { initialTier = 0 } = Astro.props;
 
         cards.forEach(card => {
           const tier = card.getAttribute('data-tier');
+          const price = card.getAttribute('data-price-transparency');
           const searchContent = card.getAttribute('data-search') || '';
 
           const matchesTier = (currentTier === 'all' || tier === currentTier);
+          const matchesPrice = (currentPrice === 'all' || price === currentPrice);
           const matchesQuery = !currentQuery || searchContent.includes(currentQuery.toLowerCase());
 
-          if (matchesTier && matchesQuery) {
+          if (matchesTier && matchesPrice && matchesQuery) {
             card.style.display = 'flex';
             visibleCount++;
           } else {
@@ -87,8 +99,9 @@ const { initialTier = 0 } = Astro.props;
 
         if (activeFiltersDisplay) {
           const tierText = currentTier === 'all' ? 'All Tiers' : `Tier ${currentTier}`;
+          const priceText = currentPrice === 'all' ? 'All Pricing' : `Price: ${currentPrice.charAt(0).toUpperCase() + currentPrice.slice(1)}`;
           const queryText = currentQuery ? ` "${currentQuery}"` : '';
-          activeFiltersDisplay.textContent = `Active: ${tierText}${queryText}`;
+          activeFiltersDisplay.textContent = `Active: ${tierText} | ${priceText}${queryText}`;
         }
 
         if (noResultsMsg) {
@@ -96,11 +109,20 @@ const { initialTier = 0 } = Astro.props;
         }
       }
 
-      filterBtns.forEach(btn => {
+      tierFilterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
+          tierFilterBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           currentTier = btn.getAttribute('data-filter-tier') || 'all';
+          filterCards();
+        });
+      });
+
+      priceFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          priceFilterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentPrice = btn.getAttribute('data-filter-price') || 'all';
           filterCards();
         });
       });
@@ -115,8 +137,12 @@ const { initialTier = 0 } = Astro.props;
           searchInput.value = '';
           currentQuery = '';
           currentTier = 'all';
-          filterBtns.forEach(b => {
+          currentPrice = 'all';
+          tierFilterBtns.forEach(b => {
             b.classList.toggle('active', b.getAttribute('data-filter-tier') === 'all');
+          });
+          priceFilterBtns.forEach(b => {
+            b.classList.toggle('active', b.getAttribute('data-filter-price') === 'all');
           });
           filterCards();
         });

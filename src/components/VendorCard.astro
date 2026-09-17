@@ -11,9 +11,19 @@ const tierBadgeClass =
   vendor.tier === 1 ? 'badge-tier1' :
   vendor.tier === 2 ? 'badge-tier2' :
   vendor.tier === 3 ? 'badge-tier3' : 'badge-tier4';
+
+const priceBadgeClass = 
+  vendor.priceTransparency.rating === 'Transparent' ? 'badge-price-transparent' :
+  vendor.priceTransparency.rating === 'Moderate' ? 'badge-price-moderate' :
+  vendor.priceTransparency.rating === 'Opaque' ? 'badge-price-opaque' : 'badge-price-custom';
+
+const priceRatingKey = 
+  vendor.priceTransparency.rating === 'Transparent' ? 'transparent' :
+  vendor.priceTransparency.rating === 'Moderate' ? 'moderate' :
+  vendor.priceTransparency.rating === 'Opaque' ? 'opaque' : 'other';
 ---
 
-<div class="card" data-tier={vendor.tier} data-category={vendor.category} data-name={vendor.name.toLowerCase()} data-search={`${vendor.name} ${vendor.product} ${vendor.summary} ${vendor.knownCustomers?.join(' ') || ''}`.toLowerCase()}>
+<div class="card" data-tier={vendor.tier} data-category={vendor.category} data-price-transparency={priceRatingKey} data-name={vendor.name.toLowerCase()} data-search={`${vendor.name} ${vendor.product} ${vendor.summary} ${vendor.priceTransparency.rating} ${vendor.priceTransparency.model} ${vendor.priceTransparency.details} ${vendor.knownCustomers?.join(' ') || ''}`.toLowerCase()}>
   <div class="card-header">
     <div>
       <h3 class="card-title">
@@ -29,11 +39,14 @@ const tierBadgeClass =
   <div class="card-body">
     <p>{vendor.summary}</p>
     
-    <div style="margin: 10px 0;">
+    <div style="margin: 10px 0; display: flex; flex-wrap: wrap; gap: 4px; align-items: center;">
       <span class="badge">{vendor.category}</span>
       {vendor.aiReadiness && (
         <span class="badge badge-ai">AI: {vendor.aiReadiness}</span>
       )}
+      <span class={`badge ${priceBadgeClass}`}>
+        Price: {vendor.priceTransparency.rating} ({vendor.priceTransparency.score}/5)
+      </span>
     </div>
 
     {vendor.aiFeatures && (
@@ -42,8 +55,12 @@ const tierBadgeClass =
       </div>
     )}
 
+    <div class="card-meta" style="margin-top: 6px; font-size: 11.5px; color: var(--muted-text);">
+      <strong>Pricing Model:</strong> {vendor.priceTransparency.model} ({vendor.priceTransparency.estimatedRange})
+    </div>
+
     {vendor.knownCustomers && vendor.knownCustomers.length > 0 && (
-      <div class="card-meta" style="margin-top: 8px;">
+      <div class="card-meta" style="margin-top: 6px;">
         <strong>Customers:</strong> {vendor.knownCustomers.join(', ')}
       </div>
     )}
