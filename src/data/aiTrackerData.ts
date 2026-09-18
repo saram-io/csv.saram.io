@@ -776,8 +776,8 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     tierLabel: 'Tier 3 — Specialist / Niche',
     category: 'Specialist / Niche',
     walledGardenPosture: 'Open Protocol Pioneer',
-    mcpStatus: 'Roadmap / In Dev',
-    mcpDetails: 'Treats validation as structured live data rather than static PDF documents; actively designing MCP server endpoints to expose Res_Q verification actions to enterprise AI agents.',
+    mcpStatus: 'GA Native MCP Server',
+    mcpDetails: 'Launched Res_Q Connect on September 17, 2026, built on the open Model Context Protocol (MCP) standard. Provides an AI-validated, governed integration layer connecting QMS, ERP, and testing systems with 21 CFR Part 11 audit logging and agentic plain-language configuration.',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
     apiDetails: 'REST APIs and webhooks connecting seamlessly to Jira, ServiceNow, Veeva, and continuous release pipelines.',
     webhooksSupported: true,
@@ -789,19 +789,19 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     apiPricingPosture: 'Included in Base License',
     willingnessToOpenData: 'High',
     scoreBreakdown: {
-      mcp: 22,             // Active design of MCP endpoints for automated verification
+      mcp: 28,             // GA production native MCP server with validated Part 11 scopes
       api: 23,             // Modern REST API + multi-system webhooks
       dataPortability: 14, // Structured data records instead of document binders
       part11Audit: 14,     // Part 11 compliant audit logging on all tool operations
       byoAiFreedom: 13     // Cloud-native, unmetered BYO-AI integration posture
     },
-    readinessScore: 86,
-    opennessGrade: 'A',
+    readinessScore: 92,
+    opennessGrade: 'A+',
     walledGardenAnalysis: 
-      'Sware\'s Res_Q platform was fundamentally architected around treating validation as structured data rather than digitized PDF paperwork. Because it avoids legacy document-centric silos and features native webhooks and REST integrations with systems like Jira, ServiceNow, and Veeva, Sware is structurally positioned for multi-agent interoperability and external CSA agent orchestration.',
+      'Sware solidified its position as an open protocol leader with the September 17, 2026 launch of Res_Q Connect, built directly on the open Model Context Protocol (MCP). By treating validation as structured live data rather than digitized PDF paperwork, Sware enables biopharma QA teams and external AI agents to orchestrate data movement between QMS, ERP, and testing pipelines without custom scripts, backed by native 21 CFR Part 11 audit trails.',
     buyerTakeaway: 
-      'A premier cloud-native challenger for biopharma organizations prioritizing modern CSA data structures over legacy document binders. High API accessibility makes Sware well-suited for automated release pipelines and external AI agent tool-calling.',
-    lastAudited: 'July 2026',
+      'A premier cloud-native challenger for biopharma organizations prioritizing modern CSA data structures and open protocols. With native MCP integration via Res_Q Connect, Sware joins Veeva as one of the few validation platforms enabling audit-ready multi-agent tool execution.',
+    lastAudited: 'September 2026',
     website: 'https://sware.com'
   },
   {

@@ -494,17 +494,18 @@ export const VENDORS: Vendor[] = [
     category: 'Specialist / Niche',
     headquarters: 'Chelsea, Massachusetts',
     ownership: 'Private (Venture-backed by First Analysis, LRVHealth)',
-    status2026: 'Agentic AI validation automation and continuous compliance for life sciences',
+    status2026: 'Launched Res_Q Connect MCP integration platform; agentic AI validation automation and continuous compliance for life sciences',
     summary: 'A cloud-native, data-centric validation automation platform engineered to eliminate "validation debt". Transitions life sciences organizations from document-heavy CSV to agile, risk-proportionate FDA CSA execution.',
     scope: [
       'Computer Software Assurance (CSA)',
+      'Model Context Protocol (MCP) Integration',
       'Cloud / SaaS GxP Qualification',
       'Automated Traceability & Risk Scoping',
       'Continuous Audit Readiness',
       'Integrations (Jira, ServiceNow, Veeva)'
     ],
-    aiFeatures: 'Intelligent automated risk assessment, auto-generated testing evidence, and agentic workflows to streamline documentation and release management.',
-    aiReadiness: 'High (Agentic/MCP)',
+    aiFeatures: 'Res_Q Connect open MCP integration platform, intelligent automated risk assessment, auto-generated testing evidence, and agentic plain-language workflow orchestration with Part 11 audit trails.',
+    aiReadiness: 'High (Agentic/MCP GA)',
     priceTransparency: {
       rating: 'Transparent',
       score: 4,
@@ -513,7 +514,7 @@ export const VENDORS: Vendor[] = [
       details: 'Clear, modern SaaS commercial model aligned with risk-proportionate CSA principles. Eliminates "validation debt" with transparent bundled continuous compliance; no hidden fees for trace matrix exports or REST API integrations.'
     },
     knownCustomers: ['Modicus Prime', 'Emerging & Commercial Biopharma', 'Tier-2/3 CDMOs'],
-    keyDifferentiator: 'Data-centric architecture treating compliance as structured data rather than digitized paper, cutting validation cycle times by up to 80%.',
+    keyDifferentiator: 'Open Model Context Protocol (MCP) foundation and data-centric architecture treating compliance as structured data rather than digitized paper, cutting validation cycle times by up to 80%.',
     website: 'https://sware.com'
   },
   {

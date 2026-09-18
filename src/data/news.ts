@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'sware-res-q-connect-mcp',
+    title: 'Sware Launches Res_Q Connect: Open MCP Integration Platform for Life Sciences GxP',
+    date: 'September 17, 2026',
+    isoDate: '2026-09-17',
+    category: 'Product Launch',
+    badge: 'MCP Breakthrough',
+    source: 'Business Wire / Sware',
+    summary: 'Sware has officially launched Res_Q Connect, an AI-validated integration platform built natively on Anthropic\'s open Model Context Protocol (MCP) standard. The platform acts as a governed integration layer linking QMS, ERP, and testing systems, enabling agentic workflow orchestration without custom point-to-point scripts while maintaining strict 21 CFR Part 11 audit trails.',
+    link: '/ai-readiness-tracker',
+    linkText: 'View Sware in AI Tracker',
+    featured: true,
+  },
+  {
     id: 'veeva-vault-mcp',
     title: 'Veeva Releases Native Vault MCP Server & AI Agents in GA 26R2',
     date: 'August 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'Veeva Systems has made its Vault Model Context Protocol (MCP) Server and autonomous Veeva AI Agents generally available in the 26R2 release. Regulated biopharmas can now connect external AI agents directly to Vault Validation Management and QualityDocs with complete 21 CFR Part 11 audit trails.',
     link: '/ai-trends',
     linkText: 'Read Architectural Analysis',
-    featured: true,
+    featured: false,
   },
   {
     id: 'ispe-nordic-baltic-validation-summit',
