@@ -214,7 +214,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
   {
     vendorId: 'kneat',
     vendorName: 'Kneat',
-    ticker: 'TSE: KSI (Thoma Bravo)',
+    ticker: 'Privately Held (Thoma Bravo, formerly TSE: KSI)',
     product: 'Kneat Gx + Kneat AI',
     tier: 1,
     tierLabel: 'Tier 1 — Pure-Play Validation',
@@ -242,7 +242,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 52,
     opennessGrade: 'C',
     walledGardenAnalysis: 
-      'Following its 2026 acquisition agreement with Thoma Bravo, Kneat launched Kneat AI under a "Five Pillars of AI Governance" banner. Historically, Kneat Gx has operated as a classic enterprise walled garden: high barrier to external data extraction, guarded REST APIs, and strict per-seat commercial models. The Thoma Bravo playbook emphasizes SaaS monetization; opening free MCP access or unmetered external agent interfaces is directly antithetical to their private equity margin objectives.',
+      'Following its completed August 2026 acquisition by Thoma Bravo, Kneat launched Kneat AI under a "Five Pillars of AI Governance" banner. Historically, Kneat Gx has operated as a classic enterprise walled garden: high barrier to external data extraction, guarded REST APIs, and strict per-seat commercial models. The Thoma Bravo playbook emphasizes SaaS monetization; opening free MCP access or unmetered external agent interfaces is directly antithetical to their private equity margin objectives.',
     buyerTakeaway: 
       'High risk of AI vendor lock-in. Ensure contract protects against steep AI add-on price escalation. Require guarantees that validation logs and trace matrices can be extracted in open structured formats without punitive export fees.',
     lastAudited: 'September 2026',
@@ -555,9 +555,9 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     category: 'MES Adjacent',
     walledGardenPosture: 'API Gated / Restricted',
     mcpStatus: 'None / Unsupported',
-    mcpDetails: 'AI investments centered on PAS-X Savvy internal batch analytics; validation templates and execution data are guarded proprietary assets with no public MCP server.',
+    mcpDetails: 'Launched K.AI Assistant in September 2026 with PharmaGuardrails and headless API support for MES operations. Validation templates, MBR logic, and execution logs remain guarded proprietary assets with no public MCP server.',
     apiOpenness: 'Grade B (Gated Enterprise REST)',
-    apiDetails: 'Gated enterprise REST endpoints focused on ERP/LIMS synchronization; external agent tool calls require validated middleware bridges.',
+    apiDetails: 'Gated enterprise REST endpoints focused on ERP/LIMS synchronization and headless K.AI integration; external agent tool calls require validated middleware bridges.',
     webhooksSupported: false,
     dataPortability: 'Semi-Structured CSV / XML',
     part11AiAttribution: 'Service Account Proxy',
@@ -567,8 +567,8 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     apiPricingPosture: 'Expensive Add-on / Paywall',
     willingnessToOpenData: 'Low',
     scoreBreakdown: {
-      mcp: 5,              // Zero MCP support; proprietary PAS-X Savvy focus
-      api: 16,             // Gated enterprise REST; batch ETL default
+      mcp: 5,              // Zero open MCP support; proprietary K.AI / PAS-X Savvy focus
+      api: 16,             // Gated enterprise REST; batch ETL default with headless AI endpoints
       dataPortability: 10, // Semi-structured CSV/XML batch archives
       part11Audit: 10,     // Service account proxy attribution
       byoAiFreedom: 6      // Heavy plant OT perimeter fencing
@@ -576,10 +576,10 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 47,
     opennessGrade: 'D',
     walledGardenAnalysis: 
-      'Körber’s PAS-X is the titan of pharma MES, but its validation accelerators and Master Batch Record (MBR) templates are guarded proprietary assets. AI capabilities (PAS-X Savvy) are focused on internal batch analytics. Körber treats batch validation data as mission-critical intellectual property and shows minimal willingness to open real-time MCP server endpoints to unvetted external agents.',
+      'Körber’s PAS-X is the titan of pharma MES. While Körber validation leadership co-authored the ISPE GAMP® AI Guide and introduced the K.AI Assistant with PharmaGuardrails in September 2026, its validation accelerators and Master Batch Record (MBR) templates remain heavily guarded proprietary assets. Körber treats shop-floor batch validation data as mission-critical intellectual property and maintains strict perimeter fencing against unvetted external agents.',
     buyerTakeaway: 
       'MES validation data will remain largely siloed. Plan for batch-based ETL extraction or custom validated middleware if integrating with enterprise CSA agents.',
-    lastAudited: 'May 2026',
+    lastAudited: 'September 2026',
     website: 'https://koerber-pharma.com'
   },
   {
@@ -669,7 +669,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     category: 'Specialist / Niche',
     walledGardenPosture: 'Open Protocol Pioneer',
     mcpStatus: 'Roadmap / In Dev',
-    mcpDetails: 'Native living traceability graph with published developer APIs. Prototyping Anthropic MCP server support for autonomous software verification, pull request compliance gating, and risk trace synchronization.',
+    mcpDetails: 'Native living traceability graph with published developer APIs. Shipped beta Model Context Protocol (MCP) server enabling external AI agents (Claude, ChatGPT, Copilot) to query compliance graphs, verify pull requests, and enforce Part 11 sign-offs.',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
     apiDetails: 'Modern GraphQL and REST endpoints with real-time GitHub, GitLab, and Jira webhook synchronization; full OpenAPI documentation.',
     webhooksSupported: true,
@@ -681,7 +681,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     apiPricingPosture: 'Included in Base License',
     willingnessToOpenData: 'High',
     scoreBreakdown: {
-      mcp: 25,             // Active development on Anthropic MCP server
+      mcp: 25,             // Active Anthropic MCP beta server in field
       api: 24,             // Modern GraphQL/REST with real-time webhook streams
       dataPortability: 15, // Living graph architecture, full OpenAPI export
       part11Audit: 14,     // Native Part 11 tool-call logs with human sign-off
@@ -690,10 +690,10 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 92,
     opennessGrade: 'A+',
     walledGardenAnalysis: 
-      'Ketryx represents a cloud-native, API-first architecture designed from inception around living traceability graphs rather than static documents. Integrating directly with GitHub, GitLab, and Jira, Ketryx actively deploys purpose-built AI agents with governed Part 11 human-in-the-loop validation logs. Its open graph architecture makes it a prime platform for Anthropic MCP server support and biopharma agentic automation.',
+      'Ketryx represents a cloud-native, API-first architecture designed from inception around living traceability graphs rather than static documents. Integrating directly with GitHub, GitLab, and Jira, Ketryx actively deploys purpose-built AI agents with governed Part 11 human-in-the-loop validation logs and beta MCP server capabilities. Its open graph architecture makes it a premier platform for Anthropic MCP integration and biopharma agentic automation.',
     buyerTakeaway: 
       'Best-in-class validation environment for software engineering and SaMD teams. Delivers true compliance-by-design and seamless agentic extensibility.',
-    lastAudited: 'August 2026',
+    lastAudited: 'September 2026',
     website: 'https://ketryx.com'
   },
   {

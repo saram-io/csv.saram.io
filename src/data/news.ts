@@ -14,6 +14,32 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'koerber-k-ai-assistant-launch',
+    title: 'Körber Launches K.AI Assistant for PAS-X MES with PharmaGuardrails for GxP Environments',
+    date: 'September 18, 2026',
+    isoDate: '2026-09-18',
+    category: 'Product Launch',
+    badge: 'MES AI Launch',
+    source: 'Körber Pharma',
+    summary: 'Körber has launched K.AI Assistant for its industry-standard PAS-X MES suite, introducing "PharmaGuardrails" to eliminate AI hallucinations and maintain GxP compliance on the pharmaceutical manufacturing floor. Developed alongside the ISPE GAMP® AI Guide co-authored by Körber validation leadership, the tool enables conversational SOP access, exception management, and validation acceleration with headless API integration.',
+    link: '/ai-readiness-tracker',
+    linkText: 'View PAS-X in AI Tracker',
+    featured: false,
+  },
+  {
+    id: 'pda-fda-2026-csa-ai-agent-governance',
+    title: 'PDA/FDA Joint Regulatory Conference Establishes Validation Rigor for AI Agents Under CSA & Part 11',
+    date: 'September 18, 2026',
+    isoDate: '2026-09-18',
+    category: 'Regulatory',
+    badge: 'FDA / PDA Update',
+    source: 'PDA / FDA Joint Regulatory Conference',
+    summary: 'At the 2026 PDA/FDA Joint Regulatory Conference in Washington, regulators and compliance architects converged on the validation boundaries for autonomous AI agents in GxP workflows. Regulators reaffirmed that while Computer Software Assurance (CSA) encourages risk-based, unscripted testing for automated workflows, agentic decisions influencing batch release, deviation triage, or audit decisions must maintain deterministic verification logs and strict 21 CFR Part 11 audit trails.',
+    link: '/csv-vs-csa',
+    linkText: 'Explore CSA Risk Frameworks',
+    featured: false,
+  },
+  {
     id: 'sware-res-q-connect-mcp',
     title: 'Sware Launches Res_Q Connect: Open MCP Integration Platform for Life Sciences GxP',
     date: 'September 17, 2026',

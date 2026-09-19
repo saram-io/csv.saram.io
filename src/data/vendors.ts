@@ -38,8 +38,8 @@ export const VENDORS: Vendor[] = [
     tierLabel: 'Tier 1 — Pure-Play Validation',
     category: 'Pure-Play Validation',
     headquarters: 'Limerick, Ireland / Halifax, NS',
-    ownership: 'Thoma Bravo (Definitive agreement 2026, formerly TSE:KSI)',
-    status2026: 'Definitive agreement with Thoma Bravo; showcased multi-site harmonization at ISPE Nordic-Baltic Summit (Sep 2026)',
+    ownership: 'Thoma Bravo (Acquisition completed August 2026, formerly TSE:KSI)',
+    status2026: 'Acquisition by Thoma Bravo completed (Aug 2026); showcased multi-site harmonization at ISPE Nordic-Baltic Summit (Sep 2026)',
     summary: 'The dominant paperless validation platform in life sciences. Purpose-built for equipment CSV, commissioning & qualification (C&Q), cleaning validation, analytical instrument validation, and process validation.',
     scope: [
       'Equipment CSV',
@@ -192,17 +192,17 @@ export const VENDORS: Vendor[] = [
     category: 'MES Adjacent',
     headquarters: 'Lüneburg, Germany',
     ownership: 'Körber Group',
-    status2026: 'PAS-X Savvy & AI validation accelerator modules',
+    status2026: 'Launched K.AI Assistant with PharmaGuardrails for GxP shop floor (Sep 2026); PAS-X Savvy batch analytics',
     summary: 'Global market leader in pharmaceutical and biopharmaceutical Manufacturing Execution Systems (MES). Features built-in validation packages and pre-validated MBR (Master Batch Record) content.',
     scope: ['Pharma MES Validation', 'Batch Record Qualification', 'EBR Compliance'],
-    aiFeatures: 'PAS-X Savvy data analytics and AI-assisted batch recipe verification.',
+    aiFeatures: 'K.AI Assistant featuring "PharmaGuardrails" for hallucination-free GxP execution, SOP guidance, and validation acceleration; PAS-X Savvy data analytics and AI-assisted batch recipe verification.',
     aiReadiness: 'Moderate (Roadmap/Feature)',
     priceTransparency: {
       rating: 'Opaque',
       score: 1,
       model: 'Capital Site License + 18-22% Maintenance',
       estimatedRange: '$$$$$ (Multi-Million Plant Scale)',
-      details: 'Strictly gated industrial enterprise pricing calculated per manufacturing plant, site volume, and server instance. Out-of-the-box validation content and PAS-X Savvy AI verification modules require custom enterprise add-on agreements.'
+      details: 'Strictly gated industrial enterprise pricing calculated per manufacturing plant, site volume, and server instance. Out-of-the-box validation content, K.AI Assistant, and PAS-X Savvy AI verification modules require custom enterprise add-on agreements.'
     },
     knownCustomers: ['Top 20 Pharma Manufacturing Sites Worldwide'],
     keyDifferentiator: 'The undisputed standard for commercial biopharma batch manufacturing execution.',
