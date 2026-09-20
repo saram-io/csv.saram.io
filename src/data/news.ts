@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'nucleus-qms-value-matrix-2026',
+    title: 'Nucleus Research 2026 QMS Value Matrix Spotlights Agentic AI Workflows and Validation Total Cost of Change',
+    date: 'September 19, 2026',
+    isoDate: '2026-09-19',
+    category: 'AI & Automation',
+    badge: 'Market Benchmark',
+    source: 'Nucleus Research / PR Newswire',
+    summary: 'Nucleus Research has released its 2026 Quality Management System (QMS) Technology Value Matrix, ranking MasterControl, Honeywell Technologies (Sparta Systems TrackWise Digital), and ComplianceQuest as market Leaders. The benchmark highlights an accelerating industry transition from passive search to autonomous agentic workflows and elevates "total cost of change"—including continuous automated re-validation and cloud compliance—as a defining metric for regulated life sciences buyers.',
+    link: '/ai-readiness-tracker',
+    linkText: 'Compare QMS Vendor Readiness Scores',
+    featured: false,
+  },
+  {
     id: 'koerber-k-ai-assistant-launch',
     title: 'Körber Launches K.AI Assistant for PAS-X MES with PharmaGuardrails for GxP Environments',
     date: 'September 18, 2026',

@@ -205,10 +205,10 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 71,
     opennessGrade: 'B',
     walledGardenAnalysis: 
-      'MasterControl established strong governance credentials by achieving ISO/IEC 42001 certification for its AI Trust Center in July 2025. While their core Vx platform has historically been closed to external agents, MasterControl has recognized customer demand for unified AI pipelines and is prototyping MCP connectors for their Quality Excellence cloud. Their automated transfer of risk assessments is technically advanced, but external developer access remains partner-gated.',
+      'MasterControl was named a Leader in the Nucleus Research 2026 QMS Technology Value Matrix for usability, automated validation testing (Vx), and rapid deployment. It established strong governance credentials by achieving ISO/IEC 42001 certification for its AI Trust Center in July 2025. While their core Vx platform has historically been closed to external agents, MasterControl is actively prototyping MCP connectors for their Quality Excellence cloud to support multi-agent ecosystems, though external developer access remains partner-gated.',
     buyerTakeaway: 
       'Ask for early access to their MCP developer preview if pursuing enterprise multi-agent architectures. MasterControl\'s ISO 42001 certification gives QA teams solid audit defense for AI governance.',
-    lastAudited: 'July 2026',
+    lastAudited: 'September 2026',
     website: 'https://mastercontrol.com'
   },
   {
@@ -279,10 +279,10 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 54,
     opennessGrade: 'C',
     walledGardenAnalysis: 
-      'TrackWise Digital operates inside Honeywell\'s Forge enterprise cloud. AI investments are directed toward Honeywell\'s proprietary industrial analytics and shop-floor IoT telemetry rather than open agent protocols. While Salesforce-based APIs exist under the hood for TrackWise Digital, opening data access to third-party LLMs is restricted by Honeywell\'s industrial data fortification strategy.',
+      'Recognized as a Leader in the Nucleus Research 2026 QMS Value Matrix, TrackWise Digital operates inside Honeywell\'s Forge enterprise cloud with its QualityWise AI engine. AI investments are directed toward Honeywell\'s proprietary industrial analytics and shop-floor IoT telemetry rather than open agent protocols. While Salesforce-based APIs exist under the hood for TrackWise Digital, opening data access to third-party LLMs remains restricted by Honeywell\'s industrial data fortification strategy.',
     buyerTakeaway: 
       'Well-suited if you are standardizing across Honeywell industrial plant automation; poorly suited if you want open, composable AI agent orchestration across multi-vendor validation stacks.',
-    lastAudited: 'June 2026',
+    lastAudited: 'September 2026',
     website: 'https://spartasystems.com'
   },
 
@@ -870,10 +870,10 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 74,
     opennessGrade: 'B',
     walledGardenAnalysis: 
-      'Because ComplianceQuest is 100% native to Salesforce, its openness is tied directly to Salesforce\'s architecture. It enjoys world-class Salesforce REST/GraphQL APIs and native integration with Salesforce Agentforce. However, Agentforce is itself a walled garden designed to bill per agent conversation, which disincentivizes non-Salesforce external MCP orchestration.',
+      'Ranked as a Leader in the Nucleus Research 2026 QMS Technology Value Matrix, ComplianceQuest leverages its 100% native Salesforce architecture. It benefits from world-class Salesforce REST/GraphQL APIs and native integration with Salesforce Agentforce for automated quality event workflows. However, Agentforce is itself an ecosystem walled garden designed to bill per agent conversation, which disincentivizes non-Salesforce external MCP orchestration.',
     buyerTakeaway: 
       'Outstanding if your enterprise is already standardized on Salesforce and Agentforce; costly and restrictive if attempting multi-cloud independent agent architectures.',
-    lastAudited: 'June 2026',
+    lastAudited: 'September 2026',
     website: 'https://compliancequest.com'
   },
   {

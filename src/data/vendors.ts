@@ -131,7 +131,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Salt Lake City, Utah',
     ownership: 'Private (Sixth Street backing)',
-    status2026: 'ISO 42001 certified AI Trust Center (July 15, 2025)',
+    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); ISO 42001 certified AI Trust Center',
     summary: 'Integrated validation module embedded in the MasterControl Quality Excellence platform alongside QMS, Manufacturing Excellence (MES), and CMMS. Delivers patented automated validation testing for core platform upgrades.',
     scope: [
       'Validation Excellence (Vx)',
@@ -161,7 +161,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Holmdel, New Jersey',
     ownership: 'Honeywell (Acquired for $1.3B)',
-    status2026: 'Migrating legacy on-prem TrackWise v8 to Honeywell Forge IIoT cloud',
+    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); migrating on-prem TrackWise to Honeywell Forge with QualityWise AI',
     summary: 'Pillar of enterprise complaints, quality event management, and compliance validation. Integrated into Honeywell Forge Life Sciences IIoT platform to harvest live shop-floor telemetry into validation logs.',
     scope: [
       'QMS-Embedded Validation',
@@ -444,7 +444,7 @@ export const VENDORS: Vendor[] = [
     category: 'Specialist / Niche',
     headquarters: 'Tampa, Florida',
     ownership: 'Private',
-    status2026: 'Salesforce Agentforce life science integrations',
+    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); native Salesforce Agentforce integration',
     summary: '100% native Salesforce enterprise QMS and validation suite. Popular with mid-market biotech and medical device organizations seeking an integrated CRM/QMS platform.',
     scope: ['Part 11 Validation on Salesforce', 'Audit & Change Management', 'Supplier Quality'],
     aiFeatures: 'Integration with Salesforce Agentforce and Einstein AI for quality event summarization.',
