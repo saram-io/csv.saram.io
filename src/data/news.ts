@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'salesforce-life-sciences-mcp-launch',
+    title: 'Salesforce Unveils Life Sciences MCP & Regulated Content Management for Open Agent Interoperability',
+    date: 'September 20, 2026',
+    isoDate: '2026-09-20',
+    category: 'Product Launch',
+    badge: 'Protocol Breakthrough',
+    source: 'Salesforce / Dreamforce 2026',
+    summary: 'Salesforce has announced Life Sciences MCP (Model Context Protocol) and Regulated Content Management (RCM), expanding its agentic architecture to allow biopharma and medtech teams to connect external AI agents directly to governed GxP data. By adopting the open MCP standard with headless connectivity, the platform enables multi-cloud agent orchestration while enforcing enterprise 21 CFR Part 11 electronic records, audit trails, and strict row-level security boundaries.',
+    link: '/ai-readiness-tracker',
+    linkText: 'Analyze Salesforce Ecosystem Readiness',
+    featured: true,
+  },
+  {
     id: 'nucleus-qms-value-matrix-2026',
     title: 'Nucleus Research 2026 QMS Value Matrix Spotlights Agentic AI Workflows and Validation Total Cost of Change',
     date: 'September 19, 2026',
@@ -63,7 +76,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'Sware has officially launched Res_Q Connect, an AI-validated integration platform built natively on Anthropic\'s open Model Context Protocol (MCP) standard. The platform acts as a governed integration layer linking QMS, ERP, and testing systems, enabling agentic workflow orchestration without custom point-to-point scripts while maintaining strict 21 CFR Part 11 audit trails.',
     link: '/ai-readiness-tracker',
     linkText: 'View Sware in AI Tracker',
-    featured: true,
+    featured: false,
   },
   {
     id: 'veeva-vault-mcp',

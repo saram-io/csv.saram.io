@@ -743,7 +743,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     mcpStatus: 'Roadmap / In Dev',
     mcpDetails: 'Injects Part 11 digital signatures directly into Jira, Azure DevOps, and Tosca; developing MCP server tools for automated CSA evidence verification in continuous delivery pipelines.',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
-    apiDetails: 'Cloud-native REST APIs and webhook listeners embedded natively in enterprise ALM and CI/CD tools.',
+    apiDetails: 'Cloud-native REST APIs, dedicated Public API (v2026.2) with scoped API keys (X-API-Key), Record Integrity workspace, and webhook listeners embedded natively in Jira, qTest, and CI/CD pipelines.',
     webhooksSupported: true,
     dataPortability: 'Full Structured JSON / Graph',
     part11AiAttribution: 'Native Agent Tool-Calling Log',
@@ -754,18 +754,18 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     willingnessToOpenData: 'High',
     scoreBreakdown: {
       mcp: 22,             // Roadmap / In Dev for CI/CD test evidence verification
-      api: 24,             // Embedded REST endpoints + real-time webhook listeners
+      api: 25,             // Dedicated Public API v2026.2 + embedded REST + real-time webhooks
       dataPortability: 14, // Full structured compliance metadata across Jira/DevOps
       part11Audit: 14,     // Part 11 digital signatures and tamper-evident logs
       byoAiFreedom: 13     // Unrestricted BYO-AI and developer tool interoperability
     },
-    readinessScore: 87,
+    readinessScore: 88,
     opennessGrade: 'A',
     walledGardenAnalysis: 
       'Tricentis Vera is built explicitly to operate across best-of-breed open developer platforms including Jira, Azure DevOps, and CI/CD pipelines. Rather than trapping compliance data inside a proprietary document silo, Vera injects Part 11 electronic records, digital signatures, and audit trails directly into active developer backlogs and automated testing workflows. This positioning creates strong incentives to adopt open tool-calling protocols and webhooks.',
     buyerTakeaway: 
       'The premier choice for IT engineering teams executing automated CSA who refuse to be boxed into proprietary VLMS silos. Highly interoperable with enterprise agent orchestration.',
-    lastAudited: 'August 2026',
+    lastAudited: 'September 2026',
     website: 'https://tricentis.com'
   },
   {
@@ -812,8 +812,8 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     tierLabel: 'Tier 3 — Specialist / Niche',
     category: 'Specialist / Niche',
     walledGardenPosture: 'Ecosystem Walled Garden',
-    mcpStatus: 'Ecosystem Bound',
-    mcpDetails: 'Dottie AI functions as an embedded assistant on top of Salesforce cloud infrastructure and Agentforce; external agent orchestration outside Salesforce boundary requires custom wrappers.',
+    mcpStatus: 'Roadmap / In Dev',
+    mcpDetails: 'Leverages Salesforce cloud infrastructure; benefits from Salesforce\'s Life Sciences MCP roadmap and headless protocol connectors bridging Dottie AI and external agents to governed GxP data.',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
     apiDetails: 'Inherits Salesforce Lightning REST/GraphQL APIs, Platform Events, and Integration Cloud connectors.',
     webhooksSupported: true,
@@ -825,19 +825,19 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     apiPricingPosture: 'Tiered / Usage Surcharges',
     willingnessToOpenData: 'Moderate',
     scoreBreakdown: {
-      mcp: 14,             // Bound to Salesforce Agentforce & Lightning runtime
+      mcp: 18,             // Active MCP development via Salesforce Life Sciences MCP headless protocol
       api: 22,             // Comprehensive Salesforce REST/GraphQL APIs + webhooks
       dataPortability: 14, // Structured Salesforce object schema & reports
       part11Audit: 13,     // Pre-validated Part 11 audit trails on Salesforce
       byoAiFreedom: 11     // Governed by Salesforce Agentforce conversation fees
     },
-    readinessScore: 74,
+    readinessScore: 78,
     opennessGrade: 'B',
     walledGardenAnalysis: 
       'Dot Compliance leverages Salesforce’s cloud infrastructure and delivers pre-validated GxP quality modules with Dottie AI. Like ComplianceQuest, it benefits from extensive Salesforce APIs and Agentforce capabilities, but its AI ecosystem boundaries and commercial licensing remain closely tied to Salesforce’s enterprise perimeter.',
     buyerTakeaway: 
       'Turnkey choice for organizations desiring a pre-validated, low-infrastructure QMS and validation suite on Salesforce. External agent orchestration outside the Salesforce boundary requires custom API integration.',
-    lastAudited: 'June 2026',
+    lastAudited: 'September 2026',
     website: 'https://dotcompliance.com'
   },
   {
@@ -848,8 +848,8 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     tierLabel: 'Tier 3 — Specialist / Niche',
     category: 'Specialist / Niche',
     walledGardenPosture: 'Ecosystem Walled Garden',
-    mcpStatus: 'Ecosystem Bound',
-    mcpDetails: '100% native to Salesforce; integrates natively with Salesforce Agentforce. Third-party non-Salesforce MCP agent orchestration requires custom bridge adapters.',
+    mcpStatus: 'Roadmap / In Dev',
+    mcpDetails: '100% native to Salesforce; benefits directly from Salesforce\'s Life Sciences MCP and headless protocol architecture, enabling external agent orchestration with Part 11 governance without custom point-to-point wrappers.',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
     apiDetails: 'World-class Salesforce REST/GraphQL endpoints, Change Data Capture, and Apex webhooks.',
     webhooksSupported: true,
@@ -861,13 +861,13 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     apiPricingPosture: 'Tiered / Usage Surcharges',
     willingnessToOpenData: 'Moderate',
     scoreBreakdown: {
-      mcp: 14,             // Agentforce bound; no independent open MCP server
+      mcp: 18,             // Benefiting from Salesforce Life Sciences MCP roadmap & headless endpoints
       api: 22,             // Salesforce Lightning REST/GraphQL + event streaming
       dataPortability: 14, // Full structured JSON & relational objects
       part11Audit: 13,     // Native Part 11 compliant audit trail tables
       byoAiFreedom: 11     // Commercial licensing tied to Salesforce agent billing
     },
-    readinessScore: 74,
+    readinessScore: 78,
     opennessGrade: 'B',
     walledGardenAnalysis: 
       'Ranked as a Leader in the Nucleus Research 2026 QMS Technology Value Matrix, ComplianceQuest leverages its 100% native Salesforce architecture. It benefits from world-class Salesforce REST/GraphQL APIs and native integration with Salesforce Agentforce for automated quality event workflows. However, Agentforce is itself an ecosystem walled garden designed to bill per agent conversation, which disincentivizes non-Salesforce external MCP orchestration.',

@@ -444,7 +444,7 @@ export const VENDORS: Vendor[] = [
     category: 'Specialist / Niche',
     headquarters: 'Tampa, Florida',
     ownership: 'Private',
-    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); native Salesforce Agentforce integration',
+    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); adopts Salesforce Life Sciences MCP & Agentforce',
     summary: '100% native Salesforce enterprise QMS and validation suite. Popular with mid-market biotech and medical device organizations seeking an integrated CRM/QMS platform.',
     scope: ['Part 11 Validation on Salesforce', 'Audit & Change Management', 'Supplier Quality'],
     aiFeatures: 'Integration with Salesforce Agentforce and Einstein AI for quality event summarization.',
@@ -526,7 +526,7 @@ export const VENDORS: Vendor[] = [
     category: 'Specialist / Niche',
     headquarters: 'Austin, Texas',
     ownership: 'Private (Insight Partners)',
-    status2026: 'Automated CSA execution with Tricentis Copilot & Tosca test automation',
+    status2026: 'Automated CSA execution with Public API (v2026.2), Record Integrity reconciliation, and Tricentis Copilot',
     summary: 'The de facto standard for embedding 21 CFR Part 11 compliant digital signatures, audit history, and validation workflows directly into agile developer tooling (Jira, Azure DevOps) and test automation platforms (Tosca, qTest).',
     scope: [
       'Agile CSA Test Automation',
@@ -588,7 +588,7 @@ export const VENDORS: Vendor[] = [
     category: 'Specialist / Niche',
     headquarters: 'Phoenix, Arizona / Tel Aviv, Israel',
     ownership: 'Private (IGP Capital, Vertex Ventures)',
-    status2026: 'Pre-validated Salesforce-native QMS with Dottie AI compliance assistant',
+    status2026: 'Pre-validated Salesforce-native QMS with Dottie AI and Salesforce Life Sciences MCP integration roadmap',
     summary: 'Ready-to-deploy, pre-validated life sciences quality and validation platform built natively on Salesforce. Delivers turnkey GAMP 5 and CSA validation packages out-of-the-box, dramatically reducing deployment timelines.',
     scope: [
       'Pre-Validated GxP Workflows',
