@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'veeva-falcon-router-launch',
+    title: 'Veeva Launches Falcon Router: Autonomous AI Agent for GxP Safety, Complaint, and Medical Inquiry Triage',
+    date: 'September 21, 2026',
+    isoDate: '2026-09-21',
+    category: 'Product Launch',
+    badge: 'Agentic Labor Launch',
+    source: 'Veeva Systems / PR Newswire',
+    summary: 'Veeva Systems has unveiled Veeva Falcon Router, an industry-specific AI agent within the Falcon Agent Suite engineered to automate the intake, classification, and routing of adverse event reports, product quality complaints, and medical inquiries. Operating across email, web, and digital channels directly into Veeva Safety, Vault QMS, and Veeva MedInquiry without manual reconciliation, Falcon Router advances Veeva’s agentic labor strategy while enforcing Part 11 electronic records and human-in-the-loop governance.',
+    link: '/ai-readiness-tracker',
+    linkText: 'View Veeva Vault AI Readiness',
+    featured: true,
+  },
+  {
     id: 'salesforce-life-sciences-mcp-launch',
     title: 'Salesforce Unveils Life Sciences MCP & Regulated Content Management for Open Agent Interoperability',
     date: 'September 20, 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'Salesforce has announced Life Sciences MCP (Model Context Protocol) and Regulated Content Management (RCM), expanding its agentic architecture to allow biopharma and medtech teams to connect external AI agents directly to governed GxP data. By adopting the open MCP standard with headless connectivity, the platform enables multi-cloud agent orchestration while enforcing enterprise 21 CFR Part 11 electronic records, audit trails, and strict row-level security boundaries.',
     link: '/ai-readiness-tracker',
     linkText: 'Analyze Salesforce Ecosystem Readiness',
-    featured: true,
+    featured: false,
   },
   {
     id: 'nucleus-qms-value-matrix-2026',

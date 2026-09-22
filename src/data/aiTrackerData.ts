@@ -133,7 +133,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 94,
     opennessGrade: 'A+',
     walledGardenAnalysis: 
-      'Veeva made the most decisive move in the validation industry by releasing the native Vault MCP Server in 26R2 (August 2026). Rather than forcing customers into a closed AI silo, Veeva adopted Anthropic\'s open Model Context Protocol. External AI agents can invoke standardized Vault tools with Part 11 compliant audit trail recording. While Vault remains a massive enterprise platform, its protocol-level openness establishes the gold standard for regulated software interoperability.',
+      'Veeva made the most decisive move in the validation industry by releasing the native Vault MCP Server in 26R2 (August 2026). Rather than forcing customers into a closed AI silo, Veeva adopted Anthropic\'s open Model Context Protocol. External AI agents can invoke standardized Vault tools with Part 11 compliant audit trail recording. With the September 2026 expansion of the Falcon Agent Suite (Falcon Safety and Falcon Router), Veeva pairs agentic labor automation with protocol-level openness, maintaining the gold standard for regulated software interoperability.',
     buyerTakeaway: 
       'Strongest choice for biopharmas building multi-agent internal orchestration. Demand MCP tool-level permission matrix in enterprise agreements to control agentic read/write scopes.',
     lastAudited: 'September 2026',
