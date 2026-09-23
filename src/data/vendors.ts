@@ -70,7 +70,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Santa Clara, California',
     ownership: 'Private (Raised $16M strategic financing in July 2025)',
-    status2026: 'Launched VAL™ agentic AI at INTERPHEX; Eugia Pharmaceuticals live on VLMS (Sep 2026)',
+    status2026: 'Launched VAL™ agentic AI at INTERPHEX; concluded ValConnect Mumbai Innovation Day on enterprise GxP AI; Eugia Pharmaceuticals live on VLMS (Sep 2026)',
     summary: 'The broadest dedicated validation lifecycle management system (VLMS). Covers Smart GxP, Process Validation, Cleaning Validation, Data Integrity, and Risk Manager under one roof.',
     scope: [
       'Enterprise VLMS',

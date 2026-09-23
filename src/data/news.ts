@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'fda-istand-first-rare-disease-dht-acceptance',
+    title: 'FDA Accepts First Wearable Digital Health Tool for Rare Disease into ISTAND Qualification Program',
+    date: 'September 22, 2026',
+    isoDate: '2026-09-22',
+    category: 'Regulatory',
+    badge: 'FDA Milestone',
+    source: 'U.S. FDA / CDER & CDRH ISTAND',
+    summary: 'The U.S. FDA has accepted a Letter of Intent into its Innovative Science and Technology Approaches for New Drugs (ISTAND) program for a wearable sensor-derived digital outcome measure evaluating Charcot-Marie-Tooth disease type 1A (CMT1A). Marking the first digital health technology (DHT) accepted into ISTAND for a rare neurological condition, the milestone establishes qualification pathways for sensor-derived endpoint validation. For CSV and CSA practitioners, the framework highlights the growing demand for risk-based software assurance, automated data integrity verification, and Part 11 compliance in decentralized clinical trial (DCT) systems.',
+    link: '/csv-vs-csa',
+    linkText: 'Explore CSA & Digital Health Assurance',
+    featured: true,
+  },
+  {
     id: 'veeva-falcon-router-launch',
     title: 'Veeva Launches Falcon Router: Autonomous AI Agent for GxP Safety, Complaint, and Medical Inquiry Triage',
     date: 'September 21, 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'Veeva Systems has unveiled Veeva Falcon Router, an industry-specific AI agent within the Falcon Agent Suite engineered to automate the intake, classification, and routing of adverse event reports, product quality complaints, and medical inquiries. Operating across email, web, and digital channels directly into Veeva Safety, Vault QMS, and Veeva MedInquiry without manual reconciliation, Falcon Router advances Veeva’s agentic labor strategy while enforcing Part 11 electronic records and human-in-the-loop governance.',
     link: '/ai-readiness-tracker',
     linkText: 'View Veeva Vault AI Readiness',
-    featured: true,
+    featured: false,
   },
   {
     id: 'salesforce-life-sciences-mcp-launch',
