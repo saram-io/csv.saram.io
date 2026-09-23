@@ -1,11 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { VENDORS } from '../data/vendors';
+import { LATEST_NEWS } from '../data/news';
 
 const tier1 = VENDORS.filter(v => v.tier === 1);
 const tier2 = VENDORS.filter(v => v.tier === 2);
 const tier3 = VENDORS.filter(v => v.tier === 3);
 const tier4 = VENDORS.filter(v => v.tier === 4);
+
+const latestNewsIsoDate = LATEST_NEWS[0]?.isoDate || '2026-09-22';
+const lastModifiedDate = `${latestNewsIsoDate}T00:00:00Z`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -43,7 +47,46 @@ const articleSchema = {
     "url": "https://saram.io"
   },
   "datePublished": "2026-02-01T08:00:00Z",
-  "dateModified": "2026-06-13T12:00:00Z"
+  "dateModified": lastModifiedDate
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the four market tiers of Life Sciences CSV and CSA platforms?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The market is classified into Tier 1 (Pure-Play Validation Lifecycle Management Systems like Kneat and ValGenesis), Tier 2 (Adjacent Enterprise Quality, MES, and PLM Suites like Veeva, MasterControl, and Werum), Tier 3 (Specialist and Emerging CSA Tooling like Tricentis Vera and Ketryx), and Tier 4 (Legacy and Sunsetting Validation Architectures like HP ALM and on-premise TrackWise)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What distinguishes a Tier 1 Pure-Play VLMS from adjacent suites?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tier 1 Pure-Play platforms are purpose-built specifically for end-to-end electronic validation lifecycles across equipment, facilities, utilities, and computerized systems. They provide deep, native 21 CFR Part 11 electronic execution, trace matrices, and deviation workflows without requiring an underlying enterprise ERP or MES platform."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does FDA CSA impact vendor selection across tiers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under the FDA Computer Software Assurance (CSA) paradigm, platforms that support unscripted testing, risk-proportionate verification, automated regression, and AI-assisted trace analysis deliver up to 80% reduction in validation documentation overhead compared to document-heavy legacy tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are biopharmas actively decommissioning Tier 4 legacy validation tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tier 4 tools rely on static documents, physical printouts, or rigid client-server architectures that lack real-time audit trail reviews, API openness, and agentic AI integration, making them expensive to maintain and vulnerable to modern data integrity audit findings."
+      }
+    }
+  ]
 };
 ---
 
@@ -52,7 +95,7 @@ const articleSchema = {
   description="In-depth market breakdown across Pure-Play Platforms, Adjacent MES/PLM/ERP Suites, Specialist Tools, and Sunsetting Legacy Systems."
   activePath="/tiers"
   ogType="article"
-  schemas={[breadcrumbSchema, articleSchema]}
+  schemas={[breadcrumbSchema, articleSchema, faqSchema]}
 >
   <main>
     <!-- Breadcrumb -->
@@ -316,6 +359,40 @@ const articleSchema = {
               Prioritize multi-tenant, multi-client support in <strong>ValGenesis</strong> or <strong>Kneat</strong>, paired with <strong>Tier 2 MES</strong> validation packages (Werum PAS-X or Rockwell PharmaSuite).
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section style="margin-top: 32px;">
+      <h2 class="section-title">Frequently Asked Questions: Validation Tiers</h2>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="card" style="padding: 18px;">
+          <h3 style="font-size: 16px; margin: 0 0 8px;">What are the four market tiers of Life Sciences CSV and CSA platforms?</h3>
+          <p style="font-size: 13.5px; line-height: 1.6; margin: 0; color: var(--text-color);">
+            The market is classified into <strong>Tier 1</strong> (Pure-Play Validation Lifecycle Management Systems like Kneat and ValGenesis), <strong>Tier 2</strong> (Adjacent Enterprise Quality, MES, and PLM Suites like Veeva, MasterControl, and Werum), <strong>Tier 3</strong> (Specialist and Emerging CSA Tooling like Tricentis Vera and Ketryx), and <strong>Tier 4</strong> (Legacy and Sunsetting Validation Architectures like HP ALM and on-premise TrackWise).
+          </p>
+        </div>
+
+        <div class="card" style="padding: 18px;">
+          <h3 style="font-size: 16px; margin: 0 0 8px;">What distinguishes a Tier 1 Pure-Play VLMS from adjacent suites?</h3>
+          <p style="font-size: 13.5px; line-height: 1.6; margin: 0; color: var(--text-color);">
+            Tier 1 Pure-Play platforms are purpose-built specifically for end-to-end electronic validation lifecycles across equipment, facilities, utilities, and computerized systems. They provide deep, native 21 CFR Part 11 electronic execution, trace matrices, and deviation workflows without requiring an underlying enterprise ERP or MES platform.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 18px;">
+          <h3 style="font-size: 16px; margin: 0 0 8px;">How does FDA CSA impact vendor selection across tiers?</h3>
+          <p style="font-size: 13.5px; line-height: 1.6; margin: 0; color: var(--text-color);">
+            Under the FDA Computer Software Assurance (CSA) paradigm, platforms that support unscripted testing, risk-proportionate verification, automated regression, and AI-assisted trace analysis deliver up to 80% reduction in validation documentation overhead compared to document-heavy legacy tools.
+          </p>
+        </div>
+
+        <div class="card" style="padding: 18px;">
+          <h3 style="font-size: 16px; margin: 0 0 8px;">Why are biopharmas actively decommissioning Tier 4 legacy validation tools?</h3>
+          <p style="font-size: 13.5px; line-height: 1.6; margin: 0; color: var(--text-color);">
+            Tier 4 tools rely on static documents, physical printouts, or rigid client-server architectures that lack real-time audit trail reviews, API openness, and agentic AI integration, making them expensive to maintain and vulnerable to modern data integrity audit findings.
+          </p>
         </div>
       </div>
     </section>

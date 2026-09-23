@@ -1,5 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { LATEST_NEWS } from '../data/news';
+
+const latestNewsIsoDate = LATEST_NEWS[0]?.isoDate || '2026-09-22';
+const lastModifiedDate = `${latestNewsIsoDate}T00:00:00Z`;
 
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -37,7 +41,7 @@ const articleSchema = {
     "url": "https://saram.io"
   },
   "datePublished": "2026-01-15T08:00:00Z",
-  "dateModified": "2026-06-13T12:00:00Z",
+  "dateModified": lastModifiedDate,
   "about": [
     "Computer Systems Validation",
     "Computer Software Assurance",

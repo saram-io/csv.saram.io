@@ -65,8 +65,11 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   "name": `${vendor.name} - ${vendor.product}`,
   "applicationCategory": "BusinessApplication, ComplianceApplication",
-  "operatingSystem": "Cloud / Web SaaS / On-Premise",
+  "applicationSubCategory": "Computer Systems Validation (CSV) & Computer Software Assurance (CSA)",
+  "operatingSystem": vendor.deploymentModel || "Cloud / Web SaaS / On-Premise",
+  "softwareRequirements": "FDA 21 CFR Part 11, EU Annex 11, GAMP 5 Second Edition",
   "description": vendor.summary,
+  "featureList": vendor.scope.join(', '),
   "author": {
     "@type": "Organization",
     "name": vendor.name,
@@ -76,7 +79,25 @@ const softwareSchema = {
     "@type": "Organization",
     "name": "Saram Consulting",
     "url": "https://saram.io"
-  }
+  },
+  ...(aiData ? {
+    "review": {
+      "@type": "Review",
+      "name": `${vendor.name} CSV/CSA & AI Readiness Evaluation`,
+      "reviewBody": `${vendor.name} (${vendor.product}) achieved an AI Readiness & Openness score of ${aiData.readinessScore}/100 in Saram Consulting's independent 2026 benchmark. Categorized as "${aiData.walledGardenPosture}".`,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": aiData.readinessScore,
+        "bestRating": 100,
+        "worstRating": 0
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Saram Consulting",
+        "url": "https://saram.io"
+      }
+    }
+  } : {})
 };
 ---
 
@@ -270,9 +291,11 @@ const softwareSchema = {
               </div>
               <div style="font-size: 12px; color: var(--muted-text); margin-bottom: 8px;">{rel.product}</div>
               <p style="font-size: 12.5px; line-height: 1.5; margin-bottom: 10px;">{rel.summary.slice(0, 110)}...</p>
-              <a href={`/vendors/${rel.id}`} class="service-link" style="font-size: 12px;">
-                View Profile &rarr;
-              </a>
+              <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 6px;">
+                <a href={`/vendors/${rel.id}/`} class="service-link" style="font-size: 12px; font-weight: 600;">
+                  Compare {vendor.name} vs {rel.name} &rarr;
+                </a>
+              </div>
             </div>
           ))}
         </div>

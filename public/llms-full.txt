@@ -1,0 +1,72 @@
+# csv.saram.io — Complete Knowledge Base & Market Research
+
+> Independent technical research, 4-tier market taxonomy, and AI readiness benchmarks for life sciences Computer Systems Validation (CSV) and Computer Software Assurance (CSA). Maintained by Saram Consulting (https://saram.io).
+
+---
+
+## 1. Regulatory Context: CSV vs. CSA Paradigm Shift
+
+### Traditional Computer Systems Validation (CSV)
+- **Primary Standard**: FDA 21 CFR Part 11, GAMP 4 / early GAMP 5.
+- **Resource Allocation**: ~80% Documentation & screenshot capture / ~20% actual critical testing.
+- **Testing Approach**: Rigid, linear V-Model test scripts executed line-by-line; deviation logging for typographical discrepancies.
+- **AI Suitability**: Extremely low. Static document-centric gates penalize non-deterministic automation and dynamic test generation.
+
+### Computer Software Assurance (CSA)
+- **Primary Standard**: FDA Draft Guidance "Computer Software Assurance for Production and Quality System Software" & GAMP 5 Second Edition (Critical Thinking).
+- **Resource Allocation**: ~20% Documentation / ~80% Critical thinking, risk-based testing, unscripted exploration, and automated regression.
+- **Testing Approach**: Risk-proportionate verification based on direct patient safety, product quality, and data integrity impact.
+- **AI Suitability**: High. Enables autonomous validation agents (e.g., URS drafting, deviation synthesis, automated test script generation, dynamic RTM trace matrix maintenance).
+
+---
+
+## 2. Market Taxonomy: 4 Tiers of Validation Platforms
+
+### Tier 1: Dedicated Pure-Play VLMS (Validation Lifecycle Management Systems)
+- **Characteristics**: Purpose-built from day one exclusively for electronic validation lifecycles; native 21 CFR Part 11 electronic signatures, protocol authoring, execution, and deviation tracking.
+- **Market Leaders**:
+  - **Kneat GxP**: Ireland / Canada; TSX: KSI (Thoma Bravo acquired); customer base includes 8 of top 10 global biopharmas.
+  - **ValGenesis VLMS**: South San Francisco; pioneer of 100% paperless validation; includes VAL™ AI assistant.
+
+### Tier 2: Adjacent Enterprise Suites (MES, PLM, ERP, QMS)
+- **Characteristics**: Large multi-product platforms where validation is one module or integrated capability within a broader manufacturing, quality, or lifecycle platform.
+- **Key Platforms**:
+  - **Veeva Vault Validation**: Cloud-native GxP suite with Falcon Router & Vault MCP Server.
+  - **MasterControl**: Enterprise QMS / Manufacturing Excellence with ISO 42001 AI governance.
+  - **Sparta Systems / TrackWise Digital**: Honeywell life sciences QMS suite.
+  - **Werum PAS-X**: Körber Pharma MES system with K.AI validation agent.
+  - **Siemens Opcenter Execution Pharma**: Enterprise MES/MOM platform.
+  - **Rockwell Automation PharmaSuite**: Regulated MES suite.
+  - **PTC Codebeamer**: Medical device ALM & software validation engine.
+
+### Tier 3: Specialist & Emerging CSA Tooling
+- **Characteristics**: Next-generation platforms specializing in test automation, continuous verification, or rapid modern ALM for GxP.
+- **Key Platforms**:
+  - **Tricentis Vera**: Automated testing and electronic signature gateway for Jira, qTest, and Tosca.
+  - **Ketryx**: Connected ALM for FDA software validation and medical device software.
+  - **Sware (Res_Q)**: Automated GxP software release and validation engine.
+  - **GoVal**: Cloud validation execution tool.
+  - **ComplianceQuest**: Salesforce-native Life Sciences QMS.
+  - **Dot Compliance**: Salesforce-native QMS & ready-to-use validation workflows.
+
+### Tier 4: Legacy & Sunsetting Validation Architectures
+- **Characteristics**: On-premise legacy tools, client-server architectures, or manual spreadsheet/paper processes being phased out.
+- **Examples**: Legacy HP ALM/QC on-prem, Sparta TrackWise v8 on-prem, OpenText Documentum legacy, manual Excel/Word/SharePoint validation binders.
+
+---
+
+## 3. AI Readiness & Walled Garden Benchmark (100-Point Model)
+
+### Scoring Rubric Dimensions:
+1. **Model Context Protocol (MCP) Support (30 points)**: Anthropic MCP server implementation allowing external AI agents to securely query requirements, test protocols, and deviations without proprietary vendor lock-in.
+2. **REST & GraphQL API Openness (25 points)**: Authenticated, documented endpoints, bidirectional webhooks, and programmatic test protocol execution.
+3. **Data Portability & Schema Export (15 points)**: Native exports to open formats (JSON, CSV, Parquet), raw audit trail extraction, absence of proprietary data hostage fees.
+4. **21 CFR Part 11 AI Agent Attribution (15 points)**: Capability to log agentic AI actions with cryptographic timestamps, machine agent identification, and human-in-the-loop sign-off.
+5. **BYO-AI & Commercial Freedom (15 points)**: Ability for enterprise customers to connect their own LLMs/SLMs (Claude, GPT, Gemini, Llama) without forced proprietary AI upsells.
+
+---
+
+## 4. Key Takeaways for Regulated Life Sciences
+- **Walled Gardens vs. Open Ecosystems**: As biopharmas deploy agentic AI, platforms that restrict access via closed APIs or mandatory bundled AI models create significant compliance bottlenecks.
+- **Audit Trails in the Agentic Era**: 21 CFR Part 11 mandates that autonomous actions taken by AI tools must be uniquely attributed to the agent identity and co-signed by qualified human reviewers.
+- **Advisory Contact**: Saram Consulting provides independent vendor selection, CSA roadmap design, and GxP AI compliance audits at https://saram.io.

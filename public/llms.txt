@@ -1,0 +1,28 @@
+# csv.saram.io
+
+> Independent technical research, 4-tier market taxonomy, and AI readiness benchmarks for life sciences Computer Systems Validation (CSV) and Computer Software Assurance (CSA). Maintained by Saram Consulting.
+
+## Core Guides & Regulatory Frameworks
+- [CSV vs CSA Regulatory Paradigm Shift](https://csv.saram.io/csv-vs-csa/): Detailed comparison between traditional CSV (exhaustive paperwork, 80% doc / 20% testing) and FDA CSA (critical thinking, risk-proportionate testing, 20% doc / 80% testing). Details FDA 21 CFR Part 11, GAMP 5 Second Edition, and AI agent enablement.
+- [CSV & CSA Market Tiers (1 to 4)](https://csv.saram.io/tiers/): Structured taxonomy of the validation software landscape: Tier 1 Pure-Play VLMS, Tier 2 Adjacent Quality/MES/PLM/ERP Suites, Tier 3 Specialist & Emerging CSA Tools, and Tier 4 Legacy/Decommissioned Architectures.
+- [2026 AI Validation Trends & Agentic GxP](https://csv.saram.io/ai-trends/): Analysis of agentic validation architectures, Anthropic Model Context Protocol (MCP) in life sciences, ValGenesis VAL™, Veeva Vault Falcon Router & MCP Server, MasterControl ISO 42001, and Kneat Thoma Bravo acquisition.
+- [About & Research Methodology](https://csv.saram.io/about/): Verification methodology, data integrity standards, advisory services, and research independence disclosure from Saram Consulting.
+
+## Benchmarks & Trackers
+- [AI Readiness & Walled Garden Benchmark](https://csv.saram.io/ai-readiness-tracker/): 100-point benchmark evaluating 25+ validation vendors across Model Context Protocol support (30 pts), API Openness & Webhooks (25 pts), Data Portability (15 pts), 21 CFR Part 11 AI Agent Attribution (15 pts), and BYO-AI Lock-in Risk (15 pts).
+- [Validation Platform Directory](https://csv.saram.io/vendors/): Comprehensive searchable index of 25+ computerized systems validation and software assurance software platforms.
+
+## Key Tracked Platforms (Tier 1 Pure-Play & Tier 2 Adjacent)
+- [Kneat GxP](https://csv.saram.io/vendors/kneat/): Tier 1 pure-play validation lifecycle management (VLMS) platform deployed at Tier-1 biopharmas.
+- [ValGenesis VLMS](https://csv.saram.io/vendors/valgenesis/): Tier 1 pure-play 100% paperless validation pioneer featuring VAL™ agentic AI.
+- [Veeva Vault Validation](https://csv.saram.io/vendors/veeva/): Tier 2 adjacent life sciences cloud suite with Falcon Router autonomous agents and Vault MCP Server.
+- [MasterControl](https://csv.saram.io/vendors/mastercontrol/): Tier 2 adjacent QMS/Manufacturing Excellence suite with ISO 42001 AI governance.
+- [Sparta TrackWise Digital](https://csv.saram.io/vendors/sparta-trackwise/): Tier 2 adjacent Honeywell enterprise QMS platform.
+- [Werum PAS-X](https://csv.saram.io/vendors/werum-pas-x/): Tier 2 adjacent MES standard in commercial pharmaceutical manufacturing.
+- [Siemens Opcenter](https://csv.saram.io/vendors/siemens-opcenter/): Tier 2 adjacent MES/MOM platform for medical device and pharma automation.
+- [Rockwell PharmaSuite](https://csv.saram.io/vendors/rockwell-pharmasuite/): Tier 2 adjacent MES suite for regulated manufacturing execution.
+- [PTC Codebeamer](https://csv.saram.io/vendors/ptc-codebeamer/): Tier 2 adjacent ALM/validation suite for medical device software engineering.
+- [Tricentis Vera](https://csv.saram.io/vendors/tricentis-vera/): Tier 3 specialist computerized software assurance test automation engine for GxP.
+- [Ketryx](https://csv.saram.io/vendors/ketryx/): Tier 3 specialist modern connected ALM & FDA software assurance platform.
+- [Sware Research (Res_Q)](https://csv.saram.io/vendors/sware/): Tier 3 specialist automated CSA and release management engine.
+- [ComplianceQuest](https://csv.saram.io/vendors/compliancequest/): Tier 3 Salesforce native enterprise QMS & validation platform.
