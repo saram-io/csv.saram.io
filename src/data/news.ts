@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'pics-pi-006-4-validation-enforcement',
+    title: 'PIC/S Issues Final Guidance on PI 006-4 Qualification & Validation Ahead of October 1 Enforcement',
+    date: 'September 23, 2026',
+    isoDate: '2026-09-23',
+    category: 'Standards',
+    badge: 'PIC/S Enforcement',
+    source: 'Pharmaceutical Inspection Co-operation Scheme (PIC/S)',
+    summary: 'The Pharmaceutical Inspection Co-operation Scheme (PIC/S)—representing 50+ regulatory authorities including FDA, EMA, Health Canada, and PMDA—has issued inspectorate implementation guidance ahead of the October 1, 2026 enforcement of PI 006-4 ("Recommendations on Qualification and Validation in Pharmaceutical Manufacturing"). Superseding the legacy 2007 PI 006-3 guidance, the comprehensive 49-page standard formally prohibits retrospective validation, abolishes the rigid three-validation-batch heuristic in favor of ICH Q9(R1) risk-based lifecycle verification, and mandates Ongoing Process Verification (OPV). For CSV and CSA practitioners, the framework establishes binding international alignment on computerized systems qualification, data governance, and automated testing integrity.',
+    link: '/csv-vs-csa',
+    linkText: 'Read CSA & Lifecycle Validation Alignment',
+    featured: true,
+  },
+  {
     id: 'fda-istand-first-rare-disease-dht-acceptance',
     title: 'FDA Accepts First Wearable Digital Health Tool for Rare Disease into ISTAND Qualification Program',
     date: 'September 22, 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'The U.S. FDA has accepted a Letter of Intent into its Innovative Science and Technology Approaches for New Drugs (ISTAND) program for a wearable sensor-derived digital outcome measure evaluating Charcot-Marie-Tooth disease type 1A (CMT1A). Marking the first digital health technology (DHT) accepted into ISTAND for a rare neurological condition, the milestone establishes qualification pathways for sensor-derived endpoint validation. For CSV and CSA practitioners, the framework highlights the growing demand for risk-based software assurance, automated data integrity verification, and Part 11 compliance in decentralized clinical trial (DCT) systems.',
     link: '/csv-vs-csa',
     linkText: 'Explore CSA & Digital Health Assurance',
-    featured: true,
+    featured: false,
   },
   {
     id: 'veeva-falcon-router-launch',
