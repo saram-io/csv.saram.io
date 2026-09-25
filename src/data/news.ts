@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'fda-rasd-software-validation-cybersecurity',
+    title: 'FDA Issues Premarket Guidance for Robotically-Assisted Surgical Devices Mandating Multi-Tier Software V&V and Cybersecurity',
+    date: 'September 24, 2026',
+    isoDate: '2026-09-24',
+    category: 'Regulatory',
+    badge: 'FDA Guidance',
+    source: 'U.S. FDA / CDRH',
+    summary: 'The U.S. FDA Center for Devices and Radiological Health (CDRH) has released a comprehensive draft guidance titled "Robotically-Assisted Surgical Devices - Premarket Submissions" (Docket No. FDA-2026-N-9505), establishing rigorous premarket non-clinical and software assurance requirements for teleoperated, software-controlled robotic surgical systems. The guidance mandates end-to-end software verification and validation (V&V) spanning unit, integration, and full-system testing evaluated against objective real-world clinical performance metrics. For CSV and CSA practitioners, the framework establishes binding expectations linking medical device cybersecurity with real-time fault management, user safety notifications, and fail-safe recovery controls under 21 CFR Part 820 / QMSR.',
+    link: '/csv-vs-csa',
+    linkText: 'Explore CSA & Medical Device V&V',
+    featured: true,
+  },
+  {
     id: 'pics-pi-006-4-validation-enforcement',
     title: 'PIC/S Issues Final Guidance on PI 006-4 Qualification & Validation Ahead of October 1 Enforcement',
     date: 'September 23, 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'The Pharmaceutical Inspection Co-operation Scheme (PIC/S)—representing 50+ regulatory authorities including FDA, EMA, Health Canada, and PMDA—has issued inspectorate implementation guidance ahead of the October 1, 2026 enforcement of PI 006-4 ("Recommendations on Qualification and Validation in Pharmaceutical Manufacturing"). Superseding the legacy 2007 PI 006-3 guidance, the comprehensive 49-page standard formally prohibits retrospective validation, abolishes the rigid three-validation-batch heuristic in favor of ICH Q9(R1) risk-based lifecycle verification, and mandates Ongoing Process Verification (OPV). For CSV and CSA practitioners, the framework establishes binding international alignment on computerized systems qualification, data governance, and automated testing integrity.',
     link: '/csv-vs-csa',
     linkText: 'Read CSA & Lifecycle Validation Alignment',
-    featured: true,
+    featured: false,
   },
   {
     id: 'fda-istand-first-rare-disease-dht-acceptance',
