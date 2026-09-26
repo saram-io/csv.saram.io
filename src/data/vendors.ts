@@ -101,7 +101,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Pleasanton, California',
     ownership: 'Public (NYSE: VEEV)',
-    status2026: 'Veeva AI Agents + Vault MCP Server (GA 26R2, Aug 2026); Falcon Agent Suite (Falcon Safety & Falcon Router, Sep 2026)',
+    status2026: 'Veeva AI Agents + Vault MCP Server (GA 26R2, Aug 2026); Falcon Agent Suite & Claude-powered Study Builder Agent with automated testing (Sep 2026)',
     summary: 'Part of the unified Veeva Quality Cloud, deeply integrated with Vault QualityDocs and Vault QMS. Governs commissioning, qualification, and validation across computerized systems, facilities, utilities, equipment, and manufacturing processes.',
     scope: [
       'Computerized Systems Validation (CSV/CSA)',
@@ -109,7 +109,7 @@ export const VENDORS: Vendor[] = [
       'Manufacturing Equipment Qualification',
       'Integrated Quality Management (QDocs & QMS)'
     ],
-    aiFeatures: 'Veeva AI Agents paired with Vault MCP (Model Context Protocol) Server reaching General Availability in 26R2 (August 2026); introduced Veeva Falcon Agent Suite with Falcon Safety and Falcon Router for autonomous intake, triage, and cross-application GxP execution (September 2026).',
+    aiFeatures: 'Veeva AI Agents paired with Vault MCP (Model Context Protocol) Server reaching General Availability in 26R2 (August 2026); Falcon Agent Suite (Falcon Safety and Falcon Router) for GxP intake and triage; Study Builder Agent (Claude Cowork plugin via GitHub) for automated EDC/DQS configuration and testing data generation (September 2026).',
     aiReadiness: 'High (Agentic/MCP)',
     priceTransparency: {
       rating: 'Moderate',

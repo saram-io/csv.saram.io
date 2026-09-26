@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'veeva-study-builder-agent-launch',
+    title: 'Veeva Launches Study Builder Agent: Claude-Powered Autonomous Clinical Study Configuration and Automated Testing',
+    date: 'September 24, 2026',
+    isoDate: '2026-09-24',
+    category: 'Product Launch',
+    badge: 'Agentic Validation',
+    source: 'Veeva Systems / PR Newswire',
+    summary: 'Veeva Systems has unveiled Veeva Study Builder Agent, an autonomous AI solution delivered as a Claude Cowork plugin via GitHub that automates the end-to-end configuration of Veeva EDC and Veeva DQS directly from study protocols. Leveraging the CDISC Unified Study Definitions Model (USDM) and organizational standards, the agent automates the creation of EDC forms, visit schedules, edit-check rules, and DQS CQL listings while executing automated testing and test data generation to deliver audit-ready validation by design. Part of Veeva EDC with no additional license fee, the tool collapses traditional 8-to-12-week study build and validation cycles to as little as one day ahead of December 2026 early adopter rollout.',
+    link: '/ai-readiness-tracker',
+    linkText: 'View Veeva Vault AI Readiness',
+    featured: true,
+  },
+  {
     id: 'fda-rasd-software-validation-cybersecurity',
     title: 'FDA Issues Premarket Guidance for Robotically-Assisted Surgical Devices Mandating Multi-Tier Software V&V and Cybersecurity',
     date: 'September 24, 2026',
@@ -24,7 +37,7 @@ export const LATEST_NEWS: NewsItem[] = [
     summary: 'The U.S. FDA Center for Devices and Radiological Health (CDRH) has released a comprehensive draft guidance titled "Robotically-Assisted Surgical Devices - Premarket Submissions" (Docket No. FDA-2026-N-9505), establishing rigorous premarket non-clinical and software assurance requirements for teleoperated, software-controlled robotic surgical systems. The guidance mandates end-to-end software verification and validation (V&V) spanning unit, integration, and full-system testing evaluated against objective real-world clinical performance metrics. For CSV and CSA practitioners, the framework establishes binding expectations linking medical device cybersecurity with real-time fault management, user safety notifications, and fail-safe recovery controls under 21 CFR Part 820 / QMSR.',
     link: '/csv-vs-csa',
     linkText: 'Explore CSA & Medical Device V&V',
-    featured: true,
+    featured: false,
   },
   {
     id: 'pics-pi-006-4-validation-enforcement',

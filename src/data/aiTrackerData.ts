@@ -112,7 +112,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     category: 'Pure-Play Validation',
     walledGardenPosture: 'Open Protocol Pioneer',
     mcpStatus: 'GA Native MCP Server',
-    mcpDetails: 'Shipped official Vault Model Context Protocol (MCP) Server in August 2026 (release 26R2). Enables external AI agents to securely query and orchestrate across Vault Validation Management, QualityDocs, and QMS using validated OAuth tokens and Part 11 scopes.',
+    mcpDetails: 'Shipped official Vault Model Context Protocol (MCP) Server in August 2026 (release 26R2). Enables external AI agents to securely query and orchestrate across Vault Validation Management, QualityDocs, and QMS using validated OAuth tokens and Part 11 scopes. Expanded with Claude Cowork plugin distribution via GitHub for Study Builder Agent (Sep 2026).',
     apiOpenness: 'Grade A (Modern REST/GraphQL + Webhooks)',
     apiDetails: 'Comprehensive Vault REST API v26.x with event-driven Spark messaging and Vault Java SDK. High throughput with 21 CFR Part 11 compliant audit logging.',
     webhooksSupported: true,
@@ -133,7 +133,7 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 94,
     opennessGrade: 'A+',
     walledGardenAnalysis: 
-      'Veeva made the most decisive move in the validation industry by releasing the native Vault MCP Server in 26R2 (August 2026). Rather than forcing customers into a closed AI silo, Veeva adopted Anthropic\'s open Model Context Protocol. External AI agents can invoke standardized Vault tools with Part 11 compliant audit trail recording. With the September 2026 expansion of the Falcon Agent Suite (Falcon Safety and Falcon Router), Veeva pairs agentic labor automation with protocol-level openness, maintaining the gold standard for regulated software interoperability.',
+      'Veeva made the most decisive move in the validation industry by releasing the native Vault MCP Server in 26R2 (August 2026). Rather than forcing customers into a closed AI silo, Veeva adopted Anthropic\'s open Model Context Protocol. External AI agents can invoke standardized Vault tools with Part 11 compliant audit trail recording. With the September 2026 expansion of the Falcon Agent Suite (Falcon Safety and Falcon Router) and the Claude Cowork-delivered Study Builder Agent for automated EDC/DQS build and testing, Veeva pairs agentic labor automation with protocol-level openness, maintaining the gold standard for regulated software interoperability.',
     buyerTakeaway: 
       'Strongest choice for biopharmas building multi-agent internal orchestration. Demand MCP tool-level permission matrix in enterprise agreements to control agentic read/write scopes.',
     lastAudited: 'September 2026',
