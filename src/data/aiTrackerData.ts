@@ -205,9 +205,9 @@ export const AI_TRACKER_DATA: AiTrackerEntry[] = [
     readinessScore: 71,
     opennessGrade: 'B',
     walledGardenAnalysis: 
-      'MasterControl was named a Leader in the Nucleus Research 2026 QMS Technology Value Matrix for usability, automated validation testing (Vx), and rapid deployment. It established strong governance credentials by achieving ISO/IEC 42001 certification for its AI Trust Center in July 2025. While their core Vx platform has historically been closed to external agents, MasterControl is actively prototyping MCP connectors for their Quality Excellence cloud to support multi-agent ecosystems, though external developer access remains partner-gated.',
+      'MasterControl was named a Leader in the Nucleus Research 2026 QMS Technology Value Matrix for usability, automated validation testing (Vx), and rapid deployment. It established strong governance credentials by achieving ISO/IEC 42001 certification for its AI Trust Center in July 2025 and publishing landmark research in September 2026 on deterministic AI models ("Seventeen Every Time" / arXiv:2609.03209) to guarantee reproducible, auditable analytics in regulated manufacturing. While their core Vx platform has historically been closed to external agents, MasterControl is actively prototyping MCP connectors for their Quality Excellence cloud to support multi-agent ecosystems, though external developer access remains partner-gated.',
     buyerTakeaway: 
-      'Ask for early access to their MCP developer preview if pursuing enterprise multi-agent architectures. MasterControl\'s ISO 42001 certification gives QA teams solid audit defense for AI governance.',
+      'Ask for early access to their MCP developer preview if pursuing enterprise multi-agent architectures. MasterControl\'s ISO 42001 certification and deterministic algebra provide QA teams with solid regulatory and audit defensibility for AI-assisted operations.',
     lastAudited: 'September 2026',
     website: 'https://mastercontrol.com'
   },

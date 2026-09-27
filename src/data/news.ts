@@ -14,6 +14,19 @@ export interface NewsItem {
 
 export const LATEST_NEWS: NewsItem[] = [
   {
+    id: 'fda-cdrh-mdic-regulatory-science-innovations',
+    title: 'FDA CDRH & MDIC Convene Landmark Summit on AI, In Silico Modeling, and Digital Health Regulatory Science',
+    date: 'September 25, 2026',
+    isoDate: '2026-09-25',
+    category: 'Regulatory',
+    badge: 'FDA / MDIC Summit',
+    source: 'U.S. FDA CDRH / MDIC',
+    summary: 'The U.S. FDA Center for Devices and Radiological Health (CDRH), in co-sponsorship with the Medical Device Innovation Consortium (MDIC), convened a landmark public meeting titled "Regulatory Science Innovations Catalyzing Medical Device Development" (Docket No. FDA-2026-N-8563). Commemorating the 50th anniversary of the 1976 Medical Device Amendments, the summit established a 10-year regulatory science roadmap across three focal tracks: Artificial Intelligence and digital health technologies, advanced non-clinical testing including in silico computational modeling verification & validation (ASME V&V 40), and modern clinical evidence generation. For CSV and CSA practitioners, the proceedings delineate evolving agency expectations for continuous AI model governance, automated software verification, and risk-based evidence generation under the Quality Management System Regulation (QMSR).',
+    link: '/csv-vs-csa',
+    linkText: 'Explore CSA & Computational Validation',
+    featured: false,
+  },
+  {
     id: 'veeva-study-builder-agent-launch',
     title: 'Veeva Launches Study Builder Agent: Claude-Powered Autonomous Clinical Study Configuration and Automated Testing',
     date: 'September 24, 2026',

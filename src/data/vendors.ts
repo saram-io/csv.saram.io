@@ -131,7 +131,7 @@ export const VENDORS: Vendor[] = [
     category: 'Pure-Play Validation',
     headquarters: 'Salt Lake City, Utah',
     ownership: 'Private (Sixth Street backing)',
-    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); ISO 42001 certified AI Trust Center',
+    status2026: 'Named Leader in 2026 Nucleus QMS Value Matrix (Sep 2026); published deterministic AI analytics research for GxP manufacturing (Sep 2026)',
     summary: 'Integrated validation module embedded in the MasterControl Quality Excellence platform alongside QMS, Manufacturing Excellence (MES), and CMMS. Delivers patented automated validation testing for core platform upgrades.',
     scope: [
       'Validation Excellence (Vx)',
@@ -139,7 +139,7 @@ export const VENDORS: Vendor[] = [
       'Upstream QMS Integration',
       'Execution Traceability'
     ],
-    aiFeatures: 'Formal MasterControl AI Trust Center, certified under ISO/IEC 42001 (Artificial Intelligence Management System) on July 15, 2025.',
+    aiFeatures: 'Formal MasterControl AI Trust Center, certified under ISO/IEC 42001 (Artificial Intelligence Management System) on July 15, 2025; introduced deterministic AI analytical framework ("Seventeen Every Time" / arXiv:2609.03209) enforcing reproducible, auditable analytics for quality deviations and batch releases.',
     aiReadiness: 'High (Certified)',
     priceTransparency: {
       rating: 'Moderate',
